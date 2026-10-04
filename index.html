@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Matematica Finanziaria</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="w">
+      <header class="hero">
+        <div class="logo">Σ</div>
+        <div>
+          <h1>Matematica Finanziaria</h1>
+          <p>
+            Ammortamenti · Rendite · Duration · VAN e TIR · Statistica ·
+            Obbligazioni · Opzioni
+          </p>
+        </div>
+        <div class="ha">
+          <button id="sb" class="hb" aria-label="Cerca">
+            ⌕ <span>Cerca opzioni</span> <kbd>Ctrl K</kbd></button
+          ><button id="tg" class="hb" aria-label="Cambia tema">◐</button>
+        </div>
+      </header>
+      <div class="navw" id="navw">
+        <button class="bk" id="bk" aria-label="Torna alla home">
+          ← <span>Home</span></button
+        ><button class="ar" id="pv" aria-label="Scheda precedente">‹</button>
+        <nav id="nav"></nav>
+        <button class="ar" id="nx" aria-label="Scheda successiva">›</button>
+      </div>
+      <p class="hint" id="hn">
+        <kbd>←</kbd><kbd>→</kbd> cambia scheda · <kbd>1</kbd>–<kbd>9</kbd> vai a
+        · <kbd>/</kbd> o <kbd>Ctrl</kbd>+<kbd>K</kbd> cerca · <kbd>↑</kbd
+        ><kbd>↓</kbd> nei campi cambiano il valore · <kbd>Invio</kbd> campo
+        successivo · <kbd>Esc</kbd> esci dal campo
+      </p>
+      <section id="hm" aria-label="Home"></section>
+      <main id="main">
+        <section class="card">
+          <h2 id="ft"></h2>
+          <div id="form"></div>
+        </section>
+        <section class="card">
+          <h2>Risultati</h2>
+          <div id="out"></div>
+        </section>
+        <section class="card" id="fc">
+          <h2>Formule</h2>
+          <div id="fm"></div>
+        </section>
+      </main>
+      <div id="pal" hidden>
+        <div class="pb">
+          <input
+            id="pq"
+            placeholder="Cerca una sezione o un'opzione… (es. tedesco, anticipata, TIR, durata, tasso)"
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <div id="pl" role="listbox"></div>
+          <div class="pf">
+            <span><kbd>↑</kbd> <kbd>↓</kbd> naviga</span
+            ><span><kbd>↵</kbd> apri</span><span><kbd>esc</kbd> chiudi</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+    <script src="script.js"></script>  
+</html>
