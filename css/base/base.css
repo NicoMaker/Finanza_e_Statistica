@@ -1,0 +1,39 @@
+/* Reset, body, contenitore .w e tag kbd */
+html {
+  scroll-padding-top: env(safe-area-inset-top, 0px);
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(var(--gl) 1px, transparent 1px),
+    linear-gradient(90deg, var(--gl) 1px, transparent 1px);
+  background-size: 28px 28px;
+  color: var(--tx);
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+  line-height: 1.5;
+}
+.w {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 22px 16px 48px;
+}
+kbd {
+  font:
+    600 0.72rem Inter,
+    sans-serif;
+  border: 1px solid var(--bd);
+  border-bottom-width: 2px;
+  border-radius: 6px;
+  padding: 1px 6px;
+  background: var(--card);
+}

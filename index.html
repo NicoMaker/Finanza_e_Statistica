@@ -12,7 +12,26 @@
       type="image/svg+xml"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231e293b'/%3E%3Crect x='10' y='8' width='44' height='14' rx='3' fill='%2338bdf8'/%3E%3Ctext x='32' y='19' font-size='11' text-anchor='middle' fill='%230f172a' font-family='monospace' font-weight='bold'%3E%CE%A3%3C/text%3E%3Cg fill='%23e2e8f0'%3E%3Crect x='10' y='28' width='10' height='8' rx='2'/%3E%3Crect x='27' y='28' width='10' height='8' rx='2'/%3E%3Crect x='44' y='28' width='10' height='8' rx='2'/%3E%3Crect x='10' y='42' width='10' height='8' rx='2'/%3E%3Crect x='27' y='42' width='10' height='8' rx='2'/%3E%3Crect x='44' y='42' width='10' height='8' rx='2' fill='%23f59e0b'/%3E%3C/g%3E%3C/svg%3E"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="css/base/tokens.css" />
+    <link rel="stylesheet" href="css/base/base.css" />
+    <link rel="stylesheet" href="css/base/animations.css" />
+    <link rel="stylesheet" href="css/components/symbol.css" />
+    <link rel="stylesheet" href="css/layout/header.css" />
+    <link rel="stylesheet" href="css/components/nav.css" />
+    <link rel="stylesheet" href="css/components/back-button.css" />
+    <link rel="stylesheet" href="css/components/hint.css" />
+    <link rel="stylesheet" href="css/layout/main.css" />
+    <link rel="stylesheet" href="css/components/card.css" />
+    <link rel="stylesheet" href="css/components/form.css" />
+    <link rel="stylesheet" href="css/components/segmented.css" />
+    <link rel="stylesheet" href="css/components/kpi.css" />
+    <link rel="stylesheet" href="css/components/table.css" />
+    <link rel="stylesheet" href="css/components/error.css" />
+    <link rel="stylesheet" href="css/components/formula.css" />
+    <link rel="stylesheet" href="css/components/chart.css" />
+    <link rel="stylesheet" href="css/components/tooltip.css" />
+    <link rel="stylesheet" href="css/components/palette.css" />
+    <link rel="stylesheet" href="css/pages/home.css" />
   </head>
   <body>
     <div class="w">
@@ -33,16 +52,14 @@
       </header>
       <div class="navw" id="navw">
         <button class="bk" id="bk" aria-label="Torna alla home">
-          ← <span>Home</span></button
-        ><button class="ar" id="pv" aria-label="Scheda precedente">‹</button>
+          ← <span>Home</span>
+        </button>
         <nav id="nav"></nav>
-        <button class="ar" id="nx" aria-label="Scheda successiva">›</button>
       </div>
       <p class="hint" id="hn">
-        <kbd>←</kbd><kbd>→</kbd> cambia scheda · <kbd>1</kbd>–<kbd>9</kbd> vai a
-        · <kbd>/</kbd> o <kbd>Ctrl</kbd>+<kbd>K</kbd> cerca · <kbd>↑</kbd
+        <kbd>/</kbd> o <kbd>Ctrl</kbd>+<kbd>K</kbd> cerca · <kbd>↑</kbd
         ><kbd>↓</kbd> nei campi cambiano il valore · <kbd>Invio</kbd> campo
-        successivo · <kbd>Esc</kbd> esci dal campo
+        successivo · <kbd>Esc</kbd> esci dal campo, poi torna alla home
       </p>
       <section id="hm" aria-label="Home"></section>
       <main id="main">
@@ -75,7 +92,50 @@
         </div>
       </div>
     </div>
+    <!-- ordine di caricamento importante: le variabili sono condivise tra i file -->
+    <script src="js/core/format.js"></script>
+    <script src="js/core/chart-utils.js"></script>
+    <script src="js/core/html.js"></script>
+    <script src="js/math/black-scholes.js"></script>
+    <script src="js/charts/plot.js"></script>
+    <script src="js/charts/donut.js"></script>
+    <script src="js/charts/loan-charts.js"></script>
+    <script src="js/charts/value-charts.js"></script>
+    <script src="js/charts/duration-chart.js"></script>
+    <script src="js/charts/npv-chart.js"></script>
+    <script src="js/formulas/helpers.js"></script>
+    <script src="js/sections/registry.js"></script>
+    <script src="js/sections/amm.js"></script>
+    <script src="js/sections/pre.js"></script>
+    <script src="js/sections/val.js"></script>
+    <script src="js/sections/con.js"></script>
+    <script src="js/sections/dur.js"></script>
+    <script src="js/sections/flu.js"></script>
+    <script src="js/sections/npv.js"></script>
+    <script src="js/sections/vc.js"></script>
+    <script src="js/sections/tas.js"></script>
+    <script src="js/sections/reg.js"></script>
+    <script src="js/sections/obb.js"></script>
+    <script src="js/sections/pac.js"></script>
+    <script src="js/sections/ren.js"></script>
+    <script src="js/sections/inf.js"></script>
+    <script src="js/sections/cap.js"></script>
+    <script src="js/sections/rnd.js"></script>
+    <script src="js/sections/opz.js"></script>
+    <script src="js/data/groups.js"></script>
+    <script src="js/data/section-meta.js"></script>
+    <script src="js/data/icons.js"></script>
+    <script src="js/state.js"></script>
+    <script src="js/ui/header-theme.js"></script>
+    <script src="js/ui/build.js"></script>
+    <script src="js/ui/form.js"></script>
+    <script src="js/ui/tooltip.js"></script>
+    <script src="js/ui/resize.js"></script>
+    <script src="js/ui/theme-toggle.js"></script>
+    <script src="js/search/options.js"></script>
+    <script src="js/search/palette.js"></script>
+    <script src="js/ui/keyboard.js"></script>
+    <script src="js/ui/home.js"></script>
+    <script src="js/app.js"></script>
   </body>
-
-  <script src="script.js"></script>
 </html>

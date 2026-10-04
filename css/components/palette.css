@@ -1,0 +1,91 @@
+/* Ricerca Ctrl+K (palette) */
+#pal {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  background: rgba(6, 12, 30, 0.55);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 11vh 14px 0;
+}
+#pal[hidden] {
+  display: none;
+}
+.pb {
+  width: min(640px, 100%);
+  background: var(--card);
+  border: 1px solid var(--bd);
+  border-radius: 18px;
+  box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  animation: up 0.2s ease;
+}
+#pq {
+  border: 0;
+  border-bottom: 1px solid var(--bd);
+  border-radius: 0;
+  background: transparent;
+  padding: 18px 20px;
+  font-size: 1.05rem;
+}
+#pq:focus {
+  box-shadow: none;
+}
+#pl {
+  max-height: min(52vh, 420px);
+  overflow: auto;
+  padding: 6px;
+}
+.pi {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.pi.on {
+  background: color-mix(in srgb, var(--ac) 14%, transparent);
+  box-shadow: inset 3px 0 0 var(--gold);
+}
+.pg {
+  flex: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+  background: var(--ac2);
+  color: #e6c565;
+  font: italic 700 1.05rem var(--sf);
+}
+.pi b {
+  display: block;
+  font-size: 0.92rem;
+}
+.pi small {
+  color: var(--mu);
+  font-size: 0.76rem;
+}
+.pi kbd {
+  margin-left: auto;
+  opacity: 0;
+}
+.pi.on kbd {
+  opacity: 1;
+}
+.pf {
+  display: flex;
+  gap: 16px;
+  padding: 10px 16px;
+  border-top: 1px solid var(--bd);
+  color: var(--mu);
+  font-size: 0.74rem;
+}
+.pe {
+  padding: 22px;
+  text-align: center;
+  color: var(--mu);
+}

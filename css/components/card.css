@@ -1,0 +1,31 @@
+/* Card (Formule, Risultati, form) */
+.card {
+  background: var(--card);
+  border: 1px solid var(--bd);
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 10px 30px -22px rgba(15, 31, 77, 0.5);
+}
+.card h2 {
+  margin: 0 0 14px;
+  font: 700 1.08rem var(--sf);
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--bd);
+}
+#fc {
+  grid-column: 1/-1;
+}
+.card:hover {
+  box-shadow: 0 14px 36px -22px rgba(15, 31, 77, 0.6);
+}
+.card h2 .sy {
+  font:
+    normal 1.2rem/1 system-ui,
+    "Segoe UI Emoji",
+    "Apple Color Emoji",
+    sans-serif;
+  margin-right: 8px;
+}
+.card {
+  border-top: 3px solid var(--gold);
+}

@@ -1,0 +1,40 @@
+/* Variabili di colore e tema chiaro/scuro */
+:root {
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  --bg: #f1f4f9;
+  --gl: rgba(15, 31, 77, 0.045);
+  --card: #fff;
+  --tx: #0e1a3d;
+  --mu: #5a6888;
+  --bd: #dce3ef;
+  --ac: #2a4fb8;
+  --ac2: #0f1f4d;
+  --gold: #b8892b;
+  --sf: "STIX Two Text", Cambria, Georgia, "Times New Roman", serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0a1020;
+    --gl: rgba(255, 255, 255, 0.035);
+    --card: #101a33;
+    --tx: #e8edf8;
+    --mu: #8d9bc2;
+    --bd: #22304f;
+    --ac: #5b8cff;
+    --ac2: #1a3070;
+    --gold: #d9ac4a;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0a1020;
+  --gl: rgba(255, 255, 255, 0.035);
+  --card: #101a33;
+  --tx: #e8edf8;
+  --mu: #8d9bc2;
+  --bd: #22304f;
+  --ac: #5b8cff;
+  --ac2: #1a3070;
+  --gold: #d9ac4a;
+}
