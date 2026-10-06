@@ -5,15 +5,33 @@ hm.innerHTML =
     (g, k) =>
       `<section class="hsec" style="--c:${g.c}"><div class="hh" style="--c:${g.c}"><span class="gi">${g.i}</span><span>${g.n}</span><small class="hp">${g.t.length} ${g.t.length == 1 ? "scheda" : "schede"}</small></div><div class="hg">${g.t.map((x, j) => `<button class="hc sm" data-t="${x}" style="--c:${TH[x][1]};--d:${(k * 3 + j) * 35}ms"><span class="hi">${TH[x][0]}</span><b>${T[x].n}</b><span class="hl">${TH[x][2]}</span></button>`).join("")}</div></section>`,
   ).join("");
+
+// Aggiorna l'altezza reale dell'header sticky in una variabile CSS
+function updateHeaderHeight() {
+  const h = document.querySelector("header");
+  if (!h) return;
+  // offsetHeight include padding + border, ma esclude i margini
+  // Aggiungiamo il padding-top dell'header (safe-area) e togliamo il margin-top negativo
+  const rect = h.getBoundingClientRect();
+  document.documentElement.style.setProperty("--h-hdr", rect.height + "px");
+}
+addEventListener("resize", updateHeaderHeight);
+addEventListener("load", updateHeaderHeight);
+
 function view() {
   theme();
+  // Aggiunge/rimuove la classe .home sul body per attivare lo sticky
+  document.body.classList.toggle("home", atHome);
   hm.style.display = atHome ? "" : "none";
   navw.style.display = atHome ? "none" : "";
   main.style.display = atHome ? "none" : "";
   hn.innerHTML = atHome
     ? "<kbd>←</kbd><kbd>→</kbd><kbd>↑</kbd><kbd>↓</kbd> muoviti · <kbd>Invio</kbd> apri · <kbd>/</kbd> o <kbd>Ctrl</kbd>+<kbd>K</kbd> cerca"
     : `<kbd>/</kbd> o <kbd>Ctrl</kbd>+<kbd>K</kbd> cerca · <kbd>↑</kbd><kbd>↓</kbd> nei campi cambiano il valore · <kbd>Invio</kbd> campo successivo · <kbd>Esc</kbd> esci dal campo, poi torna alla home`;
+  // Aggiorna l'altezza dopo il rendering
+  requestAnimationFrame(updateHeaderHeight);
 }
+
 function openT(x) {
   atHome = false;
   cur = x;
@@ -24,6 +42,7 @@ function openT(x) {
     history.pushState({ in: 1 }, "");
   } catch (e) {}
 }
+
 function toHome() {
   atHome = true;
   view();
@@ -31,6 +50,7 @@ function toHome() {
   scrollTo({ top: 0 });
   if (c) c.focus({ preventScroll: true });
 }
+
 hm.addEventListener("click", (e) => {
   const t = e.target.closest("[data-t]");
   if (t) {
@@ -38,6 +58,7 @@ hm.addEventListener("click", (e) => {
     return;
   }
 });
+
 bk.onclick = () => {
   if (history.state && history.state.in) {
     try {
@@ -50,12 +71,15 @@ bk.onclick = () => {
   }
   toHome();
 };
+
 addEventListener("popstate", () => {
   if (!atHome) toHome();
 });
+
 document.querySelector(".logo").onclick = () => {
   if (!atHome) bk.onclick();
 };
+
 document.addEventListener("keydown", (e) => {
   if (!atHome || !pal.hidden || e.ctrlKey || e.metaKey || e.altKey) return;
   const m = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];

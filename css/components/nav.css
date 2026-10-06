@@ -10,7 +10,15 @@
   backdrop-filter: blur(8px);
   padding: 8px 0;
   margin-bottom: 4px;
+  transition: top 0.2s;
 }
+
+/* La nav scende sotto la hero sticky (altezza gestita via CSS var --h-hdr) */
+body.home .navw {
+  top: calc(var(--h-hdr, 80px) + env(safe-area-inset-top, 0px));
+  z-index: 9;
+}
+
 nav {
   flex: 1;
   min-width: 0;

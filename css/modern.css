@@ -291,3 +291,85 @@ nav button {
     padding: 6px 10px;
   }
 }
+
+/* === FIX HERO STICKY === */
+
+/* Compensa l'altezza della hero sticky quando si scrolla */
+.w {
+  padding-top: 0;
+}
+
+/* Su mobile la hero sticky è più compatta */
+@media (max-width: 640px) {
+  header {
+    padding: 6px 0;
+    margin-bottom: 6px;
+    box-shadow: 0 4px 16px -10px rgba(15, 31, 77, 0.4);
+  }
+  header .hero {
+    padding: 12px 14px;
+    border-radius: 18px;
+  }
+  header .logo {
+    width: 38px;
+    height: 38px;
+  }
+  header h1 {
+    font-size: 1.05rem;
+  }
+  header p {
+    font-size: 0.68rem;
+  }
+}
+
+/* Evita che il contenuto salti quando la hero diventa sticky */
+html {
+  scroll-padding-top: 100px;
+}
+
+@media (max-width: 640px) {
+  html {
+    scroll-padding-top: 80px;
+  }
+}
+
+/* === FIX HERO STICKY === */
+
+/* Compensa l'altezza della hero sticky quando si scrolla */
+body.home .w {
+  padding-top: 0;
+}
+
+/* Su mobile la hero sticky è più compatta */
+@media (max-width: 640px) {
+  header {
+    padding: 6px 0;
+    margin-bottom: 6px;
+    box-shadow: 0 4px 16px -10px rgba(15, 31, 77, 0.4);
+  }
+  header .hero {
+    padding: 12px 14px;
+    border-radius: 18px;
+  }
+  header .logo {
+    width: 38px;
+    height: 38px;
+  }
+  header h1 {
+    font-size: 1.05rem;
+  }
+  header p {
+    font-size: 0.68rem;
+  }
+}
+
+/* Evita che il contenuto salti quando la hero diventa sticky */
+html {
+  scroll-padding-top: calc(var(--h-hdr, 100px) + 12px);
+}
+
+@media (max-width: 640px) {
+  html {
+    scroll-padding-top: calc(var(--h-hdr, 80px) + 8px);
+  }
+}
