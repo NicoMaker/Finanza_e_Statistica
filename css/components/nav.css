@@ -4,19 +4,13 @@
   align-items: center;
   gap: 8px;
   position: sticky;
-  top: env(safe-area-inset-top, 0px);
-  z-index: 5;
-  background: color-mix(in srgb, var(--bg) 88%, transparent);
-  backdrop-filter: blur(8px);
-  padding: 8px 0;
-  margin-bottom: 4px;
-  transition: top 0.2s;
-}
-
-/* La nav scende sotto la hero sticky (altezza gestita via CSS var --h-hdr) */
-body.home .navw {
+  /* sta SEMPRE subito sotto l'header fisso (altezza misurata dal JS in --h-hdr) */
   top: calc(var(--h-hdr, 80px) + env(safe-area-inset-top, 0px));
   z-index: 9;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(8px);
+  padding: 4px 0 10px;
+  margin-bottom: 4px;
 }
 
 nav {

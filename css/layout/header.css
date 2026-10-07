@@ -5,29 +5,32 @@ header {
   gap: 14px;
 }
 
-/* === HERO STICKY === */
-/* Rende sticky l'header che contiene la hero */
-header {
+/* === HEADER STICKY === */
+/* NB: l'elemento è <header class="hero">, quindi lo sticky NON va messo su
+   "header" (la regola .hero { position: relative } lo sovrascriverebbe).
+   Lo sticky sta sul contenitore .stk che lo avvolge. */
+:root {
+  --hdr-gap: 14px;
+}
+.stk {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: var(--bg);
-  padding: 8px 0;
-  margin: 0 0 8px;
-  box-shadow: 0 4px 20px -12px rgba(15, 31, 77, 0.4);
-  /* Altezza variabile gestita dal JS via --h-hdr */
-  transition: box-shadow 0.2s;
+  /* spazio sopra (safe-area iOS) e sotto il titolo */
+  padding: calc(8px + env(safe-area-inset-top, 0px)) 0 var(--hdr-gap);
 }
-
-/* Su iOS con notch, gestisci la safe-area */
-header {
-  top: env(safe-area-inset-top, 0px);
-  padding-top: calc(8px + env(safe-area-inset-top, 0px));
-  margin-top: calc(-1 * env(safe-area-inset-top, 0px));
+/* sfondo a tutta larghezza dietro l'header, così il contenuto che scorre non si vede ai lati */
+.stk::before {
+  content: "";
+  position: absolute;
+  inset: 0 -50vw;
+  z-index: -1;
+  background: color-mix(in srgb, var(--bg) 90%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 6px 20px -14px rgba(15, 31, 77, 0.45);
 }
-
-/* La hero dentro l'header sticky non deve avere margini che creano buchi */
-header .hero {
+header.hero {
   margin-bottom: 0;
 }
 

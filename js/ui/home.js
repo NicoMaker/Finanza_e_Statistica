@@ -8,7 +8,7 @@ hm.innerHTML =
 
 // Aggiorna l'altezza reale dell'header sticky in una variabile CSS
 function updateHeaderHeight() {
-  const h = document.querySelector("header");
+  const h = document.getElementById("stk");
   if (!h) return;
   // offsetHeight include padding + border, ma esclude i margini
   // Aggiungiamo il padding-top dell'header (safe-area) e togliamo il margin-top negativo
@@ -17,6 +17,10 @@ function updateHeaderHeight() {
 }
 addEventListener("resize", updateHeaderHeight);
 addEventListener("load", updateHeaderHeight);
+if (window.ResizeObserver) {
+  const _hd = document.getElementById("stk");
+  if (_hd) new ResizeObserver(updateHeaderHeight).observe(_hd);
+}
 
 function view() {
   theme();
