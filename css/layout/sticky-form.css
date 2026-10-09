@@ -5,12 +5,8 @@
     position: sticky;
     align-self: start;
     top: calc(var(--h-hdr, 80px) + var(--h-nav, 56px) + 12px);
-    max-height: calc(
-      100vh - var(--h-hdr, 80px) - var(--h-nav, 56px) - 24px
-    );
-    max-height: calc(
-      100dvh - var(--h-hdr, 80px) - var(--h-nav, 56px) - 24px
-    );
+    max-height: calc(100vh - var(--h-hdr, 80px) - var(--h-nav, 56px) - 24px);
+    max-height: calc(100dvh - var(--h-hdr, 80px) - var(--h-nav, 56px) - 24px);
     overflow-y: auto;
     overscroll-behavior: contain;
     scrollbar-width: thin;

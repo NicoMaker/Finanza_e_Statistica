@@ -57,7 +57,11 @@ T.amm = {
       v: 3,
       s: (v) => v.t == "am" && v.ric == "s",
     },
-    { k: "vb", l: "Valore del bene finanziato (€) — per il patrimonio", v: 125000 },
+    {
+      k: "vb",
+      l: "Valore del bene finanziato (€) — per il patrimonio",
+      v: 125000,
+    },
     { k: "g", l: "Rivalutazione annua del bene (%)", v: 0 },
   ],
   c(v) {

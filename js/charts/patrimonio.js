@@ -27,7 +27,13 @@ function patrimonio(o) {
     row = (p) => {
       p = { ...p, debt: z(p.debt) };
       const a = A ? vb * (1 + g / 100) ** (p.tau / m) : 0;
-      return { ...p, a, e: z(a - p.debt), ltv: a > 0 ? (p.debt / a) * 100 : 0, rep: z(C - p.debt) };
+      return {
+        ...p,
+        a,
+        e: z(a - p.debt),
+        ltv: a > 0 ? (p.debt / a) * 100 : 0,
+        rep: z(C - p.debt),
+      };
     },
     Q = P.map(row),
     pc = (x) => f2(x) + "%",
@@ -72,7 +78,9 @@ function patrimonio(o) {
       : `<p class="note">Inserisci il «Valore del bene finanziato» per vedere anche attivo, patrimonio netto e rapporto debito/valore. Qui sotto la sola posizione debitoria.</p>`) +
     `<div class="tb"><table><tr>${head}</tr>${idx.map((j) => `<tr>${cells(Q[j])}</tr>`).join("")}</table></div>` +
     plot({
-      t: A ? "Attivo, passivo e patrimonio netto" : "Debito, capitale rimborsato e interessi",
+      t: A
+        ? "Attivo, passivo e patrimonio netto"
+        : "Debito, capitale rimborsato e interessi",
       xs,
       zero: 1,
       lines,
