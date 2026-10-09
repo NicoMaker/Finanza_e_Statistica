@@ -1,6 +1,0 @@
-/* Simbolo/emoji davanti ai titoli (.sy) */
-.sy {
-  font: italic 700 1.08rem var(--sf);
-  color: var(--gold);
-  margin-right: 7px;
-}

@@ -1,3 +1,0 @@
-// Avvio
-view();
-build();
