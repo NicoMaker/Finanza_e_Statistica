@@ -1,0 +1,42 @@
+/* Situazione patrimoniale (attivo, passivo, patrimonio netto) */
+.pt {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px dashed var(--bd);
+}
+.pth {
+  margin: 0 0 12px;
+  font: 700 1.02rem var(--sf);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.pth .sy {
+  font:
+    normal 1.15rem/1 system-ui,
+    "Segoe UI Emoji",
+    "Apple Color Emoji",
+    sans-serif;
+}
+.ptd {
+  margin-top: 16px;
+  border: 1px solid var(--bd);
+  border-radius: 14px;
+  padding: 0 12px 12px;
+  background: color-mix(in srgb, var(--card) 60%, transparent);
+}
+.ptd > summary {
+  cursor: pointer;
+  padding: 12px 2px;
+  font-weight: 600;
+  font-size: 0.86rem;
+  color: var(--mu);
+  list-style-position: inside;
+}
+.ptd > summary:hover,
+.ptd[open] > summary {
+  color: var(--tx);
+}
+.ptd[open] > summary {
+  margin-bottom: 4px;
+}

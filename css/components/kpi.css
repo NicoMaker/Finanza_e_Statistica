@@ -1,0 +1,48 @@
+/* Riquadri valore (.ks / .k) e note */
+.ks {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.k {
+  background: var(--bg);
+  border: 1px solid var(--bd);
+  border-left: 3px solid var(--gold);
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+.k span {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--mu);
+  font-weight: 600;
+}
+.k b {
+  font: 700 1.35rem var(--sf);
+  letter-spacing: -0.01em;
+  word-break: break-word;
+}
+.k.h {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--ac2), var(--ac));
+  border: 0;
+  color: #fff;
+}
+.k.h span {
+  color: #ffffffcc;
+}
+.k.h::after {
+  content: "Σ";
+  position: absolute;
+  right: 10px;
+  bottom: -16px;
+  font: italic 700 70px var(--sf);
+  opacity: 0.13;
+}
+.note {
+  font-size: 0.8rem;
+  color: var(--mu);
+  margin: 0 0 14px;
+}

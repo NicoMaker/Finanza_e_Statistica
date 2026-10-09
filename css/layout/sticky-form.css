@@ -1,0 +1,35 @@
+/* Su PC la scheda di configurazione resta ferma mentre scorri risultati e tabella.
+   Le variabili --h-hdr e --h-nav (altezza di header e barra scheda) sono misurate dal JS. */
+@media (min-width: 821px) {
+  main > .card:first-child {
+    position: sticky;
+    align-self: start;
+    top: calc(var(--h-hdr, 80px) + var(--h-nav, 56px) + 12px);
+    max-height: calc(
+      100vh - var(--h-hdr, 80px) - var(--h-nav, 56px) - 24px
+    );
+    max-height: calc(
+      100dvh - var(--h-hdr, 80px) - var(--h-nav, 56px) - 24px
+    );
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: var(--bd) transparent;
+  }
+  main > .card:first-child::-webkit-scrollbar {
+    width: 8px;
+  }
+  main > .card:first-child::-webkit-scrollbar-thumb {
+    background: var(--bd);
+    border-radius: 8px;
+  }
+  /* il titolo della scheda resta visibile anche scorrendo i campi */
+  main > .card:first-child > h2 {
+    position: sticky;
+    top: -20px;
+    z-index: 1;
+    margin: -20px -20px 12px;
+    padding: 20px 20px 10px;
+    background: color-mix(in srgb, var(--card) 96%, transparent);
+  }
+}

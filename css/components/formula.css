@@ -1,0 +1,40 @@
+/* Formule matematiche (.eq / .fr) */
+.eq {
+  margin: 6px 0;
+  padding: 8px 12px;
+  border-left: 3px solid var(--ac);
+  background: var(--bg);
+  border-radius: 0 8px 8px 0;
+  font: 1.05rem/2.3 var(--sf);
+  overflow-x: auto;
+}
+.eq b {
+  font:
+    700 0.68rem Inter,
+    system-ui,
+    sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--gold);
+  margin-right: 6px;
+}
+.eq sub,
+.eq sup {
+  font-size: 0.68em;
+  line-height: 0;
+}
+.fr {
+  display: inline-flex;
+  flex-direction: column;
+  vertical-align: middle;
+  text-align: center;
+  line-height: 1.35;
+  margin: 0 3px;
+}
+.fr > span:first-child {
+  border-bottom: 1.5px solid currentColor;
+  padding: 0 5px 2px;
+}
+.fr > span:last-child {
+  padding: 2px 5px 0;
+}
