@@ -4,9 +4,7 @@ const LOGO_LIGHT =
 const LOGO_DARK =
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSavFU40bVkB7fiPxCNQiXeM8LR0ADGqxMnFkikQkZje4NnrqljhUF2AH8&s=10";
 
-function isDark() {
-  return document.documentElement.dataset.theme === "dark";
-}
+const isDark = () => document.documentElement.dataset.theme === "dark";
 
 function setLogo() {
   const lg = document.getElementById("logo");
