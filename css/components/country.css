@@ -1,0 +1,6 @@
+/* Selettore nazione con bandiera */
+.cty { display: flex; align-items: center; gap: 10px; }
+.cty select { flex: 1; min-width: 0; }
+.cf { width: 28px; height: 20px; object-fit: cover; border-radius: 3px; box-shadow: 0 0 0 1px var(--bd); flex: none; vertical-align: middle; }
+.cvp { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 0 0 14px; font-size: 0.95rem; }
+.cvp span { color: var(--mu); }

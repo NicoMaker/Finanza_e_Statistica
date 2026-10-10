@@ -253,4 +253,12 @@ const OPT = [
   ["npv", "Indice di profitabilità", "payback scontato", {}, "fl"],
   ["npv", "VAN", "valore attuale netto, NPV", {}, "r"],
   ["npv", "TIR", "tasso interno di rendimento, IRR", {}, "fl"],
+  ["sp", "Patrimonio netto", "attivo, passivo, debito/valore del bene con mutuo", {}, "vb"],
+  ["pat", "Tasso patrimoniale", "crescita annua composta del patrimonio, CAGR", {}, "w0"],
+  ["pat", "Patrimonio obiettivo", "anni per raggiungere un capitale target", {}, "g"],
+  ["tay", "Maclaurin", "sviluppo di Taylor centrato in 0", {}, "a"],
+  ["imm", "Redington", "immunizzazione, duration e convessità dell'attivo", {}, "H"],
+  ["cv", "Convertitore valute", "cambio EUR USD GBP, bandiera e valuta della nazione", {}, "p1"],
+  ["dt", "Titolo azionario", "storico, volatilità, media mobile", {}, "s"],
+  ["vt", "Quotazione titolo", "prezzo intraday AAPL MSFT", {}, "s"],
 ];

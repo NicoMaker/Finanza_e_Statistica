@@ -13,7 +13,11 @@ function build(sc, set) {
         `<div data-f="${x.k}"><label for="${id}">${x.l}</label>` +
         (t == "s"
           ? `<div class="seg" data-s="${id}">${x.o.map((o, j) => `<button type="button" class="sg${o[0] == x.v ? " on" : ""}" data-v="${o[0]}">${ic(cur, x.k, o[0], j)}<span>${o[1]}</span></button>`).join("")}</div><select id="${id}" hidden>${x.o.map((o) => `<option value="${o[0]}"${o[0] == x.v ? " selected" : ""}>${o[1]}</option>`).join("")}</select>`
-          : t == "a"
+          : t == "c"
+            ? `<div class="cty"><img class="cf" alt=""><select id="${id}">${CTY.map((c) => `<option value="${c[0]}"${c[0] == x.v ? " selected" : ""}>${c[1]} · ${c[2]}</option>`).join("")}</select></div>`
+            : t == "t"
+              ? `<input id="${id}" data-txt value="${x.v}" autocomplete="off" spellcheck="false">`
+              : t == "a"
             ? `<textarea id="${id}" rows="3">${x.v}</textarea>`
             : `<input id="${id}" inputmode="decimal" value="${x.v}">`) +
         "</div>"

@@ -29,6 +29,9 @@ function calc() {
       b.classList.toggle("on", b.dataset.v == sv),
     );
   });
+  form.querySelectorAll(".cty").forEach((w) => {
+    w.querySelector("img").src = "https://flagcdn.com/w40/" + w.querySelector("select").value + ".png";
+  });
   try {
     out.innerHTML = d.c(v);
     lt(out);
@@ -39,6 +42,7 @@ function calc() {
 function san(e) {
   const t = e.target;
   if (t.tagName != "INPUT" && t.tagName != "TEXTAREA") return;
+  if (t.dataset && t.dataset.txt) return;
   const re = t.tagName == "INPUT" ? /[^0-9.,+\-]/g : /[^0-9.,;+\-\s]/g,
     o = t.value,
     n = o.replace(re, "");
@@ -111,6 +115,7 @@ form.addEventListener("keydown", (e) => {
   if (
     (e.key == "ArrowUp" || e.key == "ArrowDown") &&
     t.tagName == "INPUT" &&
+    !t.dataset.txt &&
     !e.ctrlKey &&
     !e.metaKey
   ) {
