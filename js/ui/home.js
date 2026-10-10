@@ -6,6 +6,12 @@ hm.innerHTML =
       `<section class="hsec" style="--c:${g.c}"><div class="hh" style="--c:${g.c}"><span class="gi">${g.i}</span><span>${g.n}</span><small class="hp">${g.t.length} ${g.t.length == 1 ? "scheda" : "schede"}</small></div><div class="hg">${g.t.map((x, j) => `<button class="hc sm" data-t="${x}" style="--c:${TH[x][1]};--d:${(k * 3 + j) * 35}ms"><span class="hi">${TH[x][0]}</span><b>${T[x].n}</b><span class="hl">${TH[x][2]}</span></button>`).join("")}</div></section>`,
   ).join("");
 
+// Lo scroll lo gestiamo noi (homeY): senza questo il browser, tornando indietro
+// nella cronologia, rimette la pagina in cima e annulla la posizione salvata
+try {
+  history.scrollRestoration = "manual";
+} catch (e) {}
+
 // Aggiorna l'altezza reale dell'header sticky in una variabile CSS
 function updateHeaderHeight() {
   const h = document.getElementById("stk");
@@ -45,6 +51,7 @@ function view() {
 }
 
 function openT(x) {
+  if (atHome) homeY = scrollY; // ricorda dove eri nella home
   atHome = false;
   cur = x;
   view();
@@ -55,12 +62,15 @@ function openT(x) {
   } catch (e) {}
 }
 
-function toHome() {
+// toHome(): torna alla home nel punto da cui eri entrato.
+// toHome(true): torna all'inizio della home (solo dal logo).
+function toHome(top) {
   atHome = true;
   view();
   const c = hm.querySelector('[data-t="' + cur + '"]');
-  scrollTo({ top: 0 });
   if (c) c.focus({ preventScroll: true });
+  scrollTo({ top: top ? 0 : homeY, behavior: "instant" });
+  if (top) homeY = 0;
 }
 
 hm.addEventListener("click", (e) => {
@@ -88,8 +98,23 @@ addEventListener("popstate", () => {
   if (!atHome) toHome();
 });
 
-document.querySelector(".logo").onclick = () => {
-  if (!atHome) bk.onclick();
+// Il logo è l'unico modo per tornare all'inizio della home, da qualsiasi punto
+const logoEl = document.querySelector(".logo");
+logoEl.style.cursor = "pointer";
+logoEl.onclick = () => {
+  if (atHome) {
+    scrollTo({ top: 0, behavior: "smooth" });
+    homeY = 0;
+    return;
+  }
+  toHome(true);
+  // Se la scheda era stata aperta con pushState, rimuove quella voce di cronologia
+  // (atHome è già true, quindi il popstate non fa nulla)
+  if (history.state && history.state.in) {
+    try {
+      history.back();
+    } catch (e) {}
+  }
 };
 
 document.addEventListener("keydown", (e) => {

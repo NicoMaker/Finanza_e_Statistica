@@ -67,6 +67,7 @@ const sr = () => {
 function goTo(o) {
   const set = o[3] || {},
     sw = atHome || o[0] !== cur;
+  if (atHome) homeY = scrollY; // ricorda dove eri nella home
   atHome = false;
   cur = o[0];
   view();
