@@ -61,11 +61,31 @@ const TH = {
   ],
   cap: ["🎯", "#ec4899", "CAPM, beta, Sharpe, Treynor e alpha di Jensen"],
   opz: ["🧪", "#dc2626", "Black–Scholes: prezzo di call e put e greche"],
-  sp: ["🧾", "#0ea5a4", "Attivo, passivo, patrimonio netto e debito/valore nel tempo di un bene con mutuo"],
-  pat: ["🏦", "#f59e0b", "Crescita del patrimonio: tasso netto, reale e patrimoniale, tempo per l’obiettivo"],
-  imm: ["🛡️", "#0d9488", "Immunizzazione di una passività con due zero coupon (Redington)"],
-  cv: ["💱", "#0ea5e9", "Conversione tra valute: scegli la nazione, bandiera e valuta con tassi aggiornati"],
-  tay: ["∑", "#6366f1", "Serie di Taylor e Maclaurin: approssimazione, resto e grafico"],
+  sp: [
+    "🧾",
+    "#0ea5a4",
+    "Attivo, passivo, patrimonio netto e debito/valore nel tempo di un bene con mutuo",
+  ],
+  pat: [
+    "🏦",
+    "#f59e0b",
+    "Crescita del patrimonio: tasso netto, reale e patrimoniale, tempo per l’obiettivo",
+  ],
+  imm: [
+    "🛡️",
+    "#0d9488",
+    "Immunizzazione di una passività con due zero coupon (Redington)",
+  ],
+  cv: [
+    "💱",
+    "#0ea5e9",
+    "Conversione tra valute: scegli la nazione, bandiera e valuta con tassi aggiornati",
+  ],
+  tay: [
+    "∑",
+    "#6366f1",
+    "Serie di Taylor e Maclaurin: approssimazione, resto e grafico",
+  ],
 };
 const HD = {
   e: "Σ",

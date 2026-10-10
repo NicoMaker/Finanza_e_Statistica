@@ -1,19 +1,112 @@
 /* Selettore nazione con bandiera, ricerca ed elenco con bandiere */
-.cty { display: block; }
-.cty select { display: none; }
-.ctb { display: flex; align-items: center; gap: 10px; width: 100%; padding: 9px 12px; background: var(--card); color: var(--tx); border: 1px solid var(--bd); border-radius: 12px; font: inherit; text-align: left; cursor: pointer; }
-.ctb span { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.ctb i { color: var(--mu); font-style: normal; }
-.ctb:focus-visible, .cts:focus { outline: 2px solid var(--ac); outline-offset: 1px; }
-.ctl { margin-top: 6px; border: 1px solid var(--bd); border-radius: 12px; background: var(--card); overflow: hidden; }
-.cts { width: 100%; box-sizing: border-box; border: 0; border-bottom: 1px solid var(--bd); border-radius: 0; padding: 10px 12px; background: transparent; color: var(--tx); font: inherit; }
-.ctl ul { list-style: none; margin: 0; padding: 4px; max-height: 260px; overflow-y: auto; }
-.ctl li { display: flex; align-items: center; gap: 10px; padding: 7px 8px; border-radius: 8px; cursor: pointer; }
-.ctl li[hidden] { display: none; }
-.ctl li b { font-weight: 600; }
-.ctl li small { margin-left: auto; color: var(--mu); text-align: right; font-size: 0.75rem; }
-.ctl li:hover, .ctl li.on { background: var(--gl); }
-.ctn { margin: 0; padding: 12px; color: var(--mu); font-size: 0.85rem; }
-.cf { width: 28px; height: 20px; object-fit: cover; border-radius: 3px; box-shadow: 0 0 0 1px var(--bd); flex: none; vertical-align: middle; }
-.cvp { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 0 0 14px; font-size: 0.95rem; }
-.cvp span { color: var(--mu); }
+.cty {
+  display: block;
+}
+.cty select {
+  display: none;
+}
+.ctb {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 9px 12px;
+  background: var(--card);
+  color: var(--tx);
+  border: 1px solid var(--bd);
+  border-radius: 12px;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.ctb span {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ctb i {
+  color: var(--mu);
+  font-style: normal;
+}
+.ctb:focus-visible,
+.cts:focus {
+  outline: 2px solid var(--ac);
+  outline-offset: 1px;
+}
+.ctl {
+  margin-top: 6px;
+  border: 1px solid var(--bd);
+  border-radius: 12px;
+  background: var(--card);
+  overflow: hidden;
+}
+.cts {
+  width: 100%;
+  box-sizing: border-box;
+  border: 0;
+  border-bottom: 1px solid var(--bd);
+  border-radius: 0;
+  padding: 10px 12px;
+  background: transparent;
+  color: var(--tx);
+  font: inherit;
+}
+.ctl ul {
+  list-style: none;
+  margin: 0;
+  padding: 4px;
+  max-height: 260px;
+  overflow-y: auto;
+}
+.ctl li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.ctl li[hidden] {
+  display: none;
+}
+.ctl li b {
+  font-weight: 600;
+}
+.ctl li small {
+  margin-left: auto;
+  color: var(--mu);
+  text-align: right;
+  font-size: 0.75rem;
+}
+.ctl li:hover,
+.ctl li.on {
+  background: var(--gl);
+}
+.ctn {
+  margin: 0;
+  padding: 12px;
+  color: var(--mu);
+  font-size: 0.85rem;
+}
+.cf {
+  width: 28px;
+  height: 20px;
+  object-fit: cover;
+  border-radius: 3px;
+  box-shadow: 0 0 0 1px var(--bd);
+  flex: none;
+  vertical-align: middle;
+}
+.cvp {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 14px;
+  font-size: 0.95rem;
+}
+.cvp span {
+  color: var(--mu);
+}

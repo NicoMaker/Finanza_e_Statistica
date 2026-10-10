@@ -31,7 +31,8 @@ function calc() {
   });
   form.querySelectorAll(".cty").forEach((w) => {
     const c = ctyOf(w.querySelector("select").value);
-    w.querySelector(".ctb img").src = "https://flagcdn.com/w40/" + c[0] + ".png";
+    w.querySelector(".ctb img").src =
+      "https://flagcdn.com/w40/" + c[0] + ".png";
     w.querySelector(".ctb span").textContent = c[1] + " · " + c[2];
   });
   try {

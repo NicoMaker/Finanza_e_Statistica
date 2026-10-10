@@ -19,7 +19,8 @@ T.sp = {
   c(v) {
     const m = Math.round(v.m),
       N = Math.round(v.a * m);
-    if (!(m >= 1 && m <= 52) || !(N >= 1 && N <= 600)) return ER("Rate o durata non valide (max 600 rate).");
+    if (!(m >= 1 && m <= 52) || !(N >= 1 && N <= 600))
+      return ER("Rate o durata non valide (max 600 rate).");
     if (!(v.C > 0)) return ER("Inserisci un debito iniziale maggiore di zero.");
     const i = v.r / 100 / m,
       rata = i > 0 ? (v.C * i) / (1 - (1 + i) ** -N) : v.C / N,

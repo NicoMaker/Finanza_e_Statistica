@@ -28,7 +28,8 @@ T.imm = {
       Cl = (H * (H + 1)) / (1 + y) ** 2,
       Fs = PV * (1 + y) ** t2,
       sh = [-3, -2, -1, -0.5, 0, 0.5, 1, 2, 3],
-      val = (s) => F1 * (1 + y + s / 100) ** (H - t1) + F2 * (1 + y + s / 100) ** (H - t2),
+      val = (s) =>
+        F1 * (1 + y + s / 100) ** (H - t1) + F2 * (1 + y + s / 100) ** (H - t2),
       sole = (s) => Fs * (1 + y + s / 100) ** (H - t2);
     return (
       ks([
@@ -46,7 +47,12 @@ T.imm = {
       ]) +
       TB(
         ["Shock Δi", "Attivo a H", "Surplus immunizzato", "Surplus solo T₂"],
-        sh.map((s) => [(s > 0 ? "+" : "") + s + "%", f2(val(s)), f2(val(s) - L), f2(sole(s) - L)]),
+        sh.map((s) => [
+          (s > 0 ? "+" : "") + s + "%",
+          f2(val(s)),
+          f2(val(s) - L),
+          f2(sole(s) - L),
+        ]),
       ) +
       `<p class="note">Con duration dell'attivo uguale all'orizzonte e convessità maggiore, ogni variazione parallela del tasso lascia un surplus ≥ 0; investire tutto in T₂ espone al rischio di prezzo.</p>` +
       plot({

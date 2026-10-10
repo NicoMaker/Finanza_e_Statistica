@@ -18,8 +18,8 @@ function build(sc, set) {
             : t == "t"
               ? `<input id="${id}" data-txt value="${x.v}" autocomplete="off" spellcheck="false">`
               : t == "a"
-            ? `<textarea id="${id}" rows="3">${x.v}</textarea>`
-            : `<input id="${id}" inputmode="decimal" value="${x.v}">`) +
+                ? `<textarea id="${id}" rows="3">${x.v}</textarea>`
+                : `<input id="${id}" inputmode="decimal" value="${x.v}">`) +
         "</div>"
       );
     })

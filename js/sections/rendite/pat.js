@@ -22,7 +22,8 @@ T.pat = {
   ],
   c(v) {
     const n = Math.round(v.n);
-    if (!(n >= 1 && n <= 100)) return ER("L'orizzonte deve essere tra 1 e 100 anni.");
+    if (!(n >= 1 && n <= 100))
+      return ER("L'orizzonte deve essere tra 1 e 100 anni.");
     const rn = (v.r * (1 - v.t / 100)) / 100,
       pi = v.i / 100,
       W = [v.w0];
@@ -44,7 +45,8 @@ T.pat = {
       E = W.map((w, t) => w - D[t]),
       rowP = (t) =>
         `<tr><td>${t}</td><td>${f2(W[t])}</td><td>${f2(D[t])}</td><td>${f2(E[t])}</td><td>${f2(W[t] > 0 ? (D[t] / W[t]) * 100 : 0)}%</td><td>${f2(cum[t])}</td><td>${f2(W[t] - cum[t])}</td></tr>`,
-      hd = "<tr><th>Anno</th><th>Attivo (patrimonio)</th><th>Passivo (debiti)</th><th>Patrimonio netto</th><th>Debito/attivo</th><th>Totale versato</th><th>Rendimenti</th></tr>",
+      hd =
+        "<tr><th>Anno</th><th>Attivo (patrimonio)</th><th>Passivo (debiti)</th><th>Patrimonio netto</th><th>Debito/attivo</th><th>Totale versato</th><th>Rendimenti</th></tr>",
       idx = [...new Set([0, 0.25, 0.5, 0.75, 1].map((x) => Math.round(x * n)))],
       pb =
         `<div class="pt"><h3 class="pth"><span class="sy">🧾</span>Situazione patrimoniale</h3>` +
@@ -80,7 +82,10 @@ T.pat = {
         K("Tasso netto annuo", f2(rn * 100) + "%"),
         K("Tasso reale (Fisher)", f2(rr * 100) + "%"),
         K("Tasso patrimoniale g", isFinite(g) ? f2(g * 100) + "%" : "—"),
-        K("Raddoppio (solo rendimento)", isFinite(dbl) ? f2(dbl) + " anni" : "—"),
+        K(
+          "Raddoppio (solo rendimento)",
+          isFinite(dbl) ? f2(dbl) + " anni" : "—",
+        ),
         K("Obiettivo raggiunto in", w >= v.g ? y + " anni" : "oltre 200 anni"),
       ]) +
       `<p class="note">Il tasso patrimoniale g misura la crescita annua composta del patrimonio comprensiva dei versamenti; il tasso netto è il rendimento puro dopo le imposte.</p>` +
