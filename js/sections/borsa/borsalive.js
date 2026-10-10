@@ -32,7 +32,8 @@ out.addEventListener("click", (e) => {
 });
 
 // Il robot lavora ogni 4 secondi, solo mentre la scheda è aperta
-const blLive = () => cur == "bl" && !atHome && document.getElementById("bl-log");
+const blLive = () =>
+  cur == "bl" && !atHome && document.getElementById("bl-log");
 setInterval(() => {
   if (blLive()) BL.tick();
 }, 4000);

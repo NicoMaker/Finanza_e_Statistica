@@ -34,10 +34,7 @@ BL.addLog = (type, title, reason) => {
 
 // V = C + Σ q·P
 BL.holdings = () =>
-  Object.entries(BL.S.pos).reduce(
-    (a, [s, p]) => a + BL.S.prices[s] * p.qty,
-    0,
-  );
+  Object.entries(BL.S.pos).reduce((a, [s, p]) => a + BL.S.prices[s] * p.qty, 0);
 BL.total = () => BL.S.cash + BL.holdings();
 
 BL.buy = (sym, qty, reason) => {
