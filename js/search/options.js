@@ -259,6 +259,4 @@ const OPT = [
   ["tay", "Maclaurin", "sviluppo di Taylor centrato in 0", {}, "a"],
   ["imm", "Redington", "immunizzazione, duration e convessità dell'attivo", {}, "H"],
   ["cv", "Convertitore valute", "cambio EUR USD GBP, bandiera e valuta della nazione", {}, "p1"],
-  ["dt", "Titolo azionario", "storico, volatilità, media mobile", {}, "s"],
-  ["vt", "Quotazione titolo", "prezzo intraday AAPL MSFT", {}, "s"],
 ];

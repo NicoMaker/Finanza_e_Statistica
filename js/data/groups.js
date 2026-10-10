@@ -29,5 +29,5 @@ const GR = [
   { n: "Rischio & CAPM", i: "⚖️", c: "#06b6d4", t: ["cap"] },
   { n: "Opzioni", i: "🎯", c: "#ef4444", t: ["opz"] },
   { n: "Matematica", i: "∑", c: "#6366f1", t: ["tay"] },
-  { n: "Borsa & Mercati", i: "📡", c: "#16a34a", t: ["cv", "dt", "vt"] },
+  { n: "Borsa & Mercati", i: "📡", c: "#16a34a", t: ["cv"] },
 ];
