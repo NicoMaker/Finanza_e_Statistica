@@ -14,7 +14,7 @@ function build(sc, set) {
         (t == "s"
           ? `<div class="seg" data-s="${id}">${x.o.map((o, j) => `<button type="button" class="sg${o[0] == x.v ? " on" : ""}" data-v="${o[0]}">${ic(cur, x.k, o[0], j)}<span>${o[1]}</span></button>`).join("")}</div><select id="${id}" hidden>${x.o.map((o) => `<option value="${o[0]}"${o[0] == x.v ? " selected" : ""}>${o[1]}</option>`).join("")}</select>`
           : t == "c"
-            ? `<div class="cty"><img class="cf" alt=""><select id="${id}">${CTY.map((c) => `<option value="${c[0]}"${c[0] == x.v ? " selected" : ""}>${c[1]} · ${c[2]}</option>`).join("")}</select></div>`
+            ? `<div class="cty"><button type="button" class="ctb" aria-haspopup="listbox"><img class="cf" alt=""><span></span><i>▾</i></button><div class="ctl" hidden><input class="cts" data-txt placeholder="Cerca nazione o valuta…" autocomplete="off" spellcheck="false"><ul role="listbox"></ul><p class="ctn" hidden>Nessuna nazione trovata</p></div><select id="${id}">${CTY.map((c) => `<option value="${c[0]}"${c[0] == x.v ? " selected" : ""}>${c[1]} · ${c[2]}</option>`).join("")}</select></div>`
             : t == "t"
               ? `<input id="${id}" data-txt value="${x.v}" autocomplete="off" spellcheck="false">`
               : t == "a"

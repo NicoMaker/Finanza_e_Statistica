@@ -30,7 +30,9 @@ function calc() {
     );
   });
   form.querySelectorAll(".cty").forEach((w) => {
-    w.querySelector("img").src = "https://flagcdn.com/w40/" + w.querySelector("select").value + ".png";
+    const c = ctyOf(w.querySelector("select").value);
+    w.querySelector(".ctb img").src = "https://flagcdn.com/w40/" + c[0] + ".png";
+    w.querySelector(".ctb span").textContent = c[1] + " · " + c[2];
   });
   try {
     out.innerHTML = d.c(v);
@@ -42,7 +44,7 @@ function calc() {
 function san(e) {
   const t = e.target;
   if (t.tagName != "INPUT" && t.tagName != "TEXTAREA") return;
-  if (t.dataset && t.dataset.txt) return;
+  if (t.hasAttribute("data-txt")) return;
   const re = t.tagName == "INPUT" ? /[^0-9.,+\-]/g : /[^0-9.,;+\-\s]/g,
     o = t.value,
     n = o.replace(re, "");
@@ -115,7 +117,7 @@ form.addEventListener("keydown", (e) => {
   if (
     (e.key == "ArrowUp" || e.key == "ArrowDown") &&
     t.tagName == "INPUT" &&
-    !t.dataset.txt &&
+    !t.hasAttribute("data-txt") &&
     !e.ctrlKey &&
     !e.metaKey
   ) {
