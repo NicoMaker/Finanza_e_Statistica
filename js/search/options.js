@@ -289,4 +289,32 @@ const OPT = [
     {},
     "p1",
   ],
+  [
+    "bl",
+    "Borsa Live",
+    "robot di trading simulato, portafoglio virtuale, azioni e Bitcoin",
+    {},
+    "m",
+  ],
+  [
+    "bl",
+    "Strategia bilanciata",
+    "robot Borsa Live: equilibrio tra rischio e rendimento, cash 30%",
+    { m: "balanced" },
+    "m",
+  ],
+  [
+    "bl",
+    "Strategia aggressiva",
+    "robot Borsa Live: alto rischio, momentum, cash 10%",
+    { m: "aggressive" },
+    "m",
+  ],
+  [
+    "bl",
+    "Strategia conservativa",
+    "robot Borsa Live: basso rischio, value investing, cash 50%",
+    { m: "conservative" },
+    "m",
+  ],
 ];

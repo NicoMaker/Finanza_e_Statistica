@@ -81,6 +81,11 @@ const TH = {
     "#0ea5e9",
     "Conversione tra valute: scegli la nazione, bandiera e valuta con tassi aggiornati",
   ],
+  bl: [
+    "📺",
+    "#16a34a",
+    "Robot di trading simulato: compra, vende e gestisce un portafoglio virtuale con tre strategie",
+  ],
   tay: [
     "∑",
     "#6366f1",

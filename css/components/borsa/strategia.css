@@ -1,0 +1,50 @@
+/* Borsa Live · scheda della strategia del robot e relative etichette di rischio */
+.bl-strat {
+  padding: 16px;
+  border: 1px solid color-mix(in srgb, var(--ac) 35%, transparent);
+  border-radius: 12px;
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--ac) 14%, transparent),
+    color-mix(in srgb, #a855f7 8%, transparent)
+  );
+}
+.bl-sn {
+  margin-bottom: 6px;
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+.bl-strat p {
+  margin: 0 0 12px;
+  color: var(--mu);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+.bl-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.bl-tag {
+  padding: 4px 10px;
+  border: 1px solid color-mix(in srgb, var(--ac) 35%, transparent);
+  border-radius: 6px;
+  background: var(--bl-p2);
+  color: var(--ac);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.bl-tag.low {
+  color: var(--bl-up);
+  border-color: color-mix(in srgb, var(--bl-up) 35%, transparent);
+}
+.bl-tag.mid {
+  color: var(--bl-warn);
+  border-color: color-mix(in srgb, var(--bl-warn) 35%, transparent);
+}
+.bl-tag.high {
+  color: var(--bl-dn);
+  border-color: color-mix(in srgb, var(--bl-dn) 35%, transparent);
+}

@@ -1,0 +1,22 @@
+/* Borsa Live · avviso a comparsa (toast) */
+.bl-toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  z-index: 1000;
+  max-width: 90vw;
+  padding: 14px 22px;
+  border: 1px solid var(--bd);
+  border-left: 4px solid var(--ac);
+  border-radius: 10px;
+  background: var(--card);
+  color: var(--tx);
+  font-size: 0.82rem;
+  font-weight: 600;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+  transform: translate(-50%, 150%);
+  transition: transform 0.3s;
+}
+.bl-toast.show {
+  transform: translate(-50%, 0);
+}

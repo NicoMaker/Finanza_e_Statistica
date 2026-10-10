@@ -29,6 +29,7 @@ const ICO = {
   "pac.f": ["📅", "🗓️", "🧾", "🔄"],
   "pac.p": { p: "⏭️", a: "⏮️" },
   "ren.m": { p: "♾️", c: "📈", d: "⏳", a: "📶", g: "🚀" },
+  "bl.m": { balanced: "⚖️", aggressive: "🚀", conservative: "🛡️" },
   "rnd.fr": ["⏱️", "📆", "🗓️", "🧾", "🎆"],
   "rnd.z": ["🛡️", "🔒"],
 };

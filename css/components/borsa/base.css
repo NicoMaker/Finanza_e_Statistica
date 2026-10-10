@@ -1,0 +1,106 @@
+/* Borsa Live · base: colori legati al tema, indicatore "robot attivo", griglia, pannelli e stato vuoto */
+.bl {
+  --bl-up: #0f9d63;
+  --bl-dn: #d63447;
+  --bl-warn: #b7791f;
+  --bl-p2: color-mix(in srgb, var(--tx) 5%, var(--card));
+}
+:root[data-theme="dark"] .bl {
+  --bl-up: #00d97e;
+  --bl-dn: #ff4757;
+  --bl-warn: #ffc107;
+}
+.bl-up {
+  color: var(--bl-up);
+}
+.bl-dn {
+  color: var(--bl-dn);
+}
+.bl-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  margin-bottom: 10px;
+  border: 1px solid var(--bl-up);
+  border-radius: 20px;
+  color: var(--bl-up);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.bl-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--bl-up);
+  animation: bl-pulse 1.5s infinite;
+}
+@keyframes bl-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+.bl-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 14px;
+}
+.bl-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+@media (max-width: 1100px) {
+  .bl-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.bl-panel {
+  background: var(--card);
+  border: 1px solid var(--bd);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.bl-ph {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--bd);
+  background: var(--bl-p2);
+  color: var(--mu);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+.bl-ph small {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.bl-pb {
+  padding: 16px;
+}
+.bl-empty {
+  padding: 24px;
+  text-align: center;
+  color: var(--mu);
+  font-size: 0.82rem;
+}
+.bl-empty span {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 2.2rem;
+  opacity: 0.5;
+}

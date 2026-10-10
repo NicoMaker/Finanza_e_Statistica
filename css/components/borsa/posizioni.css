@@ -1,0 +1,36 @@
+/* Borsa Live · elenco delle posizioni aperte */
+.bl-pos {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  margin-bottom: 8px;
+  border-left: 3px solid var(--bl-up);
+  border-radius: 10px;
+  background: var(--bl-p2);
+}
+.bl-sym {
+  min-width: 60px;
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+.bl-pi {
+  flex: 1;
+  color: var(--mu);
+  font-size: 0.78rem;
+}
+.bl-pi small {
+  display: block;
+  font-size: 0.7rem;
+}
+.bl-pv {
+  text-align: right;
+}
+.bl-pv b {
+  display: block;
+  font-size: 0.88rem;
+}
+.bl-pv span {
+  font-size: 0.78rem;
+  font-weight: 700;
+}

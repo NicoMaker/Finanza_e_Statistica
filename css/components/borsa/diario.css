@@ -1,0 +1,103 @@
+/* Borsa Live · diario del robot e pulsanti di controllo */
+.bl-log {
+  max-height: 400px;
+  overflow-y: auto;
+}
+.bl-le {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  border-bottom: 1px solid var(--bd);
+}
+.bl-le:first-child {
+  animation: bl-in 0.4s ease;
+}
+.bl-le:last-child {
+  border-bottom: none;
+}
+@keyframes bl-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.bl-li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+.bl-li.buy {
+  background: color-mix(in srgb, var(--bl-up) 16%, transparent);
+}
+.bl-li.sell {
+  background: color-mix(in srgb, var(--bl-dn) 16%, transparent);
+}
+.bl-li.info {
+  background: color-mix(in srgb, var(--ac) 16%, transparent);
+}
+.bl-li.hold {
+  background: color-mix(in srgb, var(--bl-warn) 16%, transparent);
+}
+.bl-lc {
+  flex: 1;
+  min-width: 0;
+}
+.bl-lc b {
+  display: block;
+  margin-bottom: 2px;
+  font-size: 0.82rem;
+}
+.bl-lc p {
+  margin: 0 0 4px;
+  color: var(--mu);
+  font-size: 0.72rem;
+  line-height: 1.4;
+}
+.bl-lc small {
+  color: var(--mu);
+  font-size: 0.65rem;
+}
+.bl-ctl {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px 16px;
+  border-top: 1px solid var(--bd);
+  background: var(--bl-p2);
+}
+.bl-ctl button {
+  padding: 10px 16px;
+  border: 1px solid var(--bd);
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--tx);
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    border-color 0.2s,
+    color 0.2s,
+    transform 0.2s;
+}
+.bl-ctl button:hover,
+.bl-ctl button:focus-visible {
+  border-color: var(--ac);
+  color: var(--ac);
+  transform: translateY(-1px);
+  outline: none;
+}
+.bl-ctl button.dg:hover,
+.bl-ctl button.dg:focus-visible {
+  border-color: var(--bl-dn);
+  color: var(--bl-dn);
+}
