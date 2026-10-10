@@ -98,10 +98,9 @@ addEventListener("popstate", () => {
   if (!atHome) toHome();
 });
 
-// Il logo è l'unico modo per tornare all'inizio della home, da qualsiasi punto
-const logoEl = document.querySelector(".logo");
-logoEl.style.cursor = "pointer";
-logoEl.onclick = () => {
+// Logo e tasto «Home» nell'header: unici modi per tornare all'inizio della home,
+// da qualsiasi punto (gli altri ritorni riprendono dove eri entrato)
+function goHomeTop() {
   if (atHome) {
     scrollTo({ top: 0, behavior: "smooth" });
     homeY = 0;
@@ -115,7 +114,11 @@ logoEl.onclick = () => {
       history.back();
     } catch (e) {}
   }
-};
+}
+const logoEl = document.querySelector(".logo");
+logoEl.style.cursor = "pointer";
+logoEl.onclick = goHomeTop;
+document.getElementById("hh").onclick = goHomeTop;
 
 document.addEventListener("keydown", (e) => {
   if (!atHome || !pal.hidden || e.ctrlKey || e.metaKey || e.altKey) return;
