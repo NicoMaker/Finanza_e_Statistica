@@ -3,7 +3,10 @@
   var root = document.documentElement;
   var splash = document.getElementById("introSplash");
   if (!splash) return;
-  if (!root.classList.contains("intro-on")) { splash.remove(); return; }
+  if (!root.classList.contains("intro-on")) {
+    splash.remove();
+    return;
+  }
 
   // Loghi dello splash: link in json/config/config.json
   if (typeof DATA_READY !== "undefined") {
@@ -17,7 +20,8 @@
     });
   }
 
-  var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var reduce =
+    window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
   var MIN = reduce ? 600 : 2300;
   var start = Date.now();
   var done = false;
@@ -39,7 +43,7 @@
   if (document.readyState === "complete") schedule();
   else window.addEventListener("load", schedule);
 
-  setTimeout(end, 4500);                       // sicurezza
+  setTimeout(end, 4500); // sicurezza
   splash.addEventListener("click", end);
   document.addEventListener("keydown", end, { once: true });
 })();

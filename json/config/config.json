@@ -8,14 +8,6 @@
   },
   "cambi": {
     "api": "https://api.exchangerate-api.com/v4/latest/{valuta}",
-    "valutePrincipali": [
-      "EUR",
-      "USD",
-      "GBP",
-      "CHF",
-      "CAD",
-      "AUD",
-      "CNY"
-    ]
+    "valutePrincipali": ["EUR", "USD", "GBP", "CHF", "CAD", "AUD", "CNY"]
   }
 }

@@ -1,7 +1,6 @@
 // Favicon che cambia col tema: stesse immagini del logo in header (link in json/config/config.json).
 // Si aggiorna da solo quando cambia html[data-theme].
 (function () {
-
   // Σ di riserva, usata solo se l'immagine remota non si carica
   var FALLBACK =
     "data:image/svg+xml," +

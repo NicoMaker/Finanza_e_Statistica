@@ -34,7 +34,12 @@ const DATA_READY = Promise.all(
   ICO = d.icone;
   // [iso, nome, valuta]
   CTY = d.nazioni.map((c) => [c.iso, c.nome, c.valuta]);
-  GR = d.gruppi.map((g) => ({ n: g.nome, i: g.icona, c: g.colore, t: g.schede }));
+  GR = d.gruppi.map((g) => ({
+    n: g.nome,
+    i: g.icona,
+    c: g.colore,
+    t: g.schede,
+  }));
   // TH[scheda] = [icona, colore, descrizione]
   TH = Object.fromEntries(
     Object.entries(d.schede.schede).map(([k, s]) => [
