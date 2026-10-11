@@ -1,7 +1,7 @@
 {
   "loghi": {
-    "chiaro": "https://www.aipb.it/sites/default/files/styles/crop_freeform/public/Logo%20Banca%20Generali%202018.jpg?itok=Cka_E2Cn",
-    "scuro": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSavFU40bVkB7fiPxCNQiXeM8LR0ADGqxMnFkikQkZje4NnrqljhUF2AH8&s=10"
+    "chiaro": "img/Chiaro.jpg",
+    "scuro": "img/Scuro.jpeg"
   },
   "bandiere": {
     "url": "https://flagcdn.com/w40/{iso}.png"
