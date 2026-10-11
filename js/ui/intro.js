@@ -5,7 +5,7 @@
   if (!splash) return;
   if (!root.classList.contains("intro-on")) { splash.remove(); return; }
 
-  // Loghi dello splash: link in data/config.json
+  // Loghi dello splash: link in json/config/config.json
   if (typeof DATA_READY !== "undefined") {
     DATA_READY.then(function () {
       var l = splash.querySelector(".logo-light"),

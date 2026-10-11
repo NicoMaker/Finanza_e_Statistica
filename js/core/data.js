@@ -1,18 +1,18 @@
-// Caricamento dei dati: tutti i valori "fissi" stanno in /data/*.json (non più nel codice).
+// Caricamento dei dati: tutti i valori "fissi" stanno in /json (divisi per cartella) (non più nel codice).
 // DATA_READY si risolve quando i JSON sono pronti; js/core/boot.js avvia l'app solo dopo.
 // I nomi globali (CTY, GR, TH, HD, OPT, BL_TITOLI, ...) restano quelli di prima: il resto del codice non cambia.
-const DATA_DIR = "data/";
+const DATA_DIR = "json/";
 const DATA_FILES = {
-  config: "config.json",
-  robot: "borsa-robot.json",
-  titoli: "borsa-titoli.json",
-  strategie: "borsa-strategie.json",
-  nazioni: "nazioni.json",
-  gruppi: "gruppi-home.json",
-  schede: "schede.json",
-  ricerca: "ricerca-opzioni.json",
-  bandiere: "bandiere-svg.json",
-  icone: "icone-form.json",
+  config: "config/config.json",
+  robot: "borsa/robot.json",
+  titoli: "borsa/titoli.json",
+  strategie: "borsa/strategie.json",
+  nazioni: "geografia/nazioni.json",
+  gruppi: "home/gruppi.json",
+  schede: "home/schede.json",
+  ricerca: "ricerca/opzioni.json",
+  bandiere: "icone/bandiere.json",
+  icone: "icone/form.json",
 };
 
 let CFG, ROBOT, BL_TITOLI, BL_STRATEGIE, CTY, GR, TH, HD, OPT, FLG, ICO;

@@ -1,4 +1,4 @@
-// Avvio: aspetta i JSON di /data e solo dopo carica, nell'ordine, gli script che li usano.
+// Avvio: aspetta i JSON di /json e solo dopo carica, nell'ordine, gli script che li usano.
 // (gli script aggiunti da qui condividono le stesse variabili globali degli altri)
 const BOOT_SCRIPTS = [
   "js/math/borsa-portafoglio.js",

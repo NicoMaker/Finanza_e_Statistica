@@ -1,4 +1,4 @@
-// Favicon che cambia col tema: stesse immagini del logo in header (link in data/config.json).
+// Favicon che cambia col tema: stesse immagini del logo in header (link in json/config/config.json).
 // Si aggiorna da solo quando cambia html[data-theme].
 (function () {
 
@@ -30,7 +30,7 @@
     link.href = href;
   }
 
-  // il config arriva da data/config.json: parte appena è pronto
+  // il config arriva da json/config/config.json: parte appena è pronto
   DATA_READY.then(function () {
     apply();
     new MutationObserver(apply).observe(document.documentElement, {
