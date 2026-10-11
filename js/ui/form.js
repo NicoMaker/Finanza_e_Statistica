@@ -16,7 +16,7 @@ function calc() {
   d.f.forEach((x) => {
     const e = document.getElementById("f_" + x.k),
       t = x.t || "n";
-    v[x.k] = t == "n" ? parseFloat(e.value.replace(",", ".")) : e.value;
+    v[x.k] = t == "n" ? pn(e.value) : e.value;
     if (t == "n" && isNaN(v[x.k])) v[x.k] = 0;
   });
   d.f.forEach((x) => {
@@ -61,14 +61,23 @@ form.addEventListener("input", (e) => {
   san(e);
   calc();
 });
+// Uscendo dal campo i numeri vengono riscritti con le migliaia (10000 → 10.000)
+const fmtField = (t) => {
+  if (
+    (t.tagName == "INPUT" || t.tagName == "TEXTAREA") &&
+    !t.hasAttribute("data-txt")
+  )
+    t.value = fv(t.value);
+};
 form.addEventListener("change", (e) => {
   san(e);
+  fmtField(e.target);
   calc();
 });
 const ap = (o) =>
   Object.entries(o).forEach(([k, v]) => {
     const e = document.getElementById("f_" + k);
-    if (e) e.value = v;
+    if (e) e.value = e.tagName == "SELECT" || e.hasAttribute("data-txt") ? v : fv(v);
   });
 form.addEventListener("click", (e) => {
   const b = e.target.closest && e.target.closest(".sg");
@@ -123,11 +132,13 @@ form.addEventListener("keydown", (e) => {
     !e.metaKey
   ) {
     e.preventDefault();
-    const n = parseFloat(t.value.replace(",", ".")) || 0;
-    t.value = +(
-      n +
-      (e.shiftKey ? 10 : e.altKey ? 0.1 : 1) * (e.key == "ArrowUp" ? 1 : -1)
-    ).toFixed(6);
+    const n = pn(t.value) || 0;
+    t.value = fv(
+      +(
+        n +
+        (e.shiftKey ? 10 : e.altKey ? 0.1 : 1) * (e.key == "ArrowUp" ? 1 : -1)
+      ).toFixed(6),
+    );
     calc();
   }
 });
