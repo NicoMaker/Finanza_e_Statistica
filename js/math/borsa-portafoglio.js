@@ -50,7 +50,7 @@ BL.buy = (sym, qty, reason) => {
   S.trades.push({ side: "BUY", sym, qty, price });
   BL.addLog(
     "buy",
-    `🟢 Acquistati ${qty} ${sym}`,
+    `🟢 Acquistati ${fg(qty)} ${sym}`,
     `${reason} — Prezzo: ${BLF.usd(price)} · Costo: ${BLF.usd(cost)}`,
   );
 };
@@ -70,7 +70,7 @@ BL.sell = (sym, qty, reason) => {
   S.trades.push({ side: "SELL", sym, qty, price, pnl });
   BL.addLog(
     "sell",
-    `🔴 Venduti ${qty} ${sym} (${pnl < 0 ? "-" : "+"}${BLF.usd(Math.abs(pnl))})`,
+    `🔴 Venduti ${fg(qty)} ${sym} (${pnl < 0 ? "-" : "+"}${BLF.usd(Math.abs(pnl))})`,
     `${reason} — Prezzo: ${BLF.usd(price)} · Ricavo: ${BLF.usd(revenue)}`,
   );
 };

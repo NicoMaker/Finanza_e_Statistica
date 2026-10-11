@@ -11,11 +11,5 @@ const nice = (a, b, n = 5) => {
     t.push(+v.toFixed(10));
   return t;
 };
-const sh = (n) => {
-  const a = Math.abs(n);
-  return a >= 1e6
-    ? (n / 1e6).toLocaleString("it-IT", { maximumFractionDigits: 1 }) + " M"
-    : a >= 1e4
-      ? (n / 1e3).toLocaleString("it-IT", { maximumFractionDigits: 1 }) + " k"
-      : n.toLocaleString("it-IT", { maximumFractionDigits: 2 });
-};
+// Numero per assi e etichette: sempre per esteso con il punto sulle migliaia (1.000, 1.000.000)
+const sh = (n) => nf(n, { maximumFractionDigits: 2 });

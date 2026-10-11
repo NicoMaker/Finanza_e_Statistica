@@ -36,13 +36,13 @@ T.npv = {
     let cum = 0,
       pb = "—";
     f.forEach((c, k) => {
-      if (pb == "—" && (cum += c) >= 0 && k > 0) pb = k + " periodi";
+      if (pb == "—" && (cum += c) >= 0 && k > 0) pb = fg(k) + " periodi";
     });
     let dc = 0,
       dpb = "—";
     f.forEach((c, k) => {
       dc += c / (1 + r) ** k;
-      if (dpb == "—" && dc >= 0 && k > 0) dpb = k + " periodi";
+      if (dpb == "—" && dc >= 0 && k > 0) dpb = fg(k) + " periodi";
     });
     const pi = f[0] < 0 ? 1 + van / -f[0] : NaN;
     return (

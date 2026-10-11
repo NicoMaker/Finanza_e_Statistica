@@ -18,7 +18,7 @@ function npvCh(f, r, van, irr) {
         { n: "Uscite", c: PAL[3], v: f.map((c) => (c < 0 ? c : 0)) },
       ],
       lines: [{ n: "VAN cumulato", c: PAL[1], v: cum }],
-      lb: xs.map((k) => "t = " + k),
+      lb: xs.map((k) => "t = " + fg(k)),
     }) +
     plot({
       t: "VAN al variare del tasso",

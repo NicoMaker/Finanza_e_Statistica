@@ -49,7 +49,7 @@ T.dur = {
     if (!(T > 0) || !(p > 0) || !isFinite(p))
       return '<p class="err">Scadenza o periodicità non valide.</p>';
     if (T / p > 5000)
-      return '<p class="err">Troppe cedole (max 5000): aumenta la periodicità.</p>';
+      return '<p class="err">Troppe cedole (max 5.000): aumenta la periodicità.</p>';
     const ts = [];
     for (let k = 1; k * p < T - 1e-9; k++) ts.push(k * p);
     ts.push(T);
@@ -80,7 +80,7 @@ T.dur = {
         K("Duration (Macaulay)", f4(Dm) + " anni"),
         K("Duration modificata", f4(Dx)),
         K("Convessità", f4(Cv)),
-        K("Numero cedole", ts.length),
+        K("Numero cedole", fg(ts.length)),
       ]) +
       ks([
         K("ΔP ≈ −D·P·Δr/(1+r)", f2(dP)),

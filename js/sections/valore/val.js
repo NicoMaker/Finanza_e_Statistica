@@ -67,9 +67,9 @@ T.val = {
     return (
       ks([
         K("Valore attuale (t=0)", f2(pv), 1),
-        K("Montante (t=" + N + ")", f2(fv)),
+        K("Montante (t=" + fg(N) + ")", f2(fv)),
         K("Totale rate", f2(fl.reduce((s, x) => s + x, 0))),
-        K("Numero rate", N),
+        K("Numero rate", fg(N)),
       ]) +
       `<p class="note">${v.p == "a" ? "Anticipata: rate a t = 0 … n−1." : "Posticipata: rate a t = 1 … n."} Montante valutato a t = n.</p>` +
       rendCh(fl, i, a)

@@ -86,7 +86,7 @@ T.ren = {
               v: xs.map(() => V),
             },
           ],
-          lb: xs.map((k) => k + " rate"),
+          lb: xs.map((k) => fg(k) + " rate"),
         })
       );
     }
@@ -106,11 +106,11 @@ T.ren = {
     return (
       ks([
         K("Valore attuale", f2(pv), 1),
-        K("Montante (t=" + N + ")", f2(pv * (1 + i) ** N)),
+        K("Montante (t=" + fg(N) + ")", f2(pv * (1 + i) ** N)),
         K("Totale rate", f2(fl.reduce((a, x) => a + x, 0))),
         K("Ultima rata", f2(fl[N - 1])),
       ]) +
-      `<p class="note">Rate posticipate (t = 1 … ${N}).${v.m == "d" ? " Le prime " + s + " epoche hanno rata nulla." : ""}</p>` +
+      `<p class="note">Rate posticipate (t = 1 … ${fg(N)}).${v.m == "d" ? " Le prime " + fg(s) + " epoche hanno rata nulla." : ""}</p>` +
       rendCh(fl, i, 1)
     );
   },

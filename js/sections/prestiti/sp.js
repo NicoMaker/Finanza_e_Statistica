@@ -36,7 +36,7 @@ T.sp = {
       ks([
         K("Rata", f2(rata), 1),
         K("Interessi totali", f2(rata * N - v.C)),
-        K("Numero rate", N),
+        K("Numero rate", fg(N)),
       ]) + patrimonio({ C: v.C, m, vb: v.vb, g: v.g, P: ptsPiano(R, v.C, 0) })
     );
   },

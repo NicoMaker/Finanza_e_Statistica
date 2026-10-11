@@ -43,14 +43,14 @@ function rendCh(fl, i, a) {
           v: fl.map((x, k) => x * (1 + i) ** -(k + a)),
         },
       ],
-      lb: ts.map((t) => "t = " + t),
+      lb: ts.map((t) => "t = " + fg(t)),
     }) +
     plot({
       t: "Montante accumulato nel tempo",
       xs: xe,
       zero: 1,
       lines: [{ n: "Montante", c: PAL[1], a: 1, v: ye }],
-      lb: xe.map((t) => "t = " + t),
+      lb: xe.map((t) => "t = " + fg(t)),
     })
   );
 }

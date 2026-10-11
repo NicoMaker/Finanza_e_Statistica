@@ -84,8 +84,8 @@ T.pre = {
       `<p class="note">Piano francese a tasso fisso: rata = C·i / (1 − (1+i)^−n), con i = TAN/12. Il TAEG include solo le spese che inserisci.</p>` +
       `<h3 style="font-size:.95rem;margin:18px 0 10px">Simulazione tasso variabile</h3>` +
       ks([
-        K("Debito residuo dopo " + k + " rate", f2(Ek)),
-        K("Durata residua", M + " mesi"),
+        K("Debito residuo dopo " + fg(k) + " rate", f2(Ek)),
+        K("Durata residua", fg(M) + " mesi"),
         K("Nuova rata", f2(p2), 1),
         K(
           "Variazione della rata",

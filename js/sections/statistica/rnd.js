@@ -75,14 +75,14 @@ T.rnd = {
           { n: "Prezzo", c: PAL[0], a: 1, v: P },
           { n: "Massimo storico", c: PAL[1], d: "5 4", v: rmx },
         ],
-        lb: xs.map((k) => "Periodo " + k),
+        lb: xs.map((k) => "Periodo " + fg(k)),
       }) +
       plot({
         t: "Rendimenti periodali (%)",
         xs: r.map((_, k) => k + 1),
         bars: [{ n: "Rendimento", c: PAL[2], v: r.map((x) => x * 100) }],
         yf: (q) => f2(q) + "%",
-        lb: r.map((_, k) => "Periodo " + (k + 1)),
+        lb: r.map((_, k) => "Periodo " + fg(k + 1)),
       }) +
       plot({
         t: "Drawdown (%)",
@@ -90,7 +90,7 @@ T.rnd = {
         zero: 1,
         lines: [{ n: "Drawdown", c: PAL[3], a: 1, v: dd }],
         yf: (q) => f2(q) + "%",
-        lb: xs.map((k) => "Periodo " + k),
+        lb: xs.map((k) => "Periodo " + fg(k)),
       })
     );
   },

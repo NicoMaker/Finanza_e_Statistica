@@ -87,7 +87,7 @@ T.obb = {
         ),
         K("Cedole totali", f2(cf * N)),
       ]) +
-      `<p class="note">${P > F ? "Prezzo sopra la pari: cedola maggiore del rendimento." : P < F ? "Prezzo sotto la pari: cedola minore del rendimento." : "Prezzo alla pari: rendimento uguale alla cedola."} Flussi: ${N} cedole da ${f2(cf)}${N > 0 ? ", rimborso di " + f2(F) + " in coda" : ""}.</p>` +
+      `<p class="note">${P > F ? "Prezzo sopra la pari: cedola maggiore del rendimento." : P < F ? "Prezzo sotto la pari: cedola minore del rendimento." : "Prezzo alla pari: rendimento uguale alla cedola."} Flussi: ${fg(N)} cedole da ${f2(cf)}${N > 0 ? ", rimborso di " + f2(F) + " in coda" : ""}.</p>` +
       plot({
         t: "Prezzo in funzione del rendimento",
         xs: ys.map((y) => y * 100),

@@ -10,10 +10,10 @@ BL.kpi = () => {
       "P&amp;L",
       `<span class="bl-${p >= 0 ? "up" : "dn"}">${BLF.sg(p)}${f2(p)}%</span>`,
     ),
-    K("Operazioni", S.trades.length),
+    K("Operazioni", fg(S.trades.length)),
     K("Win rate", n ? Math.round((S.wins / n) * 100) + "%" : "—"),
     K("Cash", BLF.eu(S.cash)),
-    K("Posizioni", Object.keys(S.pos).length),
+    K("Posizioni", fg(Object.keys(S.pos).length)),
   ]);
 };
 
@@ -31,7 +31,7 @@ BL.posHtml = () => {
     .map(([sym, p]) => {
       const cur = S.prices[sym],
         r = ((cur - p.avg) / p.avg) * 100;
-      return `<div class="bl-pos"><div class="bl-sym">${sym}</div><div class="bl-pi"><div>${p.qty} azioni</div><small>P. medio: ${BLF.usd(p.avg)}</small></div><div class="bl-pv"><b>${BLF.usd(cur * p.qty)}</b><span class="bl-${r >= 0 ? "up" : "dn"}">${BLF.sg(r)}${f2(r)}%</span></div></div>`;
+      return `<div class="bl-pos"><div class="bl-sym">${sym}</div><div class="bl-pi"><div>${fg(p.qty)} azioni</div><small>P. medio: ${BLF.usd(p.avg)}</small></div><div class="bl-pv"><b>${BLF.usd(cur * p.qty)}</b><span class="bl-${r >= 0 ? "up" : "dn"}">${BLF.sg(r)}${f2(r)}%</span></div></div>`;
     })
     .join("");
 };

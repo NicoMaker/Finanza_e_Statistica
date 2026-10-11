@@ -29,15 +29,15 @@ function ammCh(R, C, t0, ti) {
         { n: "Quota capitale", c: PAL[0], v: G.map((x) => x[2]) },
         { n: "Quota interessi", c: PAL[1], v: G.map((x) => x[3]) },
       ],
-      lb: G.map((x) => (g > 1 ? `Periodi ${x[0]}–${x[1]}` : `Periodo ${x[0]}`)),
-      xf: (x) => Math.round(R[0][0] + (x - 1) * g),
+      lb: G.map((x) => (g > 1 ? `Periodi ${fg(x[0])}–${fg(x[1])}` : `Periodo ${fg(x[0])}`)),
+      xf: (x) => fg(Math.round(R[0][0] + (x - 1) * g)),
     }) +
     plot({
       t: "Debito residuo",
       xs: RR.map((r) => r[0]),
       zero: 1,
       lines: [{ n: "Debito residuo", c: PAL[2], a: 1, v: RR.map((r) => r[4]) }],
-      lb: RR.map((r) => "Periodo " + r[0]),
+      lb: RR.map((r) => "Periodo " + fg(r[0])),
     })
   );
 }
@@ -86,7 +86,7 @@ function ricPlan(v, N, i) {
     `<p class="note">Americano con ricostituzione: ogni periodo paghi gli interessi C·i al creditore e versi la rata costitutiva s in un fondo che rende i′ (periodale). Alla scadenza il fondo vale esattamente C e rimborsa il prestito in un’unica soluzione. Se i′ &lt; i il costo effettivo supera il tasso del prestito.</p>` +
     `<div class="tb"><table><tr><th>Periodo</th><th>Interessi al creditore</th><th>Rata costitutiva</th><th>Interessi sul fondo</th><th>Capitale costituito</th><th>Esborso totale</th></tr>${R.map(
       (r) =>
-        `<tr><td>${r[0]}</td>${r
+        `<tr><td>${fg(r[0])}</td>${r
           .slice(1)
           .map((x) => `<td>${f2(x)}</td>`)
           .join("")}</tr>`,
@@ -99,7 +99,7 @@ function ricPlan(v, N, i) {
         { n: "Interessi al creditore", c: PAL[1], v: R.map((r) => r[1]) },
         { n: "Rata costitutiva", c: PAL[0], v: R.map((r) => r[2]) },
       ],
-      lb: R.map((r) => "Periodo " + r[0]),
+      lb: R.map((r) => "Periodo " + fg(r[0])),
     }) +
     plot({
       t: "Costituzione del capitale",
@@ -114,7 +114,7 @@ function ricPlan(v, N, i) {
           v: xs.map(() => C),
         },
       ],
-      lb: xs.map((t) => "Periodo " + t),
+      lb: xs.map((t) => "Periodo " + fg(t)),
     }) +
     patrimonio({
       C,
@@ -139,7 +139,7 @@ function ricPlan(v, N, i) {
 const tbl = (R) =>
   `<div class="tb"><table><tr><th>Rata</th><th>Importo</th><th>Quota capitale</th><th>Quota interessi</th><th>Debito residuo</th></tr>${R.map(
     (r) =>
-      `<tr><td>${r[0]}</td>${r
+      `<tr><td>${fg(r[0])}</td>${r
         .slice(1)
         .map((x) => `<td>${f2(x)}</td>`)
         .join("")}</tr>`,
@@ -154,7 +154,7 @@ function preCh(C, i, N) {
     ].sort((a, b) => a - b),
     r = (m) => (i ? (C * i) / (1 - (1 + i) ** -m) : C / m),
     xs = ms.map((m) => m / 12),
-    lb = ms.map((m) => m + " mesi");
+    lb = ms.map((m) => fg(m) + " mesi");
   return (
     plot({
       t: "Rata mensile al variare della durata (anni)",
@@ -165,7 +165,7 @@ function preCh(C, i, N) {
           x: N / 12,
           y: r(N),
           c: PAL[3],
-          l: "La tua scelta: " + N + " mesi, rata " + f2(r(N)),
+          l: "La tua scelta: " + fg(N) + " mesi, rata " + f2(r(N)),
         },
       ],
       lb,
@@ -186,7 +186,7 @@ function preCh(C, i, N) {
           x: N / 12,
           y: r(N) * N - C,
           c: PAL[3],
-          l: "La tua scelta: " + N + " mesi, interessi " + f2(r(N) * N - C),
+          l: "La tua scelta: " + fg(N) + " mesi, interessi " + f2(r(N) * N - C),
         },
       ],
       lb,

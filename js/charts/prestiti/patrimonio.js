@@ -38,7 +38,7 @@ function patrimonio(o) {
     Q = P.map(row),
     pc = (x) => f2(x) + "%",
     cells = (q) =>
-      `<td>${q.n}</td>` +
+      `<td>${fg(q.n)}</td>` +
       (A ? `<td>${f2(q.a)}</td>` : "") +
       `<td>${f2(q.debt)}</td>` +
       (A ? `<td>${f2(q.e)}</td><td>${pc(q.ltv)}</td>` : "") +
@@ -53,7 +53,7 @@ function patrimonio(o) {
     mid = Q[Math.round(N / 2)],
     fin = Q[N],
     xs = Q.map((q) => q.n),
-    lb = Q.map((q) => "Dopo la rata " + q.n),
+    lb = Q.map((q) => "Dopo la rata " + fg(q.n)),
     lines = A
       ? [
           { n: "Valore del bene (attivo)", c: PAL[0], v: Q.map((q) => q.a) },

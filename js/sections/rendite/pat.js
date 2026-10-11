@@ -44,7 +44,7 @@ T.pat = {
       D = W.map((_, t) => Math.max(0, v.d0 - v.rm * t)),
       E = W.map((w, t) => w - D[t]),
       rowP = (t) =>
-        `<tr><td>${t}</td><td>${f2(W[t])}</td><td>${f2(D[t])}</td><td>${f2(E[t])}</td><td>${f2(W[t] > 0 ? (D[t] / W[t]) * 100 : 0)}%</td><td>${f2(cum[t])}</td><td>${f2(W[t] - cum[t])}</td></tr>`,
+        `<tr><td>${fg(t)}</td><td>${f2(W[t])}</td><td>${f2(D[t])}</td><td>${f2(E[t])}</td><td>${f2(W[t] > 0 ? (D[t] / W[t]) * 100 : 0)}%</td><td>${f2(cum[t])}</td><td>${f2(W[t] - cum[t])}</td></tr>`,
       hd =
         "<tr><th>Anno</th><th>Attivo (patrimonio)</th><th>Passivo (debiti)</th><th>Patrimonio netto</th><th>Debito/attivo</th><th>Totale versato</th><th>Rendimenti</th></tr>",
       idx = [...new Set([0, 0.25, 0.5, 0.75, 1].map((x) => Math.round(x * n)))],
@@ -67,8 +67,8 @@ T.pat = {
             { n: "Passivo (debiti)", c: PAL[3], v: D },
             { n: "Patrimonio netto", c: PAL[2], a: 1, v: E },
           ],
-          xf: (x) => x + " a",
-          lb: xs.map((t) => "Anno " + t),
+          xf: (x) => fg(x) + " a",
+          lb: xs.map((t) => "Anno " + fg(t)),
         }) +
         `<details class="ptd"><summary>Prospetto patrimoniale completo, anno per anno</summary><div class="tb"><table>${hd}${xs.map(rowP).join("")}</table></div></details></div>`;
     return (
@@ -86,7 +86,7 @@ T.pat = {
           "Raddoppio (solo rendimento)",
           isFinite(dbl) ? f2(dbl) + " anni" : "—",
         ),
-        K("Obiettivo raggiunto in", w >= v.g ? y + " anni" : "oltre 200 anni"),
+        K("Obiettivo raggiunto in", w >= v.g ? fg(y) + " anni" : "oltre 200 anni"),
       ]) +
       `<p class="note">Il tasso patrimoniale g misura la crescita annua composta del patrimonio comprensiva dei versamenti; il tasso netto è il rendimento puro dopo le imposte.</p>` +
       plot({
@@ -97,8 +97,8 @@ T.pat = {
           { n: "In euro di oggi", c: PAL[2], v: real },
           { n: "Capitale versato", c: PAL[1], d: "5 4", v: cum },
         ],
-        xf: (x) => x + " a",
-        lb: xs.map((t) => "Anno " + t),
+        xf: (x) => fg(x) + " a",
+        lb: xs.map((t) => "Anno " + fg(t)),
       }) +
       pb
     );

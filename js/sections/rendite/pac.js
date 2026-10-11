@@ -71,7 +71,7 @@ T.pac = {
     }
     if (v.m == "r") R = (v.G - v.C0 * (1 + i) ** N) / (u * sN(N));
     if (!(N >= 1 && N <= 1200))
-      return ER("Durata non valida (da 1 a 1200 versamenti).");
+      return ER("Durata non valida (da 1 a 1.200 versamenti).");
     const B = [v.C0],
       V = [v.C0];
     let b = v.C0;
@@ -88,7 +88,7 @@ T.pac = {
         K(v.m == "r" ? "Versamento necessario" : "Versamento periodico", f2(R)),
         K("Totale versato", f2(vers)),
         K("Interessi maturati", f2(M - vers)),
-        K("Numero versamenti", N),
+        K("Numero versamenti", fg(N)),
         K("Durata", f2(N / f) + " anni"),
         K("Tasso periodale", f4(i * 100) + "%"),
       ]) +
@@ -107,7 +107,7 @@ T.pac = {
             v: B.map((x, k) => x - V[k]),
           },
         ],
-        lb: B.map((_, k) => "Periodo " + k),
+        lb: B.map((_, k) => "Periodo " + fg(k)),
       })
     );
   },

@@ -1,6 +1,6 @@
 // Motore generico dei grafici SVG (linee, barre, assi, tooltip)
 function plot(o) {
-  const W = Math.min(760, out.clientWidth || 600),
+  let W = Math.min(760, out.clientWidth || 600),
     S = W < 420,
     H = S ? 215 : 260,
     L = S ? 42 : 50,
@@ -52,6 +52,11 @@ function plot(o) {
     x0--;
     x1++;
   }
+  // Margine sinistro adattato alla larghezza delle etichette dell'asse Y (numeri per esteso con le migliaia)
+  L = Math.min(
+    W * 0.4,
+    Math.max(L, Math.max(...yt.map((t) => sh(t).length)) * 6.6 + 12),
+  );
   const X = (x) => L + ((x - x0) / (x1 - x0)) * (W - L - R),
     Y = (y) => T + ((y1 - y) / (y1 - y0)) * (H - T - B),
     b0 = Y(Math.min(Math.max(0, y0), y1));

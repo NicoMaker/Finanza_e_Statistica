@@ -98,7 +98,7 @@ T.vc = {
           isFinite(wm) ? f2(wm * 100) + "%" : "—",
         ),
       ]) +
-      `<div class="tb"><table><tr><th>k</th><th>x</th><th>y</th><th>x − μX</th><th>y − μY</th><th>(x − μX)(y − μY)</th></tr>${x.map((q, k) => `<tr><td>${k + 1}</td><td>${f4(q)}</td><td>${f4(y[k])}</td><td>${f4(dx[k])}</td><td>${f4(dy[k])}</td><td>${f4(dx[k] * dy[k])}</td></tr>`).join("")}</table></div>` +
+      `<div class="tb"><table><tr><th>k</th><th>x</th><th>y</th><th>x − μX</th><th>y − μY</th><th>(x − μX)(y − μY)</th></tr>${x.map((q, k) => `<tr><td>${fg(k + 1)}</td><td>${f4(q)}</td><td>${f4(y[k])}</td><td>${f4(dx[k])}</td><td>${f4(dy[k])}</td><td>${f4(dx[k] * dy[k])}</td></tr>`).join("")}</table></div>` +
       plot({
         t: "Diagramma di dispersione e retta di regressione",
         xs: [xa, xb],
