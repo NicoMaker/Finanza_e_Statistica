@@ -59,15 +59,13 @@
       })();
     </script>
     <script>
-      // Intro solo su ingresso da URL / refresh. Back/forward del browser: niente intro.
-      (function () {
-        var type = "navigate";
-        try {
-          type = performance.getEntriesByType("navigation")[0].type;
-        } catch (e) {}
-        if (type !== "back_forward")
-          document.documentElement.classList.add("intro-on");
-      })();
+      // Intro: parte a ogni ingresso nel sito (URL, refresh, rientro da un'altra pagina).
+      // Spostarsi tra le sezioni NON ricarica la pagina (pushState), quindi non riparte.
+      document.documentElement.classList.add("intro-on");
+      // Rientro con "indietro" da un'altra pagina (cache del browser): ricarica -> intro
+      addEventListener("pageshow", function (e) {
+        if (e.persisted) location.reload();
+      });
     </script>
   </head>
   <body>
