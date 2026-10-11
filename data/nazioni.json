@@ -1,0 +1,207 @@
+[
+  {
+    "iso": "it",
+    "nome": "Italia",
+    "valuta": "EUR"
+  },
+  {
+    "iso": "de",
+    "nome": "Germania",
+    "valuta": "EUR"
+  },
+  {
+    "iso": "fr",
+    "nome": "Francia",
+    "valuta": "EUR"
+  },
+  {
+    "iso": "es",
+    "nome": "Spagna",
+    "valuta": "EUR"
+  },
+  {
+    "iso": "nl",
+    "nome": "Paesi Bassi",
+    "valuta": "EUR"
+  },
+  {
+    "iso": "pt",
+    "nome": "Portogallo",
+    "valuta": "EUR"
+  },
+  {
+    "iso": "ie",
+    "nome": "Irlanda",
+    "valuta": "EUR"
+  },
+  {
+    "iso": "at",
+    "nome": "Austria",
+    "valuta": "EUR"
+  },
+  {
+    "iso": "be",
+    "nome": "Belgio",
+    "valuta": "EUR"
+  },
+  {
+    "iso": "gr",
+    "nome": "Grecia",
+    "valuta": "EUR"
+  },
+  {
+    "iso": "fi",
+    "nome": "Finlandia",
+    "valuta": "EUR"
+  },
+  {
+    "iso": "us",
+    "nome": "Stati Uniti",
+    "valuta": "USD"
+  },
+  {
+    "iso": "gb",
+    "nome": "Regno Unito",
+    "valuta": "GBP"
+  },
+  {
+    "iso": "ch",
+    "nome": "Svizzera",
+    "valuta": "CHF"
+  },
+  {
+    "iso": "jp",
+    "nome": "Giappone",
+    "valuta": "JPY"
+  },
+  {
+    "iso": "ca",
+    "nome": "Canada",
+    "valuta": "CAD"
+  },
+  {
+    "iso": "au",
+    "nome": "Australia",
+    "valuta": "AUD"
+  },
+  {
+    "iso": "nz",
+    "nome": "Nuova Zelanda",
+    "valuta": "NZD"
+  },
+  {
+    "iso": "cn",
+    "nome": "Cina",
+    "valuta": "CNY"
+  },
+  {
+    "iso": "hk",
+    "nome": "Hong Kong",
+    "valuta": "HKD"
+  },
+  {
+    "iso": "sg",
+    "nome": "Singapore",
+    "valuta": "SGD"
+  },
+  {
+    "iso": "in",
+    "nome": "India",
+    "valuta": "INR"
+  },
+  {
+    "iso": "kr",
+    "nome": "Corea del Sud",
+    "valuta": "KRW"
+  },
+  {
+    "iso": "th",
+    "nome": "Thailandia",
+    "valuta": "THB"
+  },
+  {
+    "iso": "br",
+    "nome": "Brasile",
+    "valuta": "BRL"
+  },
+  {
+    "iso": "mx",
+    "nome": "Messico",
+    "valuta": "MXN"
+  },
+  {
+    "iso": "ar",
+    "nome": "Argentina",
+    "valuta": "ARS"
+  },
+  {
+    "iso": "se",
+    "nome": "Svezia",
+    "valuta": "SEK"
+  },
+  {
+    "iso": "no",
+    "nome": "Norvegia",
+    "valuta": "NOK"
+  },
+  {
+    "iso": "dk",
+    "nome": "Danimarca",
+    "valuta": "DKK"
+  },
+  {
+    "iso": "pl",
+    "nome": "Polonia",
+    "valuta": "PLN"
+  },
+  {
+    "iso": "cz",
+    "nome": "Rep. Ceca",
+    "valuta": "CZK"
+  },
+  {
+    "iso": "hu",
+    "nome": "Ungheria",
+    "valuta": "HUF"
+  },
+  {
+    "iso": "ro",
+    "nome": "Romania",
+    "valuta": "RON"
+  },
+  {
+    "iso": "tr",
+    "nome": "Turchia",
+    "valuta": "TRY"
+  },
+  {
+    "iso": "il",
+    "nome": "Israele",
+    "valuta": "ILS"
+  },
+  {
+    "iso": "ae",
+    "nome": "Emirati Arabi",
+    "valuta": "AED"
+  },
+  {
+    "iso": "sa",
+    "nome": "Arabia Saudita",
+    "valuta": "SAR"
+  },
+  {
+    "iso": "za",
+    "nome": "Sudafrica",
+    "valuta": "ZAR"
+  },
+  {
+    "iso": "eg",
+    "nome": "Egitto",
+    "valuta": "EGP"
+  },
+  {
+    "iso": "ma",
+    "nome": "Marocco",
+    "valuta": "MAD"
+  }
+]

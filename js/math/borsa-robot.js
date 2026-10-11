@@ -2,11 +2,11 @@
 BL.updatePrices = () => {
   const S = BL.S;
   BL_TITOLI.forEach((s) => {
-    const drift = (Math.random() - 0.5) * 0.01 * s.volatility,
+    const drift = (Math.random() - 0.5) * ROBOT.variazionePrezzoBase * s.volatility,
       p = S.prices[s.symbol] * (1 + drift);
     S.prices[s.symbol] = p;
     S.hist[s.symbol].push(p);
-    if (S.hist[s.symbol].length > 100) S.hist[s.symbol].shift();
+    if (S.hist[s.symbol].length > ROBOT.maxPuntiStorico) S.hist[s.symbol].shift();
   });
 };
 
@@ -29,21 +29,22 @@ BL.decide = () => {
       );
       return;
     }
-    if (r <= -6) {
-      BL.sell(sym, pos.qty, `Stop loss: ${f2(r)}% (limite -6%)`);
+    if (r <= ROBOT.stopLoss) {
+      BL.sell(sym, pos.qty, `Stop loss: ${f2(r)}% (limite ${ROBOT.stopLoss}%)`);
       return;
     }
   }
 
-  // 2. Acquisti: titolo con il calo maggiore negli ultimi 5 passi
+  // 2. Acquisti: titolo con il calo maggiore negli ultimi N passi (ROBOT.finestraAcquisto)
   if (open.length >= m.maxPositions || cashPct <= m.cashTarget) return;
   let best = null,
     bestCh = 0;
   BL_TITOLI.forEach((s) => {
     if (S.pos[s.symbol]) return;
     const h = S.hist[s.symbol];
-    if (h.length < 5) return;
-    const ch = ((h[h.length - 1] - h[h.length - 5]) / h[h.length - 5]) * 100;
+    const n = ROBOT.finestraAcquisto;
+    if (h.length < n) return;
+    const ch = ((h[h.length - 1] - h[h.length - n]) / h[h.length - n]) * 100;
     if (ch < m.buyThreshold && ch < bestCh) {
       bestCh = ch;
       best = s.symbol;
@@ -51,7 +52,7 @@ BL.decide = () => {
   });
   if (best) {
     const avail = Math.min(tv * m.tradeSize, S.cash - tv * m.cashTarget);
-    if (avail > 100) {
+    if (avail > ROBOT.importoMinimo) {
       const qty = Math.floor(avail / S.prices[best]);
       if (qty > 0) {
         BL.buy(
@@ -65,13 +66,8 @@ BL.decide = () => {
   }
 
   // 3. Nessuna azione
-  if (Math.random() < 0.3) {
-    const th = [
-      "Mercato stabile, nessuna opportunità evidente. Rimango in attesa.",
-      "Prezzi in range, preferisco non rischiare. Cash ready.",
-      "Analisi completata: nessun segnale forte. Aspetto.",
-      "Volatilità nella norma, mantengo la strategia.",
-    ];
+  if (Math.random() < ROBOT.probabilitaAttesa) {
+    const th = ROBOT.messaggiAttesa;
     BL.addLog(
       "hold",
       "⏸️ In attesa",
@@ -85,7 +81,7 @@ BL.passo = () => {
   BL.updatePrices();
   BL.decide();
   BL.S.curve.push(BL.total());
-  if (BL.S.curve.length > 100) BL.S.curve.shift();
+  if (BL.S.curve.length > ROBOT.maxPuntiCurva) BL.S.curve.shift();
 };
 
 // Liquida tutte le posizioni aperte; restituisce quante ne ha chiuse

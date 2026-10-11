@@ -1,0 +1,124 @@
+{
+  "home": {
+    "simbolo": "Σ",
+    "titolo": "Matematica Finanziaria",
+    "descrizione": "Ammortamenti · Rendite · Duration · VAN e TIR · Statistica · Obbligazioni · Opzioni · Patrimonio · Taylor · Borsa"
+  },
+  "schede": {
+    "amm": {
+      "icona": "🏦",
+      "colore": "#10b981",
+      "descrizione": "Piani di rimborso: francese, italiano, tedesco, americano e situazione patrimoniale"
+    },
+    "pre": {
+      "icona": "💳",
+      "colore": "#84cc16",
+      "descrizione": "Rata, interessi totali, TAEG, sostenibilità e tasso variabile"
+    },
+    "val": {
+      "icona": "🧮",
+      "colore": "#f5b800",
+      "descrizione": "Valore attuale e montante di somme e rendite"
+    },
+    "reg": {
+      "icona": "✂️",
+      "colore": "#d946ef",
+      "descrizione": "Interesse semplice e composto, sconto razionale e commerciale"
+    },
+    "tas": {
+      "icona": "🔄",
+      "colore": "#fb7185",
+      "descrizione": "Tassi equivalenti, nominali convertibili e di sconto"
+    },
+    "con": {
+      "icona": "🌀",
+      "colore": "#8b5cf6",
+      "descrizione": "Capitalizzazione continua e intensità istantanea δ"
+    },
+    "ren": {
+      "icona": "♾️",
+      "colore": "#f97316",
+      "descrizione": "Perpetue, Gordon, differite, crescenti aritmetiche e geometriche"
+    },
+    "pac": {
+      "icona": "🌱",
+      "colore": "#22c55e",
+      "descrizione": "Piani di accumulo: montante, versamento, tempo per l’obiettivo"
+    },
+    "obb": {
+      "icona": "🏛️",
+      "colore": "#14b8a6",
+      "descrizione": "Prezzo e rendimento a scadenza di obbligazioni e zero coupon"
+    },
+    "dur": {
+      "icona": "⏳",
+      "colore": "#0891b2",
+      "descrizione": "Duration di Macaulay, duration modificata e convessità"
+    },
+    "flu": {
+      "icona": "🌊",
+      "colore": "#6366f1",
+      "descrizione": "Duration e scadenza media di un flusso qualsiasi"
+    },
+    "npv": {
+      "icona": "📈",
+      "colore": "#a855f7",
+      "descrizione": "VAN, TIR, payback e indice di profitabilità"
+    },
+    "inf": {
+      "icona": "🔥",
+      "colore": "#e11d48",
+      "descrizione": "Inflazione, tasso reale di Fisher e imposte sugli interessi"
+    },
+    "vc": {
+      "icona": "📊",
+      "colore": "#3b82f6",
+      "descrizione": "Varianza, covarianza, correlazione, regressione e portafoglio"
+    },
+    "rnd": {
+      "icona": "📉",
+      "colore": "#0ea5e9",
+      "descrizione": "Rendimenti, volatilità, drawdown e VaR da serie di prezzi"
+    },
+    "cap": {
+      "icona": "🎯",
+      "colore": "#ec4899",
+      "descrizione": "CAPM, beta, Sharpe, Treynor e alpha di Jensen"
+    },
+    "opz": {
+      "icona": "🧪",
+      "colore": "#dc2626",
+      "descrizione": "Black–Scholes: prezzo di call e put e greche"
+    },
+    "sp": {
+      "icona": "🧾",
+      "colore": "#0ea5a4",
+      "descrizione": "Attivo, passivo, patrimonio netto e debito/valore nel tempo di un bene con mutuo"
+    },
+    "pat": {
+      "icona": "🏦",
+      "colore": "#f59e0b",
+      "descrizione": "Crescita del patrimonio: tasso netto, reale e patrimoniale, tempo per l’obiettivo"
+    },
+    "imm": {
+      "icona": "🛡️",
+      "colore": "#0d9488",
+      "descrizione": "Immunizzazione di una passività con due zero coupon (Redington)"
+    },
+    "cv": {
+      "icona": "💱",
+      "colore": "#0ea5e9",
+      "descrizione": "Conversione tra valute: scegli la nazione, bandiera e valuta con tassi aggiornati"
+    },
+    "bl": {
+      "icona": "📺",
+      "colore": "#16a34a",
+      "descrizione": "Robot di trading simulato: compra, vende e gestisce un portafoglio virtuale con tre strategie"
+    },
+    "tay": {
+      "icona": "∑",
+      "colore": "#6366f1",
+      "descrizione": "Serie di Taylor e Maclaurin: approssimazione, resto e grafico"
+    }
+  }
+}

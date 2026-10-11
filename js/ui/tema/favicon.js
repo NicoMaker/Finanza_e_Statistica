@@ -1,10 +1,6 @@
-// Favicon che cambia col tema: stesse immagini del logo in header (js/ui/tema/header-theme.js).
+// Favicon che cambia col tema: stesse immagini del logo in header (link in data/config.json).
 // Si aggiorna da solo quando cambia html[data-theme].
 (function () {
-  var FAV_LIGHT =
-    "https://www.generali.com/.imaging/mte/generali/750x682/dam/site-generali/media/images/logo/logo-verticale.jpg/jcr:content/logo-verticale.2020-07-16-17-41-03.jpg";
-  var FAV_DARK =
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSavFU40bVkB7fiPxCNQiXeM8LR0ADGqxMnFkikQkZje4NnrqljhUF2AH8&s=10";
 
   // Σ di riserva, usata solo se l'immagine remota non si carica
   var FALLBACK =
@@ -15,7 +11,7 @@
 
   function apply() {
     var dark = document.documentElement.dataset.theme === "dark";
-    var href = dark ? FAV_DARK : FAV_LIGHT;
+    var href = dark ? CFG.loghi.scuro : CFG.loghi.chiaro;
     var link = document.getElementById("favicon");
     if (!link) {
       link = document.createElement("link");
@@ -34,9 +30,12 @@
     link.href = href;
   }
 
-  apply();
-  new MutationObserver(apply).observe(document.documentElement, {
-    attributes: true,
-    attributeFilter: ["data-theme"],
-  });
+  // il config arriva da data/config.json: parte appena è pronto
+  DATA_READY.then(function () {
+    apply();
+    new MutationObserver(apply).observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
+  }).catch(function () {});
 })();

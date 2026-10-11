@@ -1,6 +1,9 @@
 // Borsa Live · portafoglio virtuale: stato, diario, valore totale, acquisti e vendite
 // BL è lo spazio dei nomi condiviso dai file di Borsa Live (BL.S = stato del robot)
-const BL = { S: { mode: "balanced", cap0: 10000, warm: 0 } };
+// valori iniziali e limiti: data/borsa-robot.json (ROBOT)
+const BL = {
+  S: { mode: ROBOT.modalitaIniziale, cap0: ROBOT.capitaleIniziale, warm: 0 },
+};
 
 // Riparte da zero con il capitale indicato
 BL.init = (cap) => {
@@ -29,7 +32,7 @@ BL.init = (cap) => {
 BL.addLog = (type, title, reason) => {
   const L = BL.S.log;
   L.unshift({ type, title, reason, time: new Date() });
-  if (L.length > 50) L.pop();
+  if (L.length > ROBOT.maxVociDiario) L.pop();
 };
 
 // V = C + Σ q·P

@@ -1,15 +1,12 @@
 // Logo chiaro/scuro + colore intestazione in base alla scheda aperta
-const LOGO_LIGHT =
-  "https://www.generali.com/.imaging/mte/generali/750x682/dam/site-generali/media/images/logo/logo-verticale.jpg/jcr:content/logo-verticale.2020-07-16-17-41-03.jpg";
-const LOGO_DARK =
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSavFU40bVkB7fiPxCNQiXeM8LR0ADGqxMnFkikQkZje4NnrqljhUF2AH8&s=10";
+// Link dei loghi: data/config.json (CFG.loghi)
 
 const isDark = () => document.documentElement.dataset.theme === "dark";
 
 function setLogo() {
   const lg = document.getElementById("logo");
   if (!lg) return;
-  const src = isDark() ? LOGO_DARK : LOGO_LIGHT;
+  const src = isDark() ? CFG.loghi.scuro : CFG.loghi.chiaro;
   if (lg.dataset.src !== src) {
     lg.dataset.src = src;
     lg.innerHTML = `<img src="${src}" alt="Logo" />`;

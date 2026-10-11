@@ -1,0 +1,95 @@
+[
+  {
+    "nome": "Prestiti & Ammortamenti",
+    "icona": "🏠",
+    "colore": "#10b981",
+    "schede": [
+      "amm",
+      "pre",
+      "sp"
+    ]
+  },
+  {
+    "nome": "Valore attuale & Tassi",
+    "icona": "🧮",
+    "colore": "#f5b800",
+    "schede": [
+      "val",
+      "reg",
+      "tas",
+      "con"
+    ]
+  },
+  {
+    "nome": "Rendite & Accumulo",
+    "icona": "💰",
+    "colore": "#f97316",
+    "schede": [
+      "ren",
+      "pac",
+      "pat"
+    ]
+  },
+  {
+    "nome": "Obbligazioni & Duration",
+    "icona": "🏛️",
+    "colore": "#14b8a6",
+    "schede": [
+      "obb",
+      "dur",
+      "flu",
+      "imm"
+    ]
+  },
+  {
+    "nome": "Investimenti & Inflazione",
+    "icona": "📈",
+    "colore": "#a855f7",
+    "schede": [
+      "npv",
+      "inf"
+    ]
+  },
+  {
+    "nome": "Statistica",
+    "icona": "📊",
+    "colore": "#3b82f6",
+    "schede": [
+      "vc",
+      "rnd"
+    ]
+  },
+  {
+    "nome": "Rischio & CAPM",
+    "icona": "⚖️",
+    "colore": "#06b6d4",
+    "schede": [
+      "cap"
+    ]
+  },
+  {
+    "nome": "Opzioni",
+    "icona": "🎯",
+    "colore": "#ef4444",
+    "schede": [
+      "opz"
+    ]
+  },
+  {
+    "nome": "Matematica",
+    "icona": "∑",
+    "colore": "#6366f1",
+    "schede": [
+      "tay"
+    ]
+  },
+  {
+    "nome": "Borsa & Mercati",
+    "icona": "📡",
+    "colore": "#16a34a",
+    "schede": [
+      "cv",
+      "bl"
+    ]
+  }
+]

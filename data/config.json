@@ -1,0 +1,21 @@
+{
+  "loghi": {
+    "chiaro": "https://www.generali.com/.imaging/mte/generali/750x682/dam/site-generali/media/images/logo/logo-verticale.jpg/jcr:content/logo-verticale.2020-07-16-17-41-03.jpg",
+    "scuro": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSavFU40bVkB7fiPxCNQiXeM8LR0ADGqxMnFkikQkZje4NnrqljhUF2AH8&s=10"
+  },
+  "bandiere": {
+    "url": "https://flagcdn.com/w40/{iso}.png"
+  },
+  "cambi": {
+    "api": "https://api.exchangerate-api.com/v4/latest/{valuta}",
+    "valutePrincipali": [
+      "EUR",
+      "USD",
+      "GBP",
+      "CHF",
+      "CAD",
+      "AUD",
+      "CNY"
+    ]
+  }
+}

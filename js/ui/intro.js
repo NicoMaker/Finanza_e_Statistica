@@ -5,6 +5,18 @@
   if (!splash) return;
   if (!root.classList.contains("intro-on")) { splash.remove(); return; }
 
+  // Loghi dello splash: link in data/config.json
+  if (typeof DATA_READY !== "undefined") {
+    DATA_READY.then(function () {
+      var l = splash.querySelector(".logo-light"),
+        d = splash.querySelector(".logo-dark");
+      if (l) l.src = CFG.loghi.chiaro;
+      if (d) d.src = CFG.loghi.scuro;
+    }).catch(function () {
+      splash.querySelector(".intro-splash-mark").classList.add("no-img");
+    });
+  }
+
   var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
   var MIN = reduce ? 600 : 2300;
   var start = Date.now();

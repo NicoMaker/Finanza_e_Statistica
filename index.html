@@ -53,6 +53,7 @@
         } catch (e) {}
       })();
     </script>
+    <script src="js/core/data.js"></script>
     <script src="js/ui/tema/favicon.js"></script>
     <script>
       // Intro: parte a ogni ingresso nel sito (URL, refresh, rientro da un'altra pagina).
@@ -73,10 +74,8 @@
           <circle class="arc" cx="74" cy="74" r="68" />
         </svg>
         <img class="intro-splash-img logo-light" alt=""
-          src="https://www.generali.com/.imaging/mte/generali/750x682/dam/site-generali/media/images/logo/logo-verticale.jpg/jcr:content/logo-verticale.2020-07-16-17-41-03.jpg"
           onerror="this.closest('.intro-splash-mark').classList.add('no-img')" />
         <img class="intro-splash-img logo-dark" alt=""
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSavFU40bVkB7fiPxCNQiXeM8LR0ADGqxMnFkikQkZje4NnrqljhUF2AH8&s=10"
           onerror="this.closest('.intro-splash-mark').classList.add('no-img')" />
         <svg class="intro-splash-fallback" viewBox="0 0 64 64">
           <rect class="tile" width="64" height="64" rx="12" />
@@ -156,11 +155,13 @@
       </div>
     </div>
     <!-- ordine di caricamento importante: le variabili sono condivise tra i file -->
+    <!-- I dati stanno in /data/*.json (caricati da js/core/data.js); gli script che li usano partono da js/core/boot.js -->
     <script src="js/core/format.js"></script>
     <script src="js/core/chart-utils.js"></script>
     <script src="js/core/html.js"></script>
     <script src="js/core/remote.js"></script>
-    <script src="js/data/countries.js"></script>
+    <script src="js/core/country-utils.js"></script>
+    <script src="js/core/icon-utils.js"></script>
     <script src="js/math/black-scholes.js"></script>
     <script src="js/charts/base/plot.js"></script>
     <script src="js/charts/base/donut.js"></script>
@@ -193,30 +194,8 @@
     <script src="js/sections/rischio/cap.js"></script>
     <script src="js/sections/opzioni/opz.js"></script>
     <script src="js/sections/borsa/cambi.js"></script>
-    <script src="js/data/borsa-titoli.js"></script>
-    <script src="js/data/borsa-strategie.js"></script>
     <script src="js/core/borsa-format.js"></script>
-    <script src="js/math/borsa-portafoglio.js"></script>
-    <script src="js/math/borsa-robot.js"></script>
-    <script src="js/charts/borsa/equity-chart.js"></script>
-    <script src="js/ui/borsalive-panels.js"></script>
-    <script src="js/sections/borsa/borsalive.js"></script>
-    <script src="js/data/groups.js"></script>
-    <script src="js/data/section-meta.js"></script>
-    <script src="js/data/icons.js"></script>
-    <script src="js/core/state.js"></script>
-    <script src="js/ui/tema/header-theme.js"></script>
-    <script src="js/ui/build.js"></script>
-    <script src="js/ui/form.js"></script>
-    <script src="js/ui/country-select.js"></script>
-    <script src="js/ui/tooltip.js"></script>
-    <script src="js/ui/resize.js"></script>
-    <script src="js/ui/tema/theme-toggle.js"></script>
-    <script src="js/search/options.js"></script>
-    <script src="js/search/palette.js"></script>
-    <script src="js/ui/keyboard.js"></script>
-    <script src="js/ui/home.js"></script>
-    <script src="js/app.js"></script>
+    <script src="js/core/boot.js"></script>
     <script src="js/ui/intro.js"></script>
   </body>
 </html>

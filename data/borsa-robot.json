@@ -1,0 +1,21 @@
+{
+  "modalitaIniziale": "balanced",
+  "capitaleIniziale": 10000,
+  "capitaleMinimo": 100,
+  "stopLoss": -6,
+  "finestraAcquisto": 5,
+  "importoMinimo": 100,
+  "variazionePrezzoBase": 0.01,
+  "maxPuntiStorico": 100,
+  "maxPuntiCurva": 100,
+  "maxVociDiario": 50,
+  "probabilitaAttesa": 0.3,
+  "intervalloMs": 4000,
+  "primaDecisioneMs": 2000,
+  "messaggiAttesa": [
+    "Mercato stabile, nessuna opportunità evidente. Rimango in attesa.",
+    "Prezzi in range, preferisco non rischiare. Cash ready.",
+    "Analisi completata: nessun segnale forte. Aspetto.",
+    "Volatilità nella norma, mantengo la strategia."
+  ]
+}

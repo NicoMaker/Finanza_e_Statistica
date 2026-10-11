@@ -1,0 +1,601 @@
+[
+  {
+    "scheda": "amm",
+    "titolo": "Situazione patrimoniale",
+    "descrizione": "attivo, passivo, patrimonio netto e debito/valore del bene finanziato",
+    "valori": {},
+    "campo": "vb"
+  },
+  {
+    "scheda": "amm",
+    "titolo": "Ammortamento francese",
+    "descrizione": "mutuo a rata costante, quota capitale crescente",
+    "valori": {
+      "t": "fr"
+    }
+  },
+  {
+    "scheda": "amm",
+    "titolo": "Ammortamento italiano",
+    "descrizione": "quota capitale costante, rate decrescenti",
+    "valori": {
+      "t": "it"
+    }
+  },
+  {
+    "scheda": "amm",
+    "titolo": "Ammortamento tedesco",
+    "descrizione": "interessi anticipati, rata costante",
+    "valori": {
+      "t": "de"
+    }
+  },
+  {
+    "scheda": "amm",
+    "titolo": "Ammortamento americano",
+    "descrizione": "rimborso a scadenza, solo interessi",
+    "valori": {
+      "t": "am",
+      "ric": "n"
+    }
+  },
+  {
+    "scheda": "amm",
+    "titolo": "Ammortamento americano con rata costitutiva",
+    "descrizione": "fondo di ricostituzione del capitale, rata costitutiva",
+    "valori": {
+      "t": "am",
+      "ric": "s"
+    },
+    "campo": "rr"
+  },
+  {
+    "scheda": "amm",
+    "titolo": "Rata costitutiva",
+    "descrizione": "prospetto di costituzione del capitale, fondo di ammortamento",
+    "valori": {
+      "t": "am",
+      "ric": "s"
+    },
+    "campo": "rr"
+  },
+  {
+    "scheda": "amm",
+    "titolo": "Rate mensili",
+    "descrizione": "piano di ammortamento mensile",
+    "valori": {
+      "m": 12
+    },
+    "campo": "m"
+  },
+  {
+    "scheda": "amm",
+    "titolo": "Rate trimestrali",
+    "descrizione": "piano di ammortamento trimestrale",
+    "valori": {
+      "m": 4
+    },
+    "campo": "m"
+  },
+  {
+    "scheda": "pre",
+    "titolo": "Prestito personale",
+    "descrizione": "rata, interessi totali, TAEG"
+  },
+  {
+    "scheda": "pre",
+    "titolo": "TAEG",
+    "descrizione": "spese di istruttoria e di incasso",
+    "valori": {},
+    "campo": "e"
+  },
+  {
+    "scheda": "pre",
+    "titolo": "Sostenibilità della rata",
+    "descrizione": "rata entro un terzo del reddito netto",
+    "valori": {},
+    "campo": "w"
+  },
+  {
+    "scheda": "pre",
+    "titolo": "Prestito a tasso variabile",
+    "descrizione": "nuova rata dopo variazione del tasso",
+    "valori": {},
+    "campo": "r2"
+  },
+  {
+    "scheda": "val",
+    "titolo": "Valore attuale di una somma",
+    "descrizione": "attualizzazione, sconto composto",
+    "valori": {
+      "m": "s"
+    },
+    "campo": "C"
+  },
+  {
+    "scheda": "val",
+    "titolo": "Montante di una somma",
+    "descrizione": "capitalizzazione composta",
+    "valori": {
+      "m": "s"
+    },
+    "campo": "C"
+  },
+  {
+    "scheda": "val",
+    "titolo": "Rendita posticipata a rata costante",
+    "descrizione": "valore attuale e montante",
+    "valori": {
+      "m": "c",
+      "p": "p"
+    }
+  },
+  {
+    "scheda": "val",
+    "titolo": "Rendita anticipata a rata costante",
+    "descrizione": "valore attuale e montante",
+    "valori": {
+      "m": "c",
+      "p": "a"
+    }
+  },
+  {
+    "scheda": "val",
+    "titolo": "Rendita a rate variabili posticipata",
+    "descrizione": "valore attuale e montante",
+    "valori": {
+      "m": "v",
+      "p": "p"
+    },
+    "campo": "fl"
+  },
+  {
+    "scheda": "val",
+    "titolo": "Rendita a rate variabili anticipata",
+    "descrizione": "valore attuale e montante",
+    "valori": {
+      "m": "v",
+      "p": "a"
+    },
+    "campo": "fl"
+  },
+  {
+    "scheda": "con",
+    "titolo": "Tasso continuo da tasso effettivo",
+    "descrizione": "δ = ln(1+i), intensità istantanea",
+    "valori": {
+      "d": "i"
+    }
+  },
+  {
+    "scheda": "con",
+    "titolo": "Tasso effettivo da intensità δ",
+    "descrizione": "i = e^δ − 1",
+    "valori": {
+      "d": "d"
+    }
+  },
+  {
+    "scheda": "dur",
+    "titolo": "Duration di un’obbligazione",
+    "descrizione": "Macaulay e modificata, durata media finanziaria"
+  },
+  {
+    "scheda": "dur",
+    "titolo": "Convessità",
+    "descrizione": "correzione del secondo ordine"
+  },
+  {
+    "scheda": "dur",
+    "titolo": "Cedole mensili",
+    "descrizione": "12 cedole all’anno",
+    "valori": {
+      "p": 12,
+      "pu": "f"
+    },
+    "campo": "p"
+  },
+  {
+    "scheda": "dur",
+    "titolo": "Cedole semestrali",
+    "descrizione": "2 cedole all’anno",
+    "valori": {
+      "p": 2,
+      "pu": "f"
+    },
+    "campo": "p"
+  },
+  {
+    "scheda": "dur",
+    "titolo": "Cedole annuali",
+    "descrizione": "1 cedola all’anno",
+    "valori": {
+      "p": 1,
+      "pu": "f"
+    },
+    "campo": "p"
+  },
+  {
+    "scheda": "dur",
+    "titolo": "Variazione del prezzo per Δr",
+    "descrizione": "ΔP ≈ −D·P·Δr/(1+r)",
+    "valori": {},
+    "campo": "dr"
+  },
+  {
+    "scheda": "flu",
+    "titolo": "Duration di un flusso",
+    "descrizione": "importi e scadenze libere"
+  },
+  {
+    "scheda": "flu",
+    "titolo": "Scadenza media aritmetica",
+    "descrizione": "senza tasso di interesse",
+    "valori": {},
+    "campo": "fl"
+  },
+  {
+    "scheda": "flu",
+    "titolo": "Duration al tempo t*",
+    "descrizione": "tempo di valutazione",
+    "valori": {},
+    "campo": "tx"
+  },
+  {
+    "scheda": "vc",
+    "titolo": "Varianza",
+    "descrizione": "varianza campionaria e di popolazione",
+    "valori": {},
+    "campo": "x"
+  },
+  {
+    "scheda": "vc",
+    "titolo": "Covarianza",
+    "descrizione": "covarianza tra due serie",
+    "valori": {},
+    "campo": "x"
+  },
+  {
+    "scheda": "vc",
+    "titolo": "Correlazione",
+    "descrizione": "coefficiente di correlazione ρ",
+    "valori": {},
+    "campo": "x"
+  },
+  {
+    "scheda": "vc",
+    "titolo": "Retta di regressione",
+    "descrizione": "minimi quadrati, R²",
+    "valori": {},
+    "campo": "x"
+  },
+  {
+    "scheda": "vc",
+    "titolo": "Deviazione standard",
+    "descrizione": "scarto quadratico medio",
+    "valori": {},
+    "campo": "x"
+  },
+  {
+    "scheda": "vc",
+    "titolo": "Varianza di portafoglio",
+    "descrizione": "due titoli, peso a varianza minima",
+    "valori": {},
+    "campo": "w"
+  },
+  {
+    "scheda": "tas",
+    "titolo": "Tassi equivalenti",
+    "descrizione": "tasso effettivo, nominale convertibile, sconto"
+  },
+  {
+    "scheda": "tas",
+    "titolo": "Tasso nominale convertibile",
+    "descrizione": "j(m), frazionamento",
+    "valori": {
+      "d": "j"
+    },
+    "campo": "x"
+  },
+  {
+    "scheda": "tas",
+    "titolo": "Tasso di sconto",
+    "descrizione": "d = i/(1+i), anticipato",
+    "valori": {
+      "d": "d"
+    },
+    "campo": "x"
+  },
+  {
+    "scheda": "reg",
+    "titolo": "Interesse semplice",
+    "descrizione": "regime semplice, montante"
+  },
+  {
+    "scheda": "reg",
+    "titolo": "Sconto commerciale",
+    "descrizione": "sconto razionale, commerciale, composto",
+    "valori": {},
+    "campo": "d"
+  },
+  {
+    "scheda": "obb",
+    "titolo": "Prezzo di un’obbligazione",
+    "descrizione": "prezzo dal rendimento, cedole",
+    "valori": {
+      "m": "p"
+    }
+  },
+  {
+    "scheda": "obb",
+    "titolo": "Rendimento a scadenza YTM",
+    "descrizione": "rendimento dal prezzo, current yield",
+    "valori": {
+      "m": "y"
+    },
+    "campo": "P"
+  },
+  {
+    "scheda": "obb",
+    "titolo": "Zero coupon",
+    "descrizione": "obbligazione senza cedola",
+    "valori": {
+      "c": 0
+    },
+    "campo": "c"
+  },
+  {
+    "scheda": "pac",
+    "titolo": "Piano di accumulo",
+    "descrizione": "PAC, montante di versamenti periodici",
+    "valori": {
+      "m": "m"
+    }
+  },
+  {
+    "scheda": "pac",
+    "titolo": "Versamento per un obiettivo",
+    "descrizione": "rata necessaria per raggiungere un capitale",
+    "valori": {
+      "m": "r"
+    },
+    "campo": "G"
+  },
+  {
+    "scheda": "pac",
+    "titolo": "Tempo per raggiungere un obiettivo",
+    "descrizione": "quanti anni servono",
+    "valori": {
+      "m": "t"
+    },
+    "campo": "G"
+  },
+  {
+    "scheda": "ren",
+    "titolo": "Rendita perpetua",
+    "descrizione": "valore attuale illimitato",
+    "valori": {
+      "m": "p"
+    }
+  },
+  {
+    "scheda": "ren",
+    "titolo": "Formula di Gordon",
+    "descrizione": "perpetua crescente, dividendi",
+    "valori": {
+      "m": "c"
+    },
+    "campo": "g"
+  },
+  {
+    "scheda": "ren",
+    "titolo": "Rendita differita",
+    "descrizione": "pagamenti che partono dopo s periodi",
+    "valori": {
+      "m": "d"
+    },
+    "campo": "s"
+  },
+  {
+    "scheda": "ren",
+    "titolo": "Rendita crescente aritmetica",
+    "descrizione": "rate in progressione aritmetica",
+    "valori": {
+      "m": "a"
+    },
+    "campo": "D"
+  },
+  {
+    "scheda": "ren",
+    "titolo": "Rendita crescente geometrica",
+    "descrizione": "rate in progressione geometrica",
+    "valori": {
+      "m": "g"
+    },
+    "campo": "g"
+  },
+  {
+    "scheda": "inf",
+    "titolo": "Tasso reale di Fisher",
+    "descrizione": "inflazione, potere d’acquisto",
+    "valori": {},
+    "campo": "p"
+  },
+  {
+    "scheda": "inf",
+    "titolo": "Imposta sugli interessi",
+    "descrizione": "rendimento netto, tassazione",
+    "valori": {},
+    "campo": "tau"
+  },
+  {
+    "scheda": "cap",
+    "titolo": "CAPM",
+    "descrizione": "rendimento atteso, security market line",
+    "valori": {},
+    "campo": "beta"
+  },
+  {
+    "scheda": "cap",
+    "titolo": "Indice di Sharpe",
+    "descrizione": "rendimento corretto per il rischio",
+    "valori": {},
+    "campo": "sp"
+  },
+  {
+    "scheda": "cap",
+    "titolo": "Alpha di Jensen",
+    "descrizione": "extra-rendimento, Treynor",
+    "valori": {},
+    "campo": "rp"
+  },
+  {
+    "scheda": "cap",
+    "titolo": "Beta da serie storiche",
+    "descrizione": "covarianza con il mercato / varianza",
+    "valori": {},
+    "campo": "a"
+  },
+  {
+    "scheda": "rnd",
+    "titolo": "Volatilità storica",
+    "descrizione": "rendimenti da prezzi, deviazione standard",
+    "valori": {},
+    "campo": "pr"
+  },
+  {
+    "scheda": "rnd",
+    "titolo": "Massimo drawdown",
+    "descrizione": "perdita massima dal picco",
+    "valori": {},
+    "campo": "pr"
+  },
+  {
+    "scheda": "rnd",
+    "titolo": "CAGR",
+    "descrizione": "rendimento annuo composto",
+    "valori": {},
+    "campo": "pr"
+  },
+  {
+    "scheda": "rnd",
+    "titolo": "Value at Risk",
+    "descrizione": "VaR parametrico",
+    "valori": {},
+    "campo": "z"
+  },
+  {
+    "scheda": "opz",
+    "titolo": "Opzione call",
+    "descrizione": "Black-Scholes, prezzo call"
+  },
+  {
+    "scheda": "opz",
+    "titolo": "Opzione put",
+    "descrizione": "Black-Scholes, prezzo put"
+  },
+  {
+    "scheda": "opz",
+    "titolo": "Greche",
+    "descrizione": "delta, gamma, vega, theta, rho",
+    "valori": {},
+    "campo": "s"
+  },
+  {
+    "scheda": "npv",
+    "titolo": "Indice di profitabilità",
+    "descrizione": "payback scontato",
+    "valori": {},
+    "campo": "fl"
+  },
+  {
+    "scheda": "npv",
+    "titolo": "VAN",
+    "descrizione": "valore attuale netto, NPV",
+    "valori": {},
+    "campo": "r"
+  },
+  {
+    "scheda": "npv",
+    "titolo": "TIR",
+    "descrizione": "tasso interno di rendimento, IRR",
+    "valori": {},
+    "campo": "fl"
+  },
+  {
+    "scheda": "sp",
+    "titolo": "Patrimonio netto",
+    "descrizione": "attivo, passivo, debito/valore del bene con mutuo",
+    "valori": {},
+    "campo": "vb"
+  },
+  {
+    "scheda": "pat",
+    "titolo": "Tasso patrimoniale",
+    "descrizione": "crescita annua composta del patrimonio, CAGR",
+    "valori": {},
+    "campo": "w0"
+  },
+  {
+    "scheda": "pat",
+    "titolo": "Patrimonio obiettivo",
+    "descrizione": "anni per raggiungere un capitale target",
+    "valori": {},
+    "campo": "g"
+  },
+  {
+    "scheda": "tay",
+    "titolo": "Maclaurin",
+    "descrizione": "sviluppo di Taylor centrato in 0",
+    "valori": {},
+    "campo": "a"
+  },
+  {
+    "scheda": "imm",
+    "titolo": "Redington",
+    "descrizione": "immunizzazione, duration e convessità dell'attivo",
+    "valori": {},
+    "campo": "H"
+  },
+  {
+    "scheda": "cv",
+    "titolo": "Convertitore valute",
+    "descrizione": "cambio EUR USD GBP, bandiera e valuta della nazione",
+    "valori": {},
+    "campo": "p1"
+  },
+  {
+    "scheda": "bl",
+    "titolo": "Borsa Live",
+    "descrizione": "robot di trading simulato, portafoglio virtuale, azioni e Bitcoin",
+    "valori": {},
+    "campo": "m"
+  },
+  {
+    "scheda": "bl",
+    "titolo": "Strategia bilanciata",
+    "descrizione": "robot Borsa Live: equilibrio tra rischio e rendimento, cash 30%",
+    "valori": {
+      "m": "balanced"
+    },
+    "campo": "m"
+  },
+  {
+    "scheda": "bl",
+    "titolo": "Strategia aggressiva",
+    "descrizione": "robot Borsa Live: alto rischio, momentum, cash 10%",
+    "valori": {
+      "m": "aggressive"
+    },
+    "campo": "m"
+  },
+  {
+    "scheda": "bl",
+    "titolo": "Strategia conservativa",
+    "descrizione": "robot Borsa Live: basso rischio, value investing, cash 50%",
+    "valori": {
+      "m": "conservative"
+    },
+    "campo": "m"
+  }
+]
