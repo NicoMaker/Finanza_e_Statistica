@@ -86,7 +86,10 @@ T.pat = {
           "Raddoppio (solo rendimento)",
           isFinite(dbl) ? f2(dbl) + " anni" : "—",
         ),
-        K("Obiettivo raggiunto in", w >= v.g ? fg(y) + " anni" : "oltre 200 anni"),
+        K(
+          "Obiettivo raggiunto in",
+          w >= v.g ? fg(y) + " anni" : "oltre 200 anni",
+        ),
       ]) +
       `<p class="note">Il tasso patrimoniale g misura la crescita annua composta del patrimonio comprensiva dei versamenti; il tasso netto è il rendimento puro dopo le imposte.</p>` +
       plot({

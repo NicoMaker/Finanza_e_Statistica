@@ -29,7 +29,9 @@ function ammCh(R, C, t0, ti) {
         { n: "Quota capitale", c: PAL[0], v: G.map((x) => x[2]) },
         { n: "Quota interessi", c: PAL[1], v: G.map((x) => x[3]) },
       ],
-      lb: G.map((x) => (g > 1 ? `Periodi ${fg(x[0])}–${fg(x[1])}` : `Periodo ${fg(x[0])}`)),
+      lb: G.map((x) =>
+        g > 1 ? `Periodi ${fg(x[0])}–${fg(x[1])}` : `Periodo ${fg(x[0])}`,
+      ),
       xf: (x) => fg(Math.round(R[0][0] + (x - 1) * g)),
     }) +
     plot({

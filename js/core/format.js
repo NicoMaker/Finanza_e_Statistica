@@ -24,7 +24,9 @@ const fg = (n) => (isFinite(n) ? nf(n, { maximumFractionDigits: 6 }) : "—");
 const MIGL = /^[+-]?[1-9]\d{0,2}(\.\d{3})+(,\d*)?$/;
 const pn = (s) => {
   s = String(s).trim();
-  return parseFloat((MIGL.test(s) ? s.replace(/\./g, "") : s).replace(",", "."));
+  return parseFloat(
+    (MIGL.test(s) ? s.replace(/\./g, "") : s).replace(",", "."),
+  );
 };
 // Riscrive i numeri di un testo con le migliaia, mantenendo i decimali digitati
 const fx = (s) =>
@@ -33,7 +35,12 @@ const fx = (s) =>
     if (!isFinite(v)) return m;
     const c = m.indexOf(","),
       p = m.indexOf("."),
-      d = c >= 0 ? m.length - c - 1 : !MIGL.test(m) && p >= 0 ? m.length - p - 1 : 0;
+      d =
+        c >= 0
+          ? m.length - c - 1
+          : !MIGL.test(m) && p >= 0
+            ? m.length - p - 1
+            : 0;
     return nf(v, { minimumFractionDigits: d, maximumFractionDigits: d });
   });
 // Valore per un campo: i numeri del codice si formattano direttamente (1.645 → "1,645"), i testi con fx

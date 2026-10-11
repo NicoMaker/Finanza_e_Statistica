@@ -99,7 +99,8 @@ form.addEventListener("change", (e) => {
 const ap = (o) =>
   Object.entries(o).forEach(([k, v]) => {
     const e = document.getElementById("f_" + k);
-    if (e) e.value = e.tagName == "SELECT" || e.hasAttribute("data-txt") ? v : fv(v);
+    if (e)
+      e.value = e.tagName == "SELECT" || e.hasAttribute("data-txt") ? v : fv(v);
   });
 form.addEventListener("click", (e) => {
   const b = e.target.closest && e.target.closest(".sg");
