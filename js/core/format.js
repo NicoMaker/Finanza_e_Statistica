@@ -21,7 +21,7 @@ const f4 = (n) =>
 const fg = (n) => (isFinite(n) ? nf(n, { maximumFractionDigits: 6 }) : "—");
 // Numeri nei campi: il punto separa le migliaia (1.000) e la virgola i decimali (1.234,5).
 // Un punto non seguito da esattamente 3 cifre (es. 0.5) resta un decimale, come prima.
-const MIGL = /^[+-]?\d{1,3}(\.\d{3})+(,\d*)?$/;
+const MIGL = /^[+-]?[1-9]\d{0,2}(\.\d{3})+(,\d*)?$/;
 const pn = (s) => {
   s = String(s).trim();
   return parseFloat((MIGL.test(s) ? s.replace(/\./g, "") : s).replace(",", "."));
@@ -37,6 +37,21 @@ const fx = (s) =>
     return nf(v, { minimumFractionDigits: d, maximumFractionDigits: d });
   });
 // Valore per un campo: i numeri del codice si formattano direttamente (1.645 → "1,645"), i testi con fx
+// Mentre si scrive: raggruppa le cifre intere con il punto e lascia intatti virgola e decimali digitati
+// (un punto "da decimale" come 1.5 o 0.25 non viene toccato). Es. 1234567,5 → 1.234.567,5
+const fl = (s) =>
+  String(s).replace(/[+-]?\d[\d.]*(?:,\d*)?/g, (m) => {
+    const c = m.indexOf(","),
+      a = c >= 0 ? m.slice(0, c) : m,
+      dec = c >= 0 ? m.slice(c) : "";
+    if (c < 0 && a.includes(".") && !/^[+-]?[1-9]\d*(\.\d{3,})+$/.test(a))
+      return m;
+    return (
+      (/^[+-]/.test(a) ? a[0] : "") +
+      a.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ".") +
+      dec
+    );
+  });
 const fv = (v) =>
   typeof v == "number"
     ? isFinite(v) && (v === 0 || Math.abs(v) >= 1e-6)
