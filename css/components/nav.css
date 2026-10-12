@@ -4,8 +4,10 @@
   align-items: center;
   gap: 8px;
   position: sticky;
-  /* sta SEMPRE subito sotto l'header fisso (altezza misurata dal JS in --h-hdr) */
-  top: calc(var(--h-hdr, 80px) + env(safe-area-inset-top, 0px));
+  /* sta SEMPRE subito sotto l'header fisso (altezza misurata dal JS in --h-hdr).
+     NB: --h-hdr include già la safe-area (è nel padding di .stk): sommarla di nuovo
+     lasciava un buco sui telefoni con notch */
+  top: var(--h-hdr, 80px);
   z-index: 9;
   background: color-mix(in srgb, var(--bg) 88%, transparent);
   backdrop-filter: blur(8px);

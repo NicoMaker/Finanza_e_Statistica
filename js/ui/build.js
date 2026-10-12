@@ -30,8 +30,14 @@ function build(sc, set) {
   clearTimeout(an);
   an = setTimeout(() => out.classList.remove("an"), 700);
   if (sc) {
+    // header + barra schede sono fissi in alto: la scheda deve fermarsi sotto di loro
+    const stk = document.getElementById("stk");
     const y =
-      main.getBoundingClientRect().top + scrollY - navw.offsetHeight - 12;
+      main.getBoundingClientRect().top +
+      scrollY -
+      (stk ? stk.offsetHeight : 0) -
+      navw.offsetHeight -
+      12;
     if (scrollY > y) scrollTo({ top: Math.max(0, y), behavior: "smooth" });
   }
 }
