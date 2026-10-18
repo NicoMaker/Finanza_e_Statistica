@@ -20,7 +20,12 @@ FM.prb = eq(
 const prP = (x) => x / 100;
 const prOk = (...a) => a.every((x) => isFinite(x) && x >= 0 && x <= 100);
 // Probabilità: percentuale leggibile e frazione "1 su N"
-const prU = (p) => (p > 0 && p < 1 ? "1 su " + fg(+(1 / p).toPrecision(4)) : p >= 1 ? "certo" : "impossibile");
+const prU = (p) =>
+  p > 0 && p < 1
+    ? "1 su " + fg(+(1 / p).toPrecision(4))
+    : p >= 1
+      ? "certo"
+      : "impossibile";
 // Elenco di numeri in percentuale → probabilità
 const prList = (s) => nums(s).map((x) => x / 100);
 
@@ -89,7 +94,12 @@ T.prb = {
     },
     /* classica */
     { k: "fa", l: "Casi favorevoli", v: 4, s: (v) => v.tp == "cl" },
-    { k: "pos", l: "Casi possibili (tutti equiprobabili)", v: 52, s: (v) => v.tp == "cl" },
+    {
+      k: "pos",
+      l: "Casi possibili (tutti equiprobabili)",
+      v: 52,
+      s: (v) => v.tp == "cl",
+    },
     /* carte */
     {
       k: "mz",
@@ -116,9 +126,19 @@ T.prb = {
       v: "as",
       s: (v) => v.tp == "ca",
     },
-    { k: "Kc", l: "Carte «buone» nel mazzo", v: 4, s: (v) => v.tp == "ca" && v.bs == "al" },
+    {
+      k: "Kc",
+      l: "Carte «buone» nel mazzo",
+      v: 4,
+      s: (v) => v.tp == "ca" && v.bs == "al",
+    },
     { k: "cn", l: "Carte che peschi n", v: 1, s: (v) => v.tp == "ca" },
-    { k: "ck", l: "Quante «buone» vuoi tra quelle pescate k", v: 1, s: (v) => v.tp == "ca" },
+    {
+      k: "ck",
+      l: "Quante «buone» vuoi tra quelle pescate k",
+      v: 1,
+      s: (v) => v.tp == "ca",
+    },
     {
       k: "mo",
       l: "Dopo ogni pescata",
@@ -146,8 +166,18 @@ T.prb = {
       v: "ind",
       s: (v) => v.tp == "ev",
     },
-    { k: "pab", l: "P(A∩B) (%)", v: 15, s: (v) => v.tp == "ev" && v.rl == "ab" },
-    { k: "pba", l: "P(B|A) (%)", v: 50, s: (v) => v.tp == "ev" && v.rl == "ba" },
+    {
+      k: "pab",
+      l: "P(A∩B) (%)",
+      v: 15,
+      s: (v) => v.tp == "ev" && v.rl == "ab",
+    },
+    {
+      k: "pba",
+      l: "P(B|A) (%)",
+      v: 50,
+      s: (v) => v.tp == "ev" && v.rl == "ba",
+    },
     /* Bayes */
     {
       k: "hp",
@@ -165,19 +195,34 @@ T.prb = {
     },
     /* binomiale */
     { k: "bn", l: "Numero di prove n", v: 10, s: (v) => v.tp == "bi" },
-    { k: "p", l: "Probabilità di successo p (%)", v: 50, s: (v) => ["bi", "ge"].includes(v.tp) },
+    {
+      k: "p",
+      l: "Probabilità di successo p (%)",
+      v: 50,
+      s: (v) => ["bi", "ge"].includes(v.tp),
+    },
     { k: "bk", l: "Numero di successi k", v: 6, s: (v) => v.tp == "bi" },
     /* ipergeometrica */
     { k: "hN", l: "Elementi totali N", v: 52, s: (v) => v.tp == "ip" },
     { k: "hK", l: "Elementi «buoni» K", v: 13, s: (v) => v.tp == "ip" },
-    { k: "hn", l: "Estrazioni n (senza reinserimento)", v: 5, s: (v) => v.tp == "ip" },
+    {
+      k: "hn",
+      l: "Estrazioni n (senza reinserimento)",
+      v: 5,
+      s: (v) => v.tp == "ip",
+    },
     { k: "hk", l: "Buoni estratti k", v: 2, s: (v) => v.tp == "ip" },
     /* lotterie */
     { k: "lN", l: "Numeri della ruota N", v: 90, s: (v) => v.tp == "lo" },
     { k: "lm", l: "Numeri estratti", v: 6, s: (v) => v.tp == "lo" },
     { k: "lg", l: "Numeri giocati", v: 6, s: (v) => v.tp == "lo" },
     /* geometrica */
-    { k: "gk", l: "Il primo successo alla prova k", v: 3, s: (v) => v.tp == "ge" },
+    {
+      k: "gk",
+      l: "Il primo successo alla prova k",
+      v: 3,
+      s: (v) => v.tp == "ge",
+    },
     /* Poisson */
     { k: "lam", l: "Media λ (eventi attesi)", v: 3, s: (v) => v.tp == "po" },
     { k: "pk", l: "Numero di eventi k", v: 2, s: (v) => v.tp == "po" },
@@ -229,7 +274,9 @@ T.prb = {
       const fa = Math.round(v.fa),
         pos = Math.round(v.pos);
       if (!(pos >= 1) || !(fa >= 0) || fa > pos)
-        return ER("Servono 0 ≤ favorevoli ≤ possibili e almeno un caso possibile.");
+        return ER(
+          "Servono 0 ≤ favorevoli ≤ possibili e almeno un caso possibile.",
+        );
       const p = fa / pos;
       return (
         ks([
@@ -252,17 +299,34 @@ T.prb = {
         sem = N / 4,
         K_ = { as: 4, pr: 1, se: sem, fi: 12, al: Math.round(v.Kc) }[v.bs],
         senza = v.mo == "s";
-      if (!(K_ >= 0 && K_ <= N)) return ER(`Le carte «buone» devono essere tra 0 e ${N}.`);
+      if (!(K_ >= 0 && K_ <= N))
+        return ER(`Le carte «buone» devono essere tra 0 e ${N}.`);
       if (!(n >= 1 && n <= (senza ? N : 200)))
-        return ER(senza ? `Senza reinserimento puoi pescare da 1 a ${N} carte.` : "Puoi pescare da 1 a 200 carte.");
-      if (!(k >= 0 && k <= n)) return ER("Le carte «buone» k devono essere tra 0 e le carte pescate n.");
-      const nome = { as: "un asso", pr: "quella carta precisa", se: "una carta del seme", fi: "una figura", al: "una carta buona" }[v.bs],
+        return ER(
+          senza
+            ? `Senza reinserimento puoi pescare da 1 a ${N} carte.`
+            : "Puoi pescare da 1 a 200 carte.",
+        );
+      if (!(k >= 0 && k <= n))
+        return ER(
+          "Le carte «buone» k devono essere tra 0 e le carte pescate n.",
+        );
+      const nome = {
+          as: "un asso",
+          pr: "quella carta precisa",
+          se: "una carta del seme",
+          fi: "una figura",
+          al: "una carta buona",
+        }[v.bs],
         // senza reinserimento (ipergeometrica) e con reinserimento (binomiale)
         pS = (j) => hypP(N, K_, n, j),
         pC = (j) => binPmf(n, j, K_ / N),
         favS = hypNum(N, K_, n, k),
         totS = bComb(N, n),
-        favC = bComb(n, k) * BigInt(K_) ** BigInt(k) * BigInt(N - K_) ** BigInt(n - k),
+        favC =
+          bComb(n, k) *
+          BigInt(K_) ** BigInt(k) *
+          BigInt(N - K_) ** BigInt(n - k),
         totC = bDispRip(N, n),
         okS = n <= N && k <= K_ && n - k <= N - K_,
         f = senza ? pS : pC,
@@ -275,7 +339,11 @@ T.prb = {
         fav = senza ? favS : favC,
         tot = senza ? totS : totC,
         rows = [
-          [`Esattamente ${fg(k)}`, n <= N ? fpct(bRatio(favS, totS)) : "—", fpct(bRatio(favC, totC))],
+          [
+            `Esattamente ${fg(k)}`,
+            n <= N ? fpct(bRatio(favS, totS)) : "—",
+            fpct(bRatio(favC, totC)),
+          ],
           ["Nessuna", n <= N ? fpct(pS(0)) : "—", fpct(pC(0))],
           ["Almeno una", n <= N ? fpct(1 - pS(0)) : "—", fpct(1 - pC(0))],
           ["Tutte e " + fg(n), n <= N ? fpct(pS(n)) : "—", fpct(pC(n))],
@@ -287,7 +355,10 @@ T.prb = {
           K("P(almeno una)", fpct(1 - f(0))),
           K("P(nessuna)", fpct(f(0))),
           K("Casi favorevoli", bFmt(fav)),
-          K(senza ? "Casi possibili C(N,n)" : "Sequenze possibili N^n", bFmt(tot)),
+          K(
+            senza ? "Casi possibili C(N,n)" : "Sequenze possibili N^n",
+            bFmt(tot),
+          ),
         ]) +
         `<p class="note">Mazzo da ${N} carte, ${fg(K_)} «buone» (${nome}). ${
           n == 1
@@ -298,15 +369,25 @@ T.prb = {
         }</p>` +
         `<h3 class="sh">Con e senza reinserimento a confronto</h3>` +
         TB(["Caso", "Senza reinserimento", "Con reinserimento"], rows) +
-        (okS || !senza ? "" : `<p class="note">Con questi numeri, senza reinserimento, il caso scelto è impossibile.</p>`) +
-        prBarre(senza ? "Quante «buone» escono (senza reinserimento)" : "Quante «buone» escono (con reinserimento)", W.xs, W.ps, "k =") +
+        (okS || !senza
+          ? ""
+          : `<p class="note">Con questi numeri, senza reinserimento, il caso scelto è impossibile.</p>`) +
+        prBarre(
+          senza
+            ? "Quante «buone» escono (senza reinserimento)"
+            : "Quante «buone» escono (con reinserimento)",
+          W.xs,
+          W.ps,
+          "k =",
+        ) +
         (W.tagliato ? "" : prTab("k", W.xs, W.ps))
       );
     }
 
     /* ---------- Eventi A e B ---------- */
     if (tp == "ev") {
-      if (!prOk(v.pa, v.pb)) return ER("P(A) e P(B) devono essere tra 0% e 100%.");
+      if (!prOk(v.pa, v.pb))
+        return ER("P(A) e P(B) devono essere tra 0% e 100%.");
       const a = prP(v.pa),
         b = prP(v.pb);
       let ab, nota;
@@ -322,10 +403,17 @@ T.prb = {
           `P(A∩B) deve stare tra ${fpct(Math.max(0, a + b - 1))} e ${fpct(Math.min(a, b))}: i dati inseriti non sono coerenti.`,
         );
       if (v.rl == "inc" && a + b > 1 + 1e-12)
-        return ER("Due eventi incompatibili non possono avere P(A) + P(B) > 100%.");
+        return ER(
+          "Due eventi incompatibili non possono avere P(A) + P(B) > 100%.",
+        );
       const un = a + b - ab,
         ind = Math.abs(ab - a * b) < 1e-9;
-      nota = v.rl == "inc" ? "incompatibili (non possono accadere insieme)" : ind ? "indipendenti" : "dipendenti";
+      nota =
+        v.rl == "inc"
+          ? "incompatibili (non possono accadere insieme)"
+          : ind
+            ? "indipendenti"
+            : "dipendenti";
       return (
         ks([
           K("P(A∩B) — entrambi", fpct(ab), 1),
@@ -357,22 +445,41 @@ T.prb = {
         ver = prList(v.hl),
         m = pri.length;
       if (m < 2 || ver.length != m)
-        return ER("Inserisci almeno due ipotesi e lo stesso numero di verosimiglianze.");
+        return ER(
+          "Inserisci almeno due ipotesi e lo stesso numero di verosimiglianze.",
+        );
       if (pri.some((x) => x < 0 || x > 1) || ver.some((x) => x < 0 || x > 1))
         return ER("Le probabilità devono essere tra 0% e 100%.");
       const sm = pri.reduce((s, x) => s + x, 0);
       if (Math.abs(sm - 1) > 1e-6)
-        return ER(`Le probabilità a priori devono sommare 100% (ora ${f2(sm * 100)}%).`);
+        return ER(
+          `Le probabilità a priori devono sommare 100% (ora ${f2(sm * 100)}%).`,
+        );
       const r = bayes(pri, ver);
-      if (!(r.pe > 0)) return ER("P(E) è zero: l’evidenza non può verificarsi.");
+      if (!(r.pe > 0))
+        return ER("P(E) è zero: l’evidenza non può verificarsi.");
       return (
         ks([
           K("P(E) — probabilità totale", fpct(r.pe), 1),
-          ...r.post.map((q, i) => K(`P(H${i + 1}|E) a posteriori`, fpct(q), q == Math.max(...r.post))),
+          ...r.post.map((q, i) =>
+            K(`P(H${i + 1}|E) a posteriori`, fpct(q), q == Math.max(...r.post)),
+          ),
         ]) +
         TB(
-          ["Ipotesi", "P(Hᵢ) a priori", "P(E|Hᵢ)", "P(Hᵢ)·P(E|Hᵢ)", "P(Hᵢ|E) a posteriori"],
-          pri.map((p, i) => ["H" + (i + 1), fpct(p), fpct(ver[i]), fpct(p * ver[i]), fpct(r.post[i])]),
+          [
+            "Ipotesi",
+            "P(Hᵢ) a priori",
+            "P(E|Hᵢ)",
+            "P(Hᵢ)·P(E|Hᵢ)",
+            "P(Hᵢ|E) a posteriori",
+          ],
+          pri.map((p, i) => [
+            "H" + (i + 1),
+            fpct(p),
+            fpct(ver[i]),
+            fpct(p * ver[i]),
+            fpct(r.post[i]),
+          ]),
         ) +
         plot({
           t: "Probabilità a priori e a posteriori (%)",
@@ -391,9 +498,11 @@ T.prb = {
     if (tp == "bi") {
       const n = Math.round(v.bn),
         k = Math.round(v.bk);
-      if (!(n >= 1 && n <= 5000)) return ER("Il numero di prove n deve essere tra 1 e 5.000.");
+      if (!(n >= 1 && n <= 5000))
+        return ER("Il numero di prove n deve essere tra 1 e 5.000.");
       if (!prOk(v.p)) return ER("p deve essere tra 0% e 100%.");
-      if (!(k >= 0 && k <= n)) return ER("Il numero di successi k deve essere tra 0 e n.");
+      if (!(k >= 0 && k <= n))
+        return ER("Il numero di successi k deve essere tra 0 e n.");
       const p = prP(v.p),
         f = (j) => binPmf(n, j, p),
         eq_ = f(k),
@@ -416,7 +525,9 @@ T.prb = {
         ]) +
         `<p class="note">In ${fg(n)} prove ci sono 2<sup>n</sup> = ${bFmt(bDispRip(2, n))} sequenze di successo/insuccesso (se p = 50%, tutte equiprobabili). Quelle con esattamente ${fg(k)} successi sono C(${fg(n)},${fg(k)}) = ${bFmt(bComb(n, k))}, ciascuna con probabilità p<sup>${fg(k)}</sup>·(1−p)<sup>${fg(n - k)}</sup>.</p>` +
         prBarre("Distribuzione binomiale", W.xs, W.ps, "k =") +
-        (W.tagliato ? `<p class="note">Il grafico mostra solo i valori con probabilità non trascurabile.</p>` : prTab("k", W.xs, W.ps))
+        (W.tagliato
+          ? `<p class="note">Il grafico mostra solo i valori con probabilità non trascurabile.</p>`
+          : prTab("k", W.xs, W.ps))
       );
     }
 
@@ -426,10 +537,16 @@ T.prb = {
         K_ = Math.round(v.hK),
         n = Math.round(v.hn),
         k = Math.round(v.hk);
-      if (!(N >= 1 && N <= 5000) || !(K_ >= 0 && K_ <= N) || !(n >= 0 && n <= N))
+      if (
+        !(N >= 1 && N <= 5000) ||
+        !(K_ >= 0 && K_ <= N) ||
+        !(n >= 0 && n <= N)
+      )
         return ER("Servono N tra 1 e 5.000, 0 ≤ K ≤ N e 0 ≤ n ≤ N.");
       if (!(k >= 0 && k <= Math.min(n, K_)))
-        return ER("Il numero di buoni estratti k deve essere tra 0 e il minimo di n e K.");
+        return ER(
+          "Il numero di buoni estratti k deve essere tra 0 e il minimo di n e K.",
+        );
       const lo = Math.max(0, n - (N - K_)),
         hi = Math.min(n, K_),
         xs = Array.from({ length: hi - lo + 1 }, (_, i) => lo + i),
@@ -462,7 +579,9 @@ T.prb = {
         m = Math.round(v.lm),
         g = Math.round(v.lg);
       if (!(N >= 1 && N <= 200) || !(m >= 1 && m <= N) || !(g >= 1 && g <= N))
-        return ER("Servono N tra 1 e 200, e numeri estratti e giocati tra 1 e N.");
+        return ER(
+          "Servono N tra 1 e 200, e numeri estratti e giocati tra 1 e N.",
+        );
       const tot = bComb(N, m),
         lo = Math.max(0, g - (N - m)),
         hi = Math.min(g, m),
@@ -478,7 +597,12 @@ T.prb = {
         ]) +
         TB(
           ["Indovinati", "Combinazioni favorevoli", "Probabilità", "1 su …"],
-          xs.map((j, i) => [fg(j), bFmt(ws[i]), fpct(ps[i]), bUnoSu(ws[i], tot)]),
+          xs.map((j, i) => [
+            fg(j),
+            bFmt(ws[i]),
+            fpct(ps[i]),
+            bUnoSu(ws[i], tot),
+          ]),
         ) +
         prBarre("Quanti numeri si indovinano", xs, ps, "Indovinati =") +
         `<p class="note">Con 90 numeri e 6 estratti, 6 giocati: 1 su ${bFmt(bComb(90, 6))} (SuperEnalotto, 6 punti).</p>`
@@ -488,8 +612,10 @@ T.prb = {
     /* ---------- Geometrica ---------- */
     if (tp == "ge") {
       const k = Math.round(v.gk);
-      if (!prOk(v.p) || !(prP(v.p) > 0)) return ER("p deve essere maggiore di 0% e al massimo 100%.");
-      if (!(k >= 1 && k <= 100000)) return ER("La prova k deve essere un intero da 1 a 100.000.");
+      if (!prOk(v.p) || !(prP(v.p) > 0))
+        return ER("p deve essere maggiore di 0% e al massimo 100%.");
+      if (!(k >= 1 && k <= 100000))
+        return ER("La prova k deve essere un intero da 1 a 100.000.");
       const p = prP(v.p),
         cdf = 1 - (1 - p) ** k,
         mx = Math.min(60, Math.max(10, Math.ceil(3 / p))),
@@ -501,7 +627,13 @@ T.prb = {
           K(`P(nessun successo in ${k} prove)`, fpct(1 - cdf)),
           K("Prove attese 1/p", f2(1 / p)),
           K("Varianza (1−p)/p²", f2((1 - p) / (p * p))),
-        ]) + prBarre("Distribuzione geometrica", xs, xs.map((x) => geoPmf(p, x)), "Prova")
+        ]) +
+        prBarre(
+          "Distribuzione geometrica",
+          xs,
+          xs.map((x) => geoPmf(p, x)),
+          "Prova",
+        )
       );
     }
 
@@ -510,7 +642,8 @@ T.prb = {
       const l = v.lam,
         k = Math.round(v.pk);
       if (!(l >= 0 && l <= 5000)) return ER("λ deve essere tra 0 e 5.000.");
-      if (!(k >= 0 && k <= 100000)) return ER("k deve essere un intero tra 0 e 100.000.");
+      if (!(k >= 0 && k <= 100000))
+        return ER("k deve essere un intero tra 0 e 100.000.");
       const f = (j) => poiPmf(l, j),
         eq_ = f(k),
         le = sumPmf(f, 0, k),
@@ -535,17 +668,26 @@ T.prb = {
       const U = nums(v.un).map(Math.round),
         E = nums(v.ue).map(Math.round),
         c = U.length;
-      if (c < 2 || E.length != c) return ER("Inserisci almeno due colori e lo stesso numero di estratte.");
-      if (U.some((x) => x < 0) || E.some((x) => x < 0)) return ER("Servono numeri non negativi.");
+      if (c < 2 || E.length != c)
+        return ER(
+          "Inserisci almeno due colori e lo stesso numero di estratte.",
+        );
+      if (U.some((x) => x < 0) || E.some((x) => x < 0))
+        return ER("Servono numeri non negativi.");
       const N = U.reduce((a, b) => a + b, 0),
         m = E.reduce((a, b) => a + b, 0);
-      if (N < 1 || N > 5000) return ER("Le palline totali devono essere tra 1 e 5.000.");
-      if (m < 1 || m > N) return ER("Le palline estratte devono essere almeno 1 e al massimo quante sono nell’urna.");
+      if (N < 1 || N > 5000)
+        return ER("Le palline totali devono essere tra 1 e 5.000.");
+      if (m < 1 || m > N)
+        return ER(
+          "Le palline estratte devono essere almeno 1 e al massimo quante sono nell’urna.",
+        );
       const ok = E.every((e, i) => e <= U[i]),
         senza = ok ? U.reduce((r, u, i) => r * bComb(u, E[i]), 1n) : 0n,
         tot = bComb(N, m),
         // con reinserimento: sequenze ordinate favorevoli = m!/∏k! · ∏ n_i^k_i ; totali N^m
-        conFav = bMulti(E) * U.reduce((r, u, i) => r * BigInt(u) ** BigInt(E[i]), 1n),
+        conFav =
+          bMulti(E) * U.reduce((r, u, i) => r * BigInt(u) ** BigInt(E[i]), 1n),
         conTot = bDispRip(N, m);
       return (
         ks([
@@ -557,8 +699,20 @@ T.prb = {
           K("Sequenze possibili N^m", bFmt(conTot)),
         ]) +
         TB(
-          ["Colore", "Nell’urna", "Estratte", "Modi di sceglierle C(nᵢ,kᵢ)", "P(colore) a ogni estrazione"],
-          U.map((u, i) => [i + 1, fg(u), fg(E[i]), bFmt(bComb(u, E[i])), fpct(u / N)]),
+          [
+            "Colore",
+            "Nell’urna",
+            "Estratte",
+            "Modi di sceglierle C(nᵢ,kᵢ)",
+            "P(colore) a ogni estrazione",
+          ],
+          U.map((u, i) => [
+            i + 1,
+            fg(u),
+            fg(E[i]),
+            bFmt(bComb(u, E[i])),
+            fpct(u / N),
+          ]),
         ) +
         `<p class="note">Totale ${fg(N)} palline, ne estrai ${fg(m)}. <b>Senza reinserimento</b> ogni pallina estratta non rientra; <b>con reinserimento</b> si rimette nell’urna e il colore si può ripetere.${ok ? "" : " Hai chiesto più palline di un colore di quelle presenti: senza reinserimento è impossibile."}</p>`
       );
@@ -570,7 +724,9 @@ T.prb = {
         fc = Math.round(v.df),
         s = Math.round(v.ds);
       if (!(nd >= 1 && nd <= 30) || !(fc >= 2 && fc <= 100) || nd * fc > 1500)
-        return ER("Usa da 1 a 30 dadi con 2–100 facce (dadi × facce al massimo 1.500).");
+        return ER(
+          "Usa da 1 a 30 dadi con 2–100 facce (dadi × facce al massimo 1.500).",
+        );
       const w = dadiWays(nd, fc),
         tot = bDispRip(fc, nd),
         xs0 = Array.from({ length: nd * fc - nd + 1 }, (_, i) => nd + i),
@@ -599,7 +755,12 @@ T.prb = {
         (!W.tagliato && xs.length <= 60
           ? TB(
               ["Somma", "Modi", "Probabilità", "1 su …"],
-              xs.map((x, i) => [fg(x), bFmt(w[x]), fpct(ps[i]), bUnoSu(w[x], tot)]),
+              xs.map((x, i) => [
+                fg(x),
+                bFmt(w[x]),
+                fpct(ps[i]),
+                bUnoSu(w[x], tot),
+              ]),
             )
           : "")
       );
@@ -610,10 +771,14 @@ T.prb = {
       const X = nums(v.xv),
         Pp = prList(v.xp);
       if (X.length < 2 || X.length != Pp.length)
-        return ER("Inserisci almeno due valori e lo stesso numero di probabilità.");
-      if (Pp.some((x) => x < 0 || x > 1)) return ER("Le probabilità devono essere tra 0% e 100%.");
+        return ER(
+          "Inserisci almeno due valori e lo stesso numero di probabilità.",
+        );
+      if (Pp.some((x) => x < 0 || x > 1))
+        return ER("Le probabilità devono essere tra 0% e 100%.");
       const sm = Pp.reduce((a, b) => a + b, 0);
-      if (Math.abs(sm - 1) > 1e-6) return ER(`Le probabilità devono sommare 100% (ora ${f2(sm * 100)}%).`);
+      if (Math.abs(sm - 1) > 1e-6)
+        return ER(`Le probabilità devono sommare 100% (ora ${f2(sm * 100)}%).`);
       const E = X.reduce((s, x, i) => s + x * Pp[i], 0),
         E2 = X.reduce((s, x, i) => s + x * x * Pp[i], 0),
         vr = Math.max(0, E2 - E * E),
@@ -624,10 +789,22 @@ T.prb = {
           K("E[X²]", f4(E2)),
           K("Varianza", f4(vr)),
           K("Deviazione standard", f4(Math.sqrt(vr))),
-          K("Probabilità di perdita P(X &lt; 0)", fpct(X.reduce((s, x, i) => s + (x < 0 ? Pp[i] : 0), 0))),
+          K(
+            "Probabilità di perdita P(X &lt; 0)",
+            fpct(X.reduce((s, x, i) => s + (x < 0 ? Pp[i] : 0), 0)),
+          ),
         ]) +
-        prBarre("Distribuzione di X", ord.map((o) => o[0]), ord.map((o) => o[1]), "X =") +
-        prTab("x", ord.map((o) => o[0]), ord.map((o) => o[1]))
+        prBarre(
+          "Distribuzione di X",
+          ord.map((o) => o[0]),
+          ord.map((o) => o[1]),
+          "X =",
+        ) +
+        prTab(
+          "x",
+          ord.map((o) => o[0]),
+          ord.map((o) => o[1]),
+        )
       );
     }
 
@@ -637,7 +814,8 @@ T.prb = {
         sg = v.sg,
         a = Math.min(v.xa, v.xb),
         b = Math.max(v.xa, v.xb);
-      if (!(sg > 0)) return ER("La deviazione standard σ deve essere maggiore di 0.");
+      if (!(sg > 0))
+        return ER("La deviazione standard σ deve essere maggiore di 0.");
       const za = (a - mu) / sg,
         zb = (b - mu) / sg,
         Fa = normCdf(za),
@@ -655,7 +833,14 @@ T.prb = {
         plot({
           t: "Densità della normale N(μ, σ²)",
           xs,
-          lines: [{ n: "Densità", c: PAL[0], a: 1, v: xs.map((x) => normPdf((x - mu) / sg) / sg) }],
+          lines: [
+            {
+              n: "Densità",
+              c: PAL[0],
+              a: 1,
+              v: xs.map((x) => normPdf((x - mu) / sg) / sg),
+            },
+          ],
           yf: (q) => f4(q),
           lb: xs.map((x) => "x = " + f2(x)),
         })

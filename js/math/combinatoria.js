@@ -103,7 +103,13 @@ function fpct(p) {
   const x = p * 100;
   if (Math.abs(x) < 1e-4)
     return (
-      x.toExponential(3).replace(".", ",").replace(/e([+-]?\d+)/, (m, e) => ` × 10<sup>${e.replace("-", "−").replace("+", "")}</sup>`) + "%"
+      x
+        .toExponential(3)
+        .replace(".", ",")
+        .replace(
+          /e([+-]?\d+)/,
+          (m, e) => ` × 10<sup>${e.replace("-", "−").replace("+", "")}</sup>`,
+        ) + "%"
     );
   return nf(x, { maximumSignificantDigits: 6 }) + "%";
 }
@@ -113,7 +119,9 @@ function bUnoSu(a, b) {
   const q = (b * 100n) / a; // due decimali
   const i = q / 100n,
     d = q % 100n;
-  return "1 su " + bFmt(i) + (i < 1000n && d ? "," + String(d).padStart(2, "0") : "");
+  return (
+    "1 su " + bFmt(i) + (i < 1000n && d ? "," + String(d).padStart(2, "0") : "")
+  );
 }
 
 /* ---------- Etichette degli elementi ---------- */
@@ -121,7 +129,9 @@ function bUnoSu(a, b) {
 function etichette(n, tipo) {
   const L = [];
   for (let i = 0; i < n; i++)
-    L.push(tipo === "n" || n > 26 ? String(i + 1) : String.fromCharCode(65 + i));
+    L.push(
+      tipo === "n" || n > 26 ? String(i + 1) : String.fromCharCode(65 + i),
+    );
   return L;
 }
 

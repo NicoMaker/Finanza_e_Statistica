@@ -1,7 +1,10 @@
 /* Calcolo combinatorio e probabilità: elenco di tutti i casi, titoli di blocco, numeri molto grandi */
 .sh {
   margin: 20px 0 8px;
-  font: 700 0.95rem/1.3 Inter, system-ui, sans-serif;
+  font:
+    700 0.95rem/1.3 Inter,
+    system-ui,
+    sans-serif;
   color: var(--tx);
   padding-bottom: 6px;
   border-bottom: 2px solid var(--gold);

@@ -163,7 +163,8 @@ function comDesc0(id, P) {
         val: bStirling2(n, k),
         passo: `S(${n},${k}) = ${k}·S(${n - 1},${k}) + S(${n - 1},${k - 1}) — gruppi non vuoti e non ordinati`,
         en: (l) => enumStirling(n, k, l),
-        fm: (g) => g.map((b) => "{" + b.map((i) => L[i]).join(sep) + "}").join(" "),
+        fm: (g) =>
+          g.map((b) => "{" + b.map((i) => L[i]).join(sep) + "}").join(" "),
       };
     case "pm": {
       if (!sz || !sz.length) return null;
@@ -327,25 +328,44 @@ T.com = {
 
     /* ---------- Riepilogo di tutti i tipi ---------- */
     if (tp == "all") {
-      const ids = ["ds", "dr", "ps", "pr", "cs", "cr", "pc", "br", "de", "st", "pm"],
-        D = ids.map((i) => [i, comDesc(i, P)]).filter((x) => x[1]),
-        quattro = [
-          bDisp(n, k),
-          bDispRip(n, k),
-          bComb(n, k),
-          bCombRip(n, k),
+      const ids = [
+          "ds",
+          "dr",
+          "ps",
+          "pr",
+          "cs",
+          "cr",
+          "pc",
+          "br",
+          "de",
+          "st",
+          "pm",
         ],
+        D = ids.map((i) => [i, comDesc(i, P)]).filter((x) => x[1]),
+        quattro = [bDisp(n, k), bDispRip(n, k), bComb(n, k), bCombRip(n, k)],
         extra = [];
-      extra.push(["Sottoinsiemi di n elementi", "2<sup>n</sup>", bDispRip(2, n)]);
+      extra.push([
+        "Sottoinsiemi di n elementi",
+        "2<sup>n</sup>",
+        bDispRip(2, n),
+      ]);
       if (n <= 200) {
-        extra.push(["Partizioni di n elementi (numero di Bell)", "B<sub>n</sub> = Σ S(n,k)", bBell(n)]);
+        extra.push([
+          "Partizioni di n elementi (numero di Bell)",
+          "B<sub>n</sub> = Σ S(n,k)",
+          bBell(n),
+        ]);
         extra.push([
           "Funzioni suriettive da n elementi su k",
           "k!·S(n,k)",
           bSuriez(n, k),
         ]);
       }
-      extra.push(["Funzioni da k elementi in n (come D′)", "n<sup>k</sup>", bDispRip(n, k)]);
+      extra.push([
+        "Funzioni da k elementi in n (come D′)",
+        "n<sup>k</sup>",
+        bDispRip(n, k),
+      ]);
       extra.push([
         "Funzioni iniettive da k elementi in n (come D)",
         "n!/(n−k)!",
@@ -379,7 +399,10 @@ T.com = {
         TB(
           ["Tipo", "Casi possibili", "Ordine", "Ripetizione"],
           D.map(([, d]) => [d.nome, bFmt(d.val), d.o, d.r]).concat(rowTp),
-        ).replace('<div class="tb">', '<div class="tb" style="max-height:none">') +
+        ).replace(
+          '<div class="tb">',
+          '<div class="tb" style="max-height:none">',
+        ) +
         (k > n
           ? `<p class="note">Con k &gt; n i raggruppamenti <b>senza ripetizione</b> sono 0 (non si possono scegliere ${fg(k)} elementi diversi su ${fg(n)}).</p>`
           : "") +
@@ -401,7 +424,10 @@ T.com = {
     return (
       ks([
         K("Numero totale di casi", bFmt(tot), 1),
-        K("Probabilità di un singolo caso (equiprobabili)", tot > 0n ? fpct(bRatio(1n, tot)) : "—"),
+        K(
+          "Probabilità di un singolo caso (equiprobabili)",
+          tot > 0n ? fpct(bRatio(1n, tot)) : "—",
+        ),
         K("In altre parole", tot > 0n ? bUnoSu(1n, tot) : "—"),
         K("Cifre del risultato", fg(cifre)),
       ]) +
@@ -414,7 +440,8 @@ T.com = {
         ? `<p class="note">Lettere: ${w.cnt.reduce((a, b) => a + b, 0)} · distinte: ${w.ch.length}</p>`
         : "") +
       (mostra
-        ? `<h3 class="sh">Tutti i casi possibili</h3>` + comLista(d, COM_LIM, true)
+        ? `<h3 class="sh">Tutti i casi possibili</h3>` +
+          comLista(d, COM_LIM, true)
         : "")
     );
   },
