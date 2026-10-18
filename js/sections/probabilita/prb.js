@@ -72,6 +72,7 @@ T.prb = {
       t: "s",
       o: [
         ["cl", "Classica (favorevoli / possibili)"],
+        ["ca", "Carte da gioco (un asso, un seme…)"],
         ["ev", "Eventi A e B (unione, intersezione)"],
         ["ba", "Probabilità totali e Bayes"],
         ["bi", "Binomiale (con reinserimento)"],
@@ -89,6 +90,46 @@ T.prb = {
     /* classica */
     { k: "fa", l: "Casi favorevoli", v: 4, s: (v) => v.tp == "cl" },
     { k: "pos", l: "Casi possibili (tutti equiprobabili)", v: 52, s: (v) => v.tp == "cl" },
+    /* carte */
+    {
+      k: "mz",
+      l: "Mazzo",
+      t: "s",
+      o: [
+        ["52", "52 carte (francesi)"],
+        ["40", "40 carte (italiane)"],
+      ],
+      v: "52",
+      s: (v) => v.tp == "ca",
+    },
+    {
+      k: "bs",
+      l: "Cosa vuoi pescare",
+      t: "s",
+      o: [
+        ["as", "Un asso (4 nel mazzo)"],
+        ["pr", "Una carta precisa (es. asso di cuori)"],
+        ["se", "Una carta di un seme"],
+        ["fi", "Una figura (12 nel mazzo)"],
+        ["al", "Altro: scelgo io quante"],
+      ],
+      v: "as",
+      s: (v) => v.tp == "ca",
+    },
+    { k: "Kc", l: "Carte «buone» nel mazzo", v: 4, s: (v) => v.tp == "ca" && v.bs == "al" },
+    { k: "cn", l: "Carte che peschi n", v: 1, s: (v) => v.tp == "ca" },
+    { k: "ck", l: "Quante «buone» vuoi tra quelle pescate k", v: 1, s: (v) => v.tp == "ca" },
+    {
+      k: "mo",
+      l: "Dopo ogni pescata",
+      t: "s",
+      o: [
+        ["s", "Senza reinserimento (la carta non torna nel mazzo)"],
+        ["c", "Con reinserimento (la carta torna nel mazzo)"],
+      ],
+      v: "s",
+      s: (v) => v.tp == "ca",
+    },
     /* eventi */
     { k: "pa", l: "P(A) (%)", v: 40, s: (v) => v.tp == "ev" },
     { k: "pb", l: "P(B) (%)", v: 30, s: (v) => v.tp == "ev" },
@@ -200,6 +241,66 @@ T.prb = {
           K("Quote (favorevoli : sfavorevoli)", `${fg(fa)} : ${fg(pos - fa)}`),
         ]) +
         `<p class="note">Esempio: 4 assi in un mazzo di 52 carte → P(asso) = 4/52 = 1/13.</p>`
+      );
+    }
+
+    /* ---------- Carte da gioco ---------- */
+    if (tp == "ca") {
+      const N = v.mz == "40" ? 40 : 52,
+        n = Math.round(v.cn),
+        k = Math.round(v.ck),
+        sem = N / 4,
+        K_ = { as: 4, pr: 1, se: sem, fi: 12, al: Math.round(v.Kc) }[v.bs],
+        senza = v.mo == "s";
+      if (!(K_ >= 0 && K_ <= N)) return ER(`Le carte «buone» devono essere tra 0 e ${N}.`);
+      if (!(n >= 1 && n <= (senza ? N : 200)))
+        return ER(senza ? `Senza reinserimento puoi pescare da 1 a ${N} carte.` : "Puoi pescare da 1 a 200 carte.");
+      if (!(k >= 0 && k <= n)) return ER("Le carte «buone» k devono essere tra 0 e le carte pescate n.");
+      const nome = { as: "un asso", pr: "quella carta precisa", se: "una carta del seme", fi: "una figura", al: "una carta buona" }[v.bs],
+        // senza reinserimento (ipergeometrica) e con reinserimento (binomiale)
+        pS = (j) => hypP(N, K_, n, j),
+        pC = (j) => binPmf(n, j, K_ / N),
+        favS = hypNum(N, K_, n, k),
+        totS = bComb(N, n),
+        favC = bComb(n, k) * BigInt(K_) ** BigInt(k) * BigInt(N - K_) ** BigInt(n - k),
+        totC = bDispRip(N, n),
+        okS = n <= N && k <= K_ && n - k <= N - K_,
+        f = senza ? pS : pC,
+        lo = senza ? Math.max(0, n - (N - K_)) : 0,
+        hi = senza ? Math.min(n, K_) : n,
+        xs = Array.from({ length: hi - lo + 1 }, (_, i) => lo + i),
+        ps = xs.map(f),
+        W = prFinestra(xs, ps),
+        P = senza ? bRatio(favS, totS) : bRatio(favC, totC),
+        fav = senza ? favS : favC,
+        tot = senza ? totS : totC,
+        rows = [
+          [`Esattamente ${fg(k)}`, n <= N ? fpct(bRatio(favS, totS)) : "—", fpct(bRatio(favC, totC))],
+          ["Nessuna", n <= N ? fpct(pS(0)) : "—", fpct(pC(0))],
+          ["Almeno una", n <= N ? fpct(1 - pS(0)) : "—", fpct(1 - pC(0))],
+          ["Tutte e " + fg(n), n <= N ? fpct(pS(n)) : "—", fpct(pC(n))],
+        ];
+      return (
+        ks([
+          K(`P(esattamente ${fg(k)} su ${fg(n)})`, fpct(P), 1),
+          K("In altre parole", bUnoSu(fav, tot)),
+          K("P(almeno una)", fpct(1 - f(0))),
+          K("P(nessuna)", fpct(f(0))),
+          K("Casi favorevoli", bFmt(fav)),
+          K(senza ? "Casi possibili C(N,n)" : "Sequenze possibili N^n", bFmt(tot)),
+        ]) +
+        `<p class="note">Mazzo da ${N} carte, ${fg(K_)} «buone» (${nome}). ${
+          n == 1
+            ? `Con una sola carta: P = ${fg(K_)}/${N} = ${fpct(K_ / N)} (${prU(K_ / N)}), uguale con o senza reinserimento.`
+            : senza
+              ? `Senza reinserimento ogni carta pescata resta fuori: le pescate dipendono l’una dall’altra (ipergeometrica).`
+              : `Con reinserimento la carta torna nel mazzo e la probabilità resta ${fpct(K_ / N)} a ogni pescata (binomiale).`
+        }</p>` +
+        `<h3 class="sh">Con e senza reinserimento a confronto</h3>` +
+        TB(["Caso", "Senza reinserimento", "Con reinserimento"], rows) +
+        (okS || !senza ? "" : `<p class="note">Con questi numeri, senza reinserimento, il caso scelto è impossibile.</p>`) +
+        prBarre(senza ? "Quante «buone» escono (senza reinserimento)" : "Quante «buone» escono (con reinserimento)", W.xs, W.ps, "k =") +
+        (W.tagliato ? "" : prTab("k", W.xs, W.ps))
       );
     }
 

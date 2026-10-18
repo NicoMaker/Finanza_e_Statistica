@@ -898,5 +898,54 @@
       "tp": "no"
     },
     "campo": "mu"
+  },
+  {
+    "scheda": "prb",
+    "titolo": "Asso: probabilità di pescarlo",
+    "descrizione": "una carta da un mazzo, un solo asso, con e senza reinserimento",
+    "valori": {
+      "tp": "ca",
+      "bs": "as"
+    },
+    "campo": "cn"
+  },
+  {
+    "scheda": "prb",
+    "titolo": "Carta precisa: probabilità di pescarla",
+    "descrizione": "asso di cuori, una sola carta del mazzo",
+    "valori": {
+      "tp": "ca",
+      "bs": "pr"
+    },
+    "campo": "cn"
+  },
+  {
+    "scheda": "prb",
+    "titolo": "Carte da gioco",
+    "descrizione": "mazzo da 52 o 40 carte, figure, semi, pescare più carte",
+    "valori": {
+      "tp": "ca"
+    },
+    "campo": "cn"
+  },
+  {
+    "scheda": "prb",
+    "titolo": "Pescare con reinserimento",
+    "descrizione": "la carta torna nel mazzo, ripetizione, binomiale",
+    "valori": {
+      "tp": "ca",
+      "mo": "c"
+    },
+    "campo": "cn"
+  },
+  {
+    "scheda": "prb",
+    "titolo": "Pescare senza reinserimento",
+    "descrizione": "la carta non torna nel mazzo, senza ripetizione, ipergeometrica",
+    "valori": {
+      "tp": "ca",
+      "mo": "s"
+    },
+    "campo": "cn"
   }
 ]
