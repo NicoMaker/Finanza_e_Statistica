@@ -2,7 +2,7 @@
   "home": {
     "simbolo": "Σ",
     "titolo": "Matematica Finanziaria",
-    "descrizione": "Ammortamenti · Rendite · Duration · VAN e TIR · Statistica · Obbligazioni · Opzioni · Patrimonio · Taylor · Borsa"
+    "descrizione": "Ammortamenti · Rendite · Duration · VAN e TIR · Statistica · Probabilità · Combinatorio · Obbligazioni · Opzioni · Patrimonio · Taylor · Borsa"
   },
   "schede": {
     "amm": {
@@ -79,6 +79,16 @@
       "icona": "📉",
       "colore": "#0ea5e9",
       "descrizione": "Rendimenti, volatilità, drawdown e VaR da serie di prezzi"
+    },
+    "com": {
+      "icona": "🔢",
+      "colore": "#8b5cf6",
+      "descrizione": "Numero totale di casi: disposizioni, permutazioni, combinazioni (anche con ripetizione), con l’elenco di tutti i casi"
+    },
+    "prb": {
+      "icona": "🎲",
+      "colore": "#a78bfa",
+      "descrizione": "Probabilità classica, eventi, Bayes, binomiale, ipergeometrica, lotterie, urne, dadi e normale"
     },
     "cap": {
       "icona": "🎯",

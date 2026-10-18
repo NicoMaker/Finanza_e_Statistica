@@ -597,5 +597,306 @@
       "m": "conservative"
     },
     "campo": "m"
+  },
+  {
+    "scheda": "com",
+    "titolo": "Tutti i casi possibili",
+    "descrizione": "riepilogo di tutti i tipi: disposizioni, permutazioni, combinazioni con e senza ripetizione",
+    "valori": {
+      "tp": "all"
+    },
+    "campo": "n"
+  },
+  {
+    "scheda": "com",
+    "titolo": "Numero totale di possibilità",
+    "descrizione": "quanti casi possibili, calcolo combinatorio, elenco di tutti i casi",
+    "valori": {
+      "tp": "all",
+      "el": "s"
+    },
+    "campo": "n"
+  },
+  {
+    "scheda": "com",
+    "titolo": "Disposizioni semplici",
+    "descrizione": "l'ordine conta, senza ripetizione, n!/(n−k)!",
+    "valori": {
+      "tp": "ds"
+    },
+    "campo": "n"
+  },
+  {
+    "scheda": "com",
+    "titolo": "Disposizioni con ripetizione",
+    "descrizione": "l'ordine conta, si può ripetere, n alla k",
+    "valori": {
+      "tp": "dr"
+    },
+    "campo": "n"
+  },
+  {
+    "scheda": "com",
+    "titolo": "Permutazioni semplici",
+    "descrizione": "tutti gli elementi in ordine, fattoriale n!",
+    "valori": {
+      "tp": "ps"
+    },
+    "campo": "n"
+  },
+  {
+    "scheda": "com",
+    "titolo": "Fattoriale",
+    "descrizione": "n! prodotto dei primi n numeri, permutazioni",
+    "valori": {
+      "tp": "ps"
+    },
+    "campo": "n"
+  },
+  {
+    "scheda": "com",
+    "titolo": "Permutazioni con ripetizione",
+    "descrizione": "anagrammi di una parola, elementi uguali, coefficiente multinomiale",
+    "valori": {
+      "tp": "pr"
+    },
+    "campo": "w"
+  },
+  {
+    "scheda": "com",
+    "titolo": "Anagrammi",
+    "descrizione": "quanti anagrammi ha una parola con lettere ripetute",
+    "valori": {
+      "tp": "pr"
+    },
+    "campo": "w"
+  },
+  {
+    "scheda": "com",
+    "titolo": "Combinazioni semplici",
+    "descrizione": "l'ordine non conta, senza ripetizione, coefficiente binomiale",
+    "valori": {
+      "tp": "cs"
+    },
+    "campo": "n"
+  },
+  {
+    "scheda": "com",
+    "titolo": "Coefficiente binomiale",
+    "descrizione": "n su k, triangolo di Tartaglia, combinazioni",
+    "valori": {
+      "tp": "cs"
+    },
+    "campo": "n"
+  },
+  {
+    "scheda": "com",
+    "titolo": "Combinazioni con ripetizione",
+    "descrizione": "l'ordine non conta, si può ripetere, C(n+k−1,k)",
+    "valori": {
+      "tp": "cr"
+    },
+    "campo": "n"
+  },
+  {
+    "scheda": "com",
+    "titolo": "Permutazioni circolari",
+    "descrizione": "giro di tavolo, persone attorno a un tavolo, (n−1)!",
+    "valori": {
+      "tp": "pc"
+    },
+    "campo": "n"
+  },
+  {
+    "scheda": "com",
+    "titolo": "Collane e braccialetti",
+    "descrizione": "permutazioni circolari rovesciabili, (n−1)!/2",
+    "valori": {
+      "tp": "br"
+    },
+    "campo": "n"
+  },
+  {
+    "scheda": "com",
+    "titolo": "Sconvolgimenti (derangement)",
+    "descrizione": "nessun elemento al proprio posto, sottofattoriale, lettere nelle buste",
+    "valori": {
+      "tp": "de"
+    },
+    "campo": "n"
+  },
+  {
+    "scheda": "com",
+    "titolo": "Partizioni e numeri di Stirling",
+    "descrizione": "dividere n elementi in k gruppi, numero di Bell",
+    "valori": {
+      "tp": "st"
+    },
+    "campo": "n"
+  },
+  {
+    "scheda": "com",
+    "titolo": "Principio moltiplicativo",
+    "descrizione": "una scelta per ogni passo, prodotto delle possibilità, abiti e menù",
+    "valori": {
+      "tp": "pm"
+    },
+    "campo": "sc"
+  },
+  {
+    "scheda": "com",
+    "titolo": "Elenco di tutti i casi",
+    "descrizione": "mostra ogni caso possibile uno per uno",
+    "valori": {
+      "el": "s"
+    },
+    "campo": "el"
+  },
+  {
+    "scheda": "prb",
+    "titolo": "Probabilità classica",
+    "descrizione": "casi favorevoli su casi possibili, carte, dadi, monete",
+    "valori": {
+      "tp": "cl"
+    },
+    "campo": "fa"
+  },
+  {
+    "scheda": "prb",
+    "titolo": "Unione e intersezione di eventi",
+    "descrizione": "P(A∪B), P(A∩B), eventi indipendenti e incompatibili",
+    "valori": {
+      "tp": "ev"
+    },
+    "campo": "pa"
+  },
+  {
+    "scheda": "prb",
+    "titolo": "Probabilità condizionata",
+    "descrizione": "P(A|B), eventi dipendenti, tabella di contingenza",
+    "valori": {
+      "tp": "ev",
+      "rl": "ab"
+    },
+    "campo": "pab"
+  },
+  {
+    "scheda": "prb",
+    "titolo": "Eventi indipendenti",
+    "descrizione": "P(A∩B) = P(A)·P(B)",
+    "valori": {
+      "tp": "ev",
+      "rl": "ind"
+    },
+    "campo": "pa"
+  },
+  {
+    "scheda": "prb",
+    "titolo": "Eventi incompatibili",
+    "descrizione": "non possono accadere insieme, P(A∩B) = 0",
+    "valori": {
+      "tp": "ev",
+      "rl": "inc"
+    },
+    "campo": "pa"
+  },
+  {
+    "scheda": "prb",
+    "titolo": "Teorema di Bayes",
+    "descrizione": "probabilità a posteriori, probabilità totali, partizione di ipotesi",
+    "valori": {
+      "tp": "ba"
+    },
+    "campo": "hp"
+  },
+  {
+    "scheda": "prb",
+    "titolo": "Distribuzione binomiale",
+    "descrizione": "prove ripetute con reinserimento, successi su n prove, monete",
+    "valori": {
+      "tp": "bi"
+    },
+    "campo": "bn"
+  },
+  {
+    "scheda": "prb",
+    "titolo": "Ipergeometrica",
+    "descrizione": "estrazioni senza reinserimento, carte, urna",
+    "valori": {
+      "tp": "ip"
+    },
+    "campo": "hN"
+  },
+  {
+    "scheda": "prb",
+    "titolo": "Lotto e SuperEnalotto",
+    "descrizione": "probabilità di vincere, 6 numeri su 90, combinazioni possibili",
+    "valori": {
+      "tp": "lo"
+    },
+    "campo": "lN"
+  },
+  {
+    "scheda": "prb",
+    "titolo": "Distribuzione geometrica",
+    "descrizione": "prova del primo successo, attesa",
+    "valori": {
+      "tp": "ge"
+    },
+    "campo": "p"
+  },
+  {
+    "scheda": "prb",
+    "titolo": "Distribuzione di Poisson",
+    "descrizione": "eventi rari, media lambda",
+    "valori": {
+      "tp": "po"
+    },
+    "campo": "lam"
+  },
+  {
+    "scheda": "prb",
+    "titolo": "Urna senza reinserimento",
+    "descrizione": "palline di colori diversi, composizione estratta",
+    "valori": {
+      "tp": "ur"
+    },
+    "campo": "un"
+  },
+  {
+    "scheda": "prb",
+    "titolo": "Urna con reinserimento",
+    "descrizione": "la pallina si rimette nell'urna, colori che si ripetono",
+    "valori": {
+      "tp": "ur"
+    },
+    "campo": "un"
+  },
+  {
+    "scheda": "prb",
+    "titolo": "Dadi",
+    "descrizione": "somma di più dadi, quante combinazioni, probabilità della somma",
+    "valori": {
+      "tp": "da"
+    },
+    "campo": "dn"
+  },
+  {
+    "scheda": "prb",
+    "titolo": "Valore atteso e varianza",
+    "descrizione": "media di una variabile casuale, rischio, probabilità di perdita",
+    "valori": {
+      "tp": "va"
+    },
+    "campo": "xv"
+  },
+  {
+    "scheda": "prb",
+    "titolo": "Distribuzione normale",
+    "descrizione": "z-score, area sotto la curva di Gauss, P(a≤X≤b)",
+    "valori": {
+      "tp": "no"
+    },
+    "campo": "mu"
   }
 ]

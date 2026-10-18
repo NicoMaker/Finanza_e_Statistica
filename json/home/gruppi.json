@@ -36,6 +36,12 @@
     "schede": ["vc", "rnd"]
   },
   {
+    "nome": "Probabilità & Calcolo combinatorio",
+    "icona": "🎲",
+    "colore": "#8b5cf6",
+    "schede": ["com", "prb"]
+  },
+  {
     "nome": "Rischio & CAPM",
     "icona": "⚖️",
     "colore": "#06b6d4",
