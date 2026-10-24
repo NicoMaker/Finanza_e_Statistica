@@ -1,22 +1,22 @@
 // Avvio: aspetta i JSON di /json e solo dopo carica, nell'ordine, gli script che li usano.
 // (gli script aggiunti da qui condividono le stesse variabili globali degli altri)
 const BOOT_SCRIPTS = [
-  "js/math/borsa-portafoglio.js",
-  "js/math/borsa-robot.js",
+  "js/math/borsa/borsa-portafoglio.js",
+  "js/math/borsa/borsa-robot.js",
   "js/charts/borsa/equity-chart.js",
-  "js/ui/borsalive-panels.js",
+  "js/ui/borsa/borsalive-panels.js",
   "js/sections/borsa/borsalive.js",
-  "js/core/state.js",
+  "js/core/dati/state.js",
   "js/ui/tema/header-theme.js",
-  "js/ui/build.js",
-  "js/ui/form.js",
-  "js/ui/country-select.js",
-  "js/ui/tooltip.js",
-  "js/ui/resize.js",
+  "js/ui/scheda/build.js",
+  "js/ui/scheda/form.js",
+  "js/ui/scheda/country-select.js",
+  "js/ui/pagina/tooltip.js",
+  "js/ui/pagina/resize.js",
   "js/ui/tema/theme-toggle.js",
   "js/search/palette.js",
-  "js/ui/keyboard.js",
-  "js/ui/home.js",
+  "js/ui/scheda/keyboard.js",
+  "js/ui/pagina/home.js",
   "js/app.js", // ultimo: avvia l'app
 ];
 

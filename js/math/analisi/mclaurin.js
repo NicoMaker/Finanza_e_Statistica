@@ -21,8 +21,8 @@ const MACF = {
   },
 };
 
-// Funzione scelta nel form: predefinita (derivate note) oppure pronta/scritta dall'utente (math/espressioni.js).
-// Lancia un Error leggibile se il testo scritto non è valido o la funzione non è sviluppabile in 0
+// Funzione scelta nel form: predefinita (derivate note) oppure pronta (math/espressioni.js).
+// Lancia un Error leggibile se la funzione non è sviluppabile in 0
 const macFn = (v) => MACF[v.fn] || sxFn(v.fn == "cu" ? v.ex : SXP[v.fn], 0, 30);
 
 // (1+x)^α è un vero polinomio quando α è un intero ≥ 0

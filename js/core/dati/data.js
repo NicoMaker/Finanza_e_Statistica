@@ -1,5 +1,5 @@
 // Caricamento dei dati: tutti i valori "fissi" stanno in /json (divisi per cartella) (non più nel codice).
-// DATA_READY si risolve quando i JSON sono pronti; js/core/boot.js avvia l'app solo dopo.
+// DATA_READY si risolve quando i JSON sono pronti; js/core/avvio/boot.js avvia l'app solo dopo.
 // I nomi globali (CTY, GR, TH, HD, OPT, BL_TITOLI, ...) restano quelli di prima: il resto del codice non cambia.
 const DATA_DIR = "json/";
 const DATA_FILES = {

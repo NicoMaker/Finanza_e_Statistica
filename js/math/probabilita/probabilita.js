@@ -1,5 +1,5 @@
 // Probabilità: distribuzioni (binomiale, ipergeometrica, geometrica, Poisson, normale), dadi, Bayes
-// Richiede js/math/combinatoria.js (bComb, bRatio, ...).
+// Richiede js/math/probabilita/combinatoria.js (bComb, bRatio, ...).
 
 /* ---------- Funzioni speciali ---------- */
 // ln Γ(x) (approssimazione di Lanczos, errore ~1e-15)

@@ -15,19 +15,24 @@ const SX_FN = {
   cosh: Math.cosh,
   tanh: Math.tanh,
   atan: Math.atan,
+  asin: Math.asin,
   sqrt: Math.sqrt,
 };
 // Funzioni pronte da scegliere nel form: stesso motore, espressione già scritta
 const SXP = {
   tan: "tan(x)",
   atan: "atan(x)",
+  asin: "asin(x)",
   sinh: "sinh(x)",
   cosh: "cosh(x)",
   sqrt: "sqrt(x)",
   inv: "1/x",
+  gauss: "exp(-x^2)",
+  lor: "1/(1+x^2)",
+  xex: "x*exp(x)",
 };
 const SX_AIUTO =
-  "Si può scrivere con x, + − * / ^, parentesi, pi, e e le funzioni exp, ln, sin, cos, tan, sinh, cosh, tanh, atan, sqrt (il prodotto può essere sottinteso: 2x, x(1+x)).";
+  "Puoi scrivere la formula anche come y = …: usa x, + − * / ^, parentesi, pi, e, exp, ln, sin, cos, tan, sinh, cosh, tanh, atan, asin, sqrt (il prodotto può essere sottinteso: 2x, x(1+x)).";
 
 // ---- Lettura del testo: da stringa a elenco di simboli
 const sxTok = (src) => {
@@ -40,7 +45,8 @@ const sxTok = (src) => {
       .replace(/÷/g, "/")
       .replace(/−/g, "-")
       .replace(/²/g, "^2")
-      .replace(/³/g, "^3"),
+      .replace(/³/g, "^3")
+      .replace(/^\s*(y|f\s*\(\s*x\s*\))\s*=\s*/, ""), // accetta anche «y = …» e «f(x) = …»
     t = [],
     re = /\s*(\d+\.?\d*|\.\d+|[a-z_]\w*|[-+*/^()])/y;
   let p = 0;
@@ -320,6 +326,20 @@ const sxSer = (n, X) => {
         }
         case "atan":
           return sxAtan(u);
+        case "asin": {
+          // (arcsin u)' = u' / √(1−u²)
+          const N2 = u.length - 1,
+            w = sxZ(N2);
+          for (let i = 0; i < N2; i++) w[i] = (i + 1) * u[i + 1];
+          const d = sxSub(sxK(1, N2), sxMul(u, u));
+          if (!(d[0] > 0))
+            throw new Error("arcsin richiede un punto di sviluppo tra −1 e 1.");
+          const q = sxDiv(w, sxPow(d, sxK(0.5, N2))),
+            r = sxZ(N2);
+          r[0] = Math.asin(u[0]);
+          for (let k = 1; k <= N2; k++) r[k] = q[k - 1] / k;
+          return r;
+        }
         default:
           return sxPow(u, sxK(0.5, N)); // sqrt
       }

@@ -1,5 +1,5 @@
 // Sezione «Borsa Live»: formule (FM.bl) e scheda (T.bl) del robot di trading simulato
-// Logica in js/math/borsa-*.js, dati e parametri in json/borsa/*.json, grafico in js/charts/borsa/, pannelli in js/ui/borsalive-panels.js
+// Logica in js/math/borsa/*.js, dati e parametri in json/borsa/*.json, grafico in js/charts/borsa/, pannelli in js/ui/borsa/borsalive-panels.js
 // I prezzi sono generati a caso: è una simulazione didattica, non quotazioni reali.
 FM.bl = eq(
   `<b>Valore totale</b><i>V</i> = <i>C</i> + Σ <i>q</i><sub>j</sub>·<i>P</i><sub>j</sub>`,

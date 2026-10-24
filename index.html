@@ -11,25 +11,25 @@
     <link rel="stylesheet" href="css/base/tokens.css" />
     <link rel="stylesheet" href="css/base/base.css" />
     <link rel="stylesheet" href="css/base/animations.css" />
-    <link rel="stylesheet" href="css/components/symbol.css" />
+    <link rel="stylesheet" href="css/components/navigazione/symbol.css" />
     <link rel="stylesheet" href="css/layout/header.css" />
-    <link rel="stylesheet" href="css/components/nav.css" />
-    <link rel="stylesheet" href="css/components/back-button.css" />
-    <link rel="stylesheet" href="css/components/hint.css" />
+    <link rel="stylesheet" href="css/components/navigazione/nav.css" />
+    <link rel="stylesheet" href="css/components/navigazione/back-button.css" />
+    <link rel="stylesheet" href="css/components/form/hint.css" />
     <link rel="stylesheet" href="css/layout/main.css" />
-    <link rel="stylesheet" href="css/components/card.css" />
-    <link rel="stylesheet" href="css/components/form.css" />
-    <link rel="stylesheet" href="css/components/segmented.css" />
-    <link rel="stylesheet" href="css/components/kpi.css" />
-    <link rel="stylesheet" href="css/components/table.css" />
-    <link rel="stylesheet" href="css/components/error.css" />
-    <link rel="stylesheet" href="css/components/formula.css" />
-    <link rel="stylesheet" href="css/components/chart.css" />
-    <link rel="stylesheet" href="css/components/tooltip.css" />
-    <link rel="stylesheet" href="css/components/palette.css" />
-    <link rel="stylesheet" href="css/components/patrimonio.css" />
+    <link rel="stylesheet" href="css/components/risultati/card.css" />
+    <link rel="stylesheet" href="css/components/form/form.css" />
+    <link rel="stylesheet" href="css/components/form/segmented.css" />
+    <link rel="stylesheet" href="css/components/risultati/kpi.css" />
+    <link rel="stylesheet" href="css/components/risultati/table.css" />
+    <link rel="stylesheet" href="css/components/risultati/error.css" />
+    <link rel="stylesheet" href="css/components/risultati/formula.css" />
+    <link rel="stylesheet" href="css/components/risultati/chart.css" />
+    <link rel="stylesheet" href="css/components/risultati/tooltip.css" />
+    <link rel="stylesheet" href="css/components/navigazione/palette.css" />
+    <link rel="stylesheet" href="css/components/sezioni/patrimonio.css" />
     <link rel="stylesheet" href="css/pages/home.css" />
-    <link rel="stylesheet" href="css/components/country.css" />
+    <link rel="stylesheet" href="css/components/form/country.css" />
     <link rel="stylesheet" href="css/components/borsa/base.css" />
     <link rel="stylesheet" href="css/components/borsa/strategia.css" />
     <link rel="stylesheet" href="css/components/borsa/grafico.css" />
@@ -38,11 +38,11 @@
     <link rel="stylesheet" href="css/components/borsa/avviso.css" />
     <link rel="stylesheet" href="css/theme/modern.css" />
     <link rel="stylesheet" href="css/layout/sticky-form.css" />
-    <link rel="stylesheet" href="css/components/intro.css" />
-    <link rel="stylesheet" href="css/components/combinatoria.css" />
-    <script src="js/core/data.js"></script>
+    <link rel="stylesheet" href="css/components/navigazione/intro.css" />
+    <link rel="stylesheet" href="css/components/sezioni/combinatoria.css" />
+    <script src="js/core/dati/data.js"></script>
     <script src="js/ui/tema/favicon.js"></script>
-    <script src="js/core/theme-init.js"></script>
+    <script src="js/core/avvio/theme-init.js"></script>
   </head>
   <body>
     <!-- INTRO SPLASH (solo all'ingresso / refresh) -->
@@ -151,18 +151,18 @@
       </div>
     </div>
     <!-- ordine di caricamento importante: le variabili sono condivise tra i file -->
-    <!-- I dati stanno in /json/**/*.json (caricati da js/core/data.js); gli script che li usano partono da js/core/boot.js -->
-    <script src="js/core/format.js"></script>
-    <script src="js/core/chart-utils.js"></script>
-    <script src="js/core/html.js"></script>
-    <script src="js/core/remote.js"></script>
-    <script src="js/core/country-utils.js"></script>
-    <script src="js/core/icon-utils.js"></script>
-    <script src="js/math/black-scholes.js"></script>
-    <script src="js/math/combinatoria.js"></script>
-    <script src="js/math/probabilita.js"></script>
-    <script src="js/math/espressioni.js"></script>
-    <script src="js/math/mclaurin.js"></script>
+    <!-- I dati stanno in /json/**/*.json (caricati da js/core/dati/data.js); gli script che li usano partono da js/core/avvio/boot.js -->
+    <script src="js/core/formato/format.js"></script>
+    <script src="js/core/formato/chart-utils.js"></script>
+    <script src="js/core/formato/html.js"></script>
+    <script src="js/core/dati/remote.js"></script>
+    <script src="js/core/registro/country-utils.js"></script>
+    <script src="js/core/registro/icon-utils.js"></script>
+    <script src="js/math/finanza/black-scholes.js"></script>
+    <script src="js/math/probabilita/combinatoria.js"></script>
+    <script src="js/math/probabilita/probabilita.js"></script>
+    <script src="js/math/analisi/espressioni.js"></script>
+    <script src="js/math/analisi/mclaurin.js"></script>
     <script src="js/charts/base/plot.js"></script>
     <script src="js/charts/base/donut.js"></script>
     <script src="js/charts/prestiti/loan-charts.js"></script>
@@ -171,8 +171,8 @@
     <script src="js/charts/obbligazioni/duration-chart.js"></script>
     <script src="js/charts/investimenti/npv-chart.js"></script>
     <script src="js/charts/matematica/mclaurin-chart.js"></script>
-    <script src="js/core/formulas.js"></script>
-    <script src="js/core/registry.js"></script>
+    <script src="js/core/registro/formulas.js"></script>
+    <script src="js/core/registro/registry.js"></script>
     <script src="js/sections/prestiti/amm.js"></script>
     <script src="js/sections/prestiti/pre.js"></script>
     <script src="js/sections/prestiti/sp.js"></script>
@@ -199,8 +199,8 @@
     <script src="js/sections/rischio/cap.js"></script>
     <script src="js/sections/opzioni/opz.js"></script>
     <script src="js/sections/borsa/cambi.js"></script>
-    <script src="js/core/borsa-format.js"></script>
-    <script src="js/core/boot.js"></script>
-    <script src="js/ui/intro.js"></script>
+    <script src="js/core/formato/borsa-format.js"></script>
+    <script src="js/core/avvio/boot.js"></script>
+    <script src="js/ui/pagina/intro.js"></script>
   </body>
 </html>

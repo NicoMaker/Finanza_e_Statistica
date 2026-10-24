@@ -552,8 +552,8 @@
   },
   {
     "scheda": "tay",
-    "titolo": "Funzione personalizzata",
-    "descrizione": "scrivi tu la funzione f(x) da sviluppare in Taylor",
+    "titolo": "Scrivi la formula",
+    "descrizione": "scrivi tu la funzione y = f(x) da sviluppare in Taylor",
     "valori": {
       "fn": "cu"
     },
@@ -568,8 +568,8 @@
   },
   {
     "scheda": "mac",
-    "titolo": "Funzione personalizzata",
-    "descrizione": "scrivi tu la funzione f(x) da sviluppare in McLaurin",
+    "titolo": "Scrivi la formula",
+    "descrizione": "scrivi tu la funzione y = f(x) da sviluppare in McLaurin",
     "valori": {
       "fn": "cu"
     },

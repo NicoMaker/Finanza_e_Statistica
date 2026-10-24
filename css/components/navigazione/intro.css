@@ -1,5 +1,5 @@
 /* ═══ INTRO SPLASH ═══
-   Mostrata solo all'ingresso da URL / refresh (vedi js/ui/intro.js).
+   Mostrata solo all'ingresso da URL / refresh (vedi js/ui/pagina/intro.js).
    Tema automatico: segue html[data-theme] già impostato dallo script nell'<head>. */
 
 .intro-splash {
