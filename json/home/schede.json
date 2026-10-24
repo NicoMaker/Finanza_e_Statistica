@@ -129,6 +129,11 @@
       "icona": "∑",
       "colore": "#6366f1",
       "descrizione": "Serie di Taylor e Maclaurin: approssimazione, resto e grafico"
+    },
+    "mac": {
+      "icona": "∑",
+      "colore": "#8b5cf6",
+      "descrizione": "Polinomio di Taylor nella formulazione di McLaurin (a = 0): coefficienti, resto e grafico"
     }
   }
 }

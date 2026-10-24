@@ -545,10 +545,24 @@
   },
   {
     "scheda": "tay",
-    "titolo": "Maclaurin",
-    "descrizione": "sviluppo di Taylor centrato in 0",
+    "titolo": "Punto di sviluppo",
+    "descrizione": "sviluppo di Taylor centrato in a (a = 0 è Maclaurin)",
     "valori": {},
     "campo": "a"
+  },
+  {
+    "scheda": "mac",
+    "titolo": "Maclaurin",
+    "descrizione": "polinomio di Taylor centrato in 0, McLaurin",
+    "valori": {},
+    "campo": "fn"
+  },
+  {
+    "scheda": "mac",
+    "titolo": "Binomio di Newton",
+    "descrizione": "sviluppo di (1+x)^α in serie di McLaurin",
+    "valori": { "fn": "bin" },
+    "campo": "al"
   },
   {
     "scheda": "imm",
