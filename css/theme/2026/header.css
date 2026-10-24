@@ -16,5 +16,8 @@ h1 {
 .nav a,
 nav button {
   border-radius: 999px;
-  transition: background 0.2s, color 0.2s, transform 0.15s;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    transform 0.15s;
 }

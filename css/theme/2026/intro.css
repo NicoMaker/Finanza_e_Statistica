@@ -1,7 +1,11 @@
 /* Splash iniziale con i nuovi colori */
 .intro-splash {
   background:
-    radial-gradient(60rem 40rem at 20% 0%, color-mix(in srgb, var(--ac) 22%, transparent), transparent 60%),
+    radial-gradient(
+      60rem 40rem at 20% 0%,
+      color-mix(in srgb, var(--ac) 22%, transparent),
+      transparent 60%
+    ),
     var(--bg);
 }
 .intro-splash-title {

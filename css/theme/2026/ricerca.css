@@ -9,7 +9,9 @@
 }
 .pi {
   border-radius: 14px;
-  transition: background 0.15s, transform 0.15s;
+  transition:
+    background 0.15s,
+    transform 0.15s;
 }
 .pi:hover {
   background: color-mix(in srgb, var(--ac) 10%, transparent);
