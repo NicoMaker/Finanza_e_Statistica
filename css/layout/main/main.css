@@ -1,7 +1,0 @@
-/* Griglia a due colonne di una scheda */
-main {
-  display: grid;
-  grid-template-columns: 340px 1fr;
-  gap: 16px;
-  align-items: start;
-}

@@ -1,0 +1,12 @@
+/* Riga dei suggerimenti da tastiera */
+.hint {
+  text-align: center;
+  color: var(--mu);
+  font-size: 0.76rem;
+  margin: -2px 0 14px;
+}
+@media (max-width: 820px) {
+  .hint {
+    display: none;
+  }
+}

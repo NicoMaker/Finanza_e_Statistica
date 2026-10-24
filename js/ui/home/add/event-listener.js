@@ -1,1 +1,0 @@
-addEventListener("resize", updateHeaderHeight);
