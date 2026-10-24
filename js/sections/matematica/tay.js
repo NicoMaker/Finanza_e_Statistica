@@ -34,18 +34,39 @@ T.tay = {
         ["cos", "cos x"],
         ["ln", "ln x"],
         ["geo", "1/(1−x)"],
+        ["tan", "tan x"],
+        ["atan", "arctan x"],
+        ["sinh", "sinh x"],
+        ["cosh", "cosh x"],
+        ["sqrt", "√x"],
+        ["inv", "1/x"],
+        ["cu", "Scrivi tu la funzione"],
       ],
+    },
+    {
+      k: "ex",
+      l: "Funzione f(x), per esempio x*exp(-x^2) oppure sin(x)/(1+x^2)",
+      t: "t",
+      v: "x*exp(x)",
+      s: (v) => v.fn == "cu",
     },
     { k: "a", l: "Punto di sviluppo a (0 = Maclaurin)", v: 0 },
     { k: "x", l: "Punto da approssimare x", v: 1 },
     { k: "n", l: "Ordine del polinomio n", v: 5 },
   ],
   c(v) {
-    const F = TAYF[v.fn],
-      n = Math.round(v.n),
+    const n = Math.round(v.n),
       a = v.a,
       x = v.x;
     if (!(n >= 0 && n <= 30)) return ER("L'ordine deve essere tra 0 e 30.");
+    // funzioni predefinite con derivate note, oppure funzione pronta/scritta dall'utente (motore in math/espressioni.js)
+    let F = TAYF[v.fn];
+    if (!F)
+      try {
+        F = sxFn(v.fn == "cu" ? v.ex : SXP[v.fn], a, 30);
+      } catch (e) {
+        return ER(e.message);
+      }
     if (v.fn == "ln" && !(a > 0 && x > 0))
       return ER("Per ln x servono a > 0 e x > 0.");
     if (v.fn == "geo" && (a == 1 || x == 1))
@@ -59,6 +80,8 @@ T.tay = {
       ex = F.f(x),
       ap = Tn(n, x),
       rows = [];
+    if (!Number.isFinite(ex) || !Number.isFinite(ap))
+      return ER("f(x) non è definita in x = " + x + ".");
     let s = 0;
     for (let k = 0; k <= Math.min(n, 15); k++) {
       s += term(k, x);
@@ -72,8 +95,9 @@ T.tay = {
       a < 1
         ? ((hi = Math.min(hi, 0.9)), (lo = Math.max(lo, -3)))
         : ((lo = Math.max(lo, 1.1)), (hi = Math.min(hi, 5)));
-    const xs = [...Array(61)].map((_, j) => lo + ((hi - lo) * j) / 60),
+    const xs = sxXs(F.f, lo, hi),
       cl = (y) => Math.max(-50, Math.min(50, y));
+    if (xs.length < 2) return ER("La funzione non è definita vicino ad a e x.");
     return (
       ks([
         K("f(x) esatto", f4(ex), 1),
@@ -85,7 +109,9 @@ T.tay = {
         ),
       ]) +
       TB(["k", "f⁽ᵏ⁾(a)", "Termine k", "Somma parziale", "Errore"], rows) +
-      `<p class="note">Lo sviluppo converge solo vicino ad a: per ln x e 1/(1−x) il raggio di convergenza è limitato (|x−a| < a oppure |x−a| < |1−a|).</p>` +
+      (TAYF[v.fn]
+        ? `<p class="note">Lo sviluppo converge solo vicino ad a: per ln x e 1/(1−x) il raggio di convergenza è limitato (|x−a| < a oppure |x−a| < |1−a|).</p>`
+        : `<p class="note">Lo sviluppo vale solo vicino ad a: il raggio di convergenza dipende dalla funzione (arriva fino alla singolarità più vicina). ${v.fn == "cu" ? SX_AIUTO : ""}</p>`) +
       plot({
         t: "Funzione e polinomio di Taylor",
         xs,

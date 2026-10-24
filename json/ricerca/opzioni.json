@@ -551,6 +551,15 @@
     "campo": "a"
   },
   {
+    "scheda": "tay",
+    "titolo": "Funzione personalizzata",
+    "descrizione": "scrivi tu la funzione f(x) da sviluppare in Taylor",
+    "valori": {
+      "fn": "cu"
+    },
+    "campo": "ex"
+  },
+  {
     "scheda": "mac",
     "titolo": "Maclaurin",
     "descrizione": "polinomio di Taylor centrato in 0, McLaurin",
@@ -559,9 +568,20 @@
   },
   {
     "scheda": "mac",
+    "titolo": "Funzione personalizzata",
+    "descrizione": "scrivi tu la funzione f(x) da sviluppare in McLaurin",
+    "valori": {
+      "fn": "cu"
+    },
+    "campo": "ex"
+  },
+  {
+    "scheda": "mac",
     "titolo": "Binomio di Newton",
     "descrizione": "sviluppo di (1+x)^α in serie di McLaurin",
-    "valori": { "fn": "bin" },
+    "valori": {
+      "fn": "bin"
+    },
     "campo": "al"
   },
   {
