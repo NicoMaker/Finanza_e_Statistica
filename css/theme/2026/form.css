@@ -1,0 +1,40 @@
+/* Campi e selettori */
+label {
+  font-size: 0.74rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+input,
+select,
+textarea {
+  background: color-mix(in srgb, var(--bg) 70%, var(--card));
+  border: 1px solid var(--bd);
+  border-radius: 14px;
+  padding: 12px 14px;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+input:hover,
+select:hover,
+textarea:hover {
+  border-color: color-mix(in srgb, var(--ac) 40%, var(--bd));
+}
+input:focus,
+select:focus,
+textarea:focus {
+  background: var(--card);
+  border-color: var(--ac);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--ac) 20%, transparent);
+}
+.sg {
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--bg) 70%, var(--card));
+}
+.sg.on {
+  color: #fff;
+  border-color: transparent;
+  background: var(--grad);
+  box-shadow: 0 10px 22px -10px var(--ac);
+}
+button {
+  font-family: inherit;
+}

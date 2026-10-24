@@ -12,11 +12,15 @@
     <link rel="stylesheet" href="css/base/base.css" />
     <link rel="stylesheet" href="css/base/animations.css" />
     <link rel="stylesheet" href="css/components/symbol.css" />
-    <link rel="stylesheet" href="css/layout/header.css" />
+    <link rel="stylesheet" href="css/layout/header/header.css" />
+    <link rel="stylesheet" href="css/layout/header/responsive.css" />
     <link rel="stylesheet" href="css/components/nav.css" />
-    <link rel="stylesheet" href="css/components/back-button.css" />
-    <link rel="stylesheet" href="css/components/hint.css" />
-    <link rel="stylesheet" href="css/layout/main.css" />
+    <link rel="stylesheet" href="css/components/back-button/back-button.css" />
+    <link rel="stylesheet" href="css/components/back-button/responsive.css" />
+    <link rel="stylesheet" href="css/components/hint/hint.css" />
+    <link rel="stylesheet" href="css/components/hint/responsive.css" />
+    <link rel="stylesheet" href="css/layout/main/main.css" />
+    <link rel="stylesheet" href="css/layout/main/responsive.css" />
     <link rel="stylesheet" href="css/components/card.css" />
     <link rel="stylesheet" href="css/components/form.css" />
     <link rel="stylesheet" href="css/components/segmented.css" />
@@ -36,10 +40,33 @@
     <link rel="stylesheet" href="css/components/borsa/posizioni.css" />
     <link rel="stylesheet" href="css/components/borsa/diario.css" />
     <link rel="stylesheet" href="css/components/borsa/avviso.css" />
-    <link rel="stylesheet" href="css/theme/modern.css" />
+    <link rel="stylesheet" href="css/theme/modern/base.css" />
+    <link rel="stylesheet" href="css/theme/modern/layout.css" />
+    <link rel="stylesheet" href="css/theme/modern/aspetto.css" />
+    <link rel="stylesheet" href="css/theme/modern/grafici.css" />
+    <link rel="stylesheet" href="css/theme/modern/tabelle.css" />
+    <link rel="stylesheet" href="css/theme/modern/mobile.css" />
+    <link rel="stylesheet" href="css/theme/modern/header/sticky.css" />
+    <link rel="stylesheet" href="css/theme/modern/header/barra-schede.css" />
     <link rel="stylesheet" href="css/layout/sticky-form.css" />
-    <link rel="stylesheet" href="css/components/intro.css" />
+    <link rel="stylesheet" href="css/components/intro/intro.css" />
+    <link rel="stylesheet" href="css/components/intro/animazioni.css" />
     <link rel="stylesheet" href="css/components/combinatoria.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+    <link rel="stylesheet" href="css/theme/2026/palette.css" />
+    <link rel="stylesheet" href="css/theme/2026/sfondo.css" />
+    <link rel="stylesheet" href="css/theme/2026/header.css" />
+    <link rel="stylesheet" href="css/theme/2026/card.css" />
+    <link rel="stylesheet" href="css/theme/2026/form.css" />
+    <link rel="stylesheet" href="css/theme/2026/kpi.css" />
+    <link rel="stylesheet" href="css/theme/2026/animazioni.css" />
+    <link rel="stylesheet" href="css/theme/2026/home.css" />
+    <link rel="stylesheet" href="css/theme/2026/nav.css" />
+    <link rel="stylesheet" href="css/theme/2026/grafici.css" />
+    <link rel="stylesheet" href="css/theme/2026/borsa.css" />
+    <link rel="stylesheet" href="css/theme/2026/ricerca.css" />
+    <link rel="stylesheet" href="css/theme/2026/intro.css" />
     <script src="js/core/data.js"></script>
     <script src="js/ui/tema/favicon.js"></script>
     <script src="js/core/theme-init.js"></script>
@@ -152,50 +179,232 @@
     </div>
     <!-- ordine di caricamento importante: le variabili sono condivise tra i file -->
     <!-- I dati stanno in /json/**/*.json (caricati da js/core/data.js); gli script che li usano partono da js/core/boot.js -->
-    <script src="js/core/format.js"></script>
-    <script src="js/core/chart-utils.js"></script>
-    <script src="js/core/html.js"></script>
-    <script src="js/core/remote.js"></script>
-    <script src="js/core/country-utils.js"></script>
+    <script src="js/core/format/nf.js"></script>
+    <script src="js/core/format/f2.js"></script>
+    <script src="js/core/format/f4.js"></script>
+    <script src="js/core/format/fg.js"></script>
+    <script src="js/core/format/migl.js"></script>
+    <script src="js/core/format/pn.js"></script>
+    <script src="js/core/format/fx.js"></script>
+    <script src="js/core/format/fl.js"></script>
+    <script src="js/core/format/fv.js"></script>
+    <script src="js/core/format/nums.js"></script>
+    <script src="js/core/format/k.js"></script>
+    <script src="js/core/format/ks.js"></script>
+    <script src="js/core/chart-utils/pal.js"></script>
+    <script src="js/core/chart-utils/gid.js"></script>
+    <script src="js/core/chart-utils/nice.js"></script>
+    <script src="js/core/chart-utils/sh.js"></script>
+    <script src="js/core/html/tb.js"></script>
+    <script src="js/core/html/er.js"></script>
+    <script src="js/core/remote/rc.js"></script>
+    <script src="js/core/remote/rtm.js"></script>
+    <script src="js/core/remote/remote.js"></script>
+    <script src="js/core/country-utils/cty-of.js"></script>
+    <script src="js/core/country-utils/cty-flag.js"></script>
+    <script src="js/core/country-utils/cur-name.js"></script>
     <script src="js/core/icon-utils.js"></script>
-    <script src="js/math/black-scholes.js"></script>
-    <script src="js/math/combinatoria.js"></script>
-    <script src="js/math/probabilita.js"></script>
+    <script src="js/math/black-scholes/ncdf.js"></script>
+    <script src="js/math/black-scholes/npdf.js"></script>
+    <script src="js/math/black-scholes/bsf.js"></script>
+    <script src="js/math/combinatoria/fc.js"></script>
+    <script src="js/math/combinatoria/b/fact.js"></script>
+    <script src="js/math/combinatoria/b/comb.js"></script>
+    <script src="js/math/combinatoria/b/disp.js"></script>
+    <script src="js/math/combinatoria/b/disp-rip.js"></script>
+    <script src="js/math/combinatoria/b/comb-rip.js"></script>
+    <script src="js/math/combinatoria/b/multi.js"></script>
+    <script src="js/math/combinatoria/b/circ.js"></script>
+    <script src="js/math/combinatoria/b/collana.js"></script>
+    <script src="js/math/combinatoria/b/derang.js"></script>
+    <script src="js/math/combinatoria/st.js"></script>
+    <script src="js/math/combinatoria/st-riga.js"></script>
+    <script src="js/math/combinatoria/b/stirling2.js"></script>
+    <script src="js/math/combinatoria/b/bell.js"></script>
+    <script src="js/math/combinatoria/b/suriez.js"></script>
+    <script src="js/math/combinatoria/b/prod.js"></script>
+    <script src="js/math/combinatoria/b/ratio.js"></script>
+    <script src="js/math/combinatoria/b/sci.js"></script>
+    <script src="js/math/combinatoria/b/fmt.js"></script>
+    <script src="js/math/combinatoria/b/full.js"></script>
+    <script src="js/math/combinatoria/fpct.js"></script>
+    <script src="js/math/combinatoria/b/uno-su.js"></script>
+    <script src="js/math/combinatoria/etichette.js"></script>
+    <script src="js/math/combinatoria/enum/disp.js"></script>
+    <script src="js/math/combinatoria/enum/disp-rip.js"></script>
+    <script src="js/math/combinatoria/enum/perm.js"></script>
+    <script src="js/math/combinatoria/enum/comb.js"></script>
+    <script src="js/math/combinatoria/enum/comb-rip.js"></script>
+    <script src="js/math/combinatoria/enum/multi.js"></script>
+    <script src="js/math/combinatoria/enum/circ.js"></script>
+    <script src="js/math/combinatoria/enum/collana.js"></script>
+    <script src="js/math/combinatoria/enum/derang.js"></script>
+    <script src="js/math/combinatoria/enum/stirling.js"></script>
+    <script src="js/math/combinatoria/enum/prodotto.js"></script>
+    <script src="js/math/probabilita/lg.js"></script>
+    <script src="js/math/probabilita/ln/gamma.js"></script>
+    <script src="js/math/probabilita/ln/fact.js"></script>
+    <script src="js/math/probabilita/ln/comb.js"></script>
+    <script src="js/math/probabilita/erf.js"></script>
+    <script src="js/math/probabilita/erfc.js"></script>
+    <script src="js/math/probabilita/norm/cdf.js"></script>
+    <script src="js/math/probabilita/norm/pdf.js"></script>
+    <script src="js/math/probabilita/bin-pmf.js"></script>
+    <script src="js/math/probabilita/poi-pmf.js"></script>
+    <script src="js/math/probabilita/geo-pmf.js"></script>
+    <script src="js/math/probabilita/hyp/num.js"></script>
+    <script src="js/math/probabilita/hyp/pmf.js"></script>
+    <script src="js/math/probabilita/hyp/p.js"></script>
+    <script src="js/math/probabilita/sum-pmf.js"></script>
+    <script src="js/math/probabilita/dadi-ways.js"></script>
+    <script src="js/math/probabilita/bayes.js"></script>
     <script src="js/charts/base/plot.js"></script>
     <script src="js/charts/base/donut.js"></script>
-    <script src="js/charts/prestiti/loan-charts.js"></script>
-    <script src="js/charts/prestiti/patrimonio.js"></script>
-    <script src="js/charts/valore/value-charts.js"></script>
+    <script src="js/charts/prestiti/loan-charts/amm-ch.js"></script>
+    <script src="js/charts/prestiti/loan-charts/ric-plan.js"></script>
+    <script src="js/charts/prestiti/loan-charts/tbl.js"></script>
+    <script src="js/charts/prestiti/loan-charts/pre-ch.js"></script>
+    <script src="js/charts/prestiti/patrimonio/pts-piano.js"></script>
+    <script src="js/charts/prestiti/patrimonio/patrimonio.js"></script>
+    <script src="js/charts/valore/value-charts/som-ch.js"></script>
+    <script src="js/charts/valore/value-charts/rend-ch.js"></script>
+    <script src="js/charts/valore/value-charts/con-ch.js"></script>
     <script src="js/charts/obbligazioni/duration-chart.js"></script>
     <script src="js/charts/investimenti/npv-chart.js"></script>
-    <script src="js/core/formulas.js"></script>
+    <script src="js/core/formulas/fr.js"></script>
+    <script src="js/core/formulas/eq.js"></script>
+    <script src="js/core/formulas/fm.js"></script>
     <script src="js/core/registry.js"></script>
-    <script src="js/sections/prestiti/amm.js"></script>
-    <script src="js/sections/prestiti/pre.js"></script>
-    <script src="js/sections/prestiti/sp.js"></script>
-    <script src="js/sections/valore/val.js"></script>
-    <script src="js/sections/valore/reg.js"></script>
-    <script src="js/sections/valore/tas.js"></script>
-    <script src="js/sections/valore/con.js"></script>
-    <script src="js/sections/rendite/ren.js"></script>
-    <script src="js/sections/rendite/pac.js"></script>
-    <script src="js/sections/rendite/pat.js"></script>
-    <script src="js/sections/obbligazioni/obb.js"></script>
-    <script src="js/sections/obbligazioni/dur.js"></script>
-    <script src="js/sections/obbligazioni/flu.js"></script>
-    <script src="js/sections/obbligazioni/imm.js"></script>
-    <script src="js/sections/investimenti/npv.js"></script>
-    <script src="js/sections/investimenti/inf.js"></script>
-    <script src="js/sections/statistica/vc.js"></script>
-    <script src="js/sections/statistica/rnd.js"></script>
-    <script src="js/sections/probabilita/com.js"></script>
-    <script src="js/sections/probabilita/prb.js"></script>
-    <script src="js/sections/matematica/tay.js"></script>
-    <script src="js/sections/rischio/cap.js"></script>
-    <script src="js/sections/opzioni/opz.js"></script>
-    <script src="js/sections/borsa/cambi.js"></script>
+    <script src="js/sections/prestiti/amm/formule.js"></script>
+    <script src="js/sections/prestiti/amm/scheda.js"></script>
+    <script src="js/sections/prestiti/amm/campi.js"></script>
+    <script src="js/sections/prestiti/amm/calcolo.js"></script>
+    <script src="js/sections/prestiti/pre/formule.js"></script>
+    <script src="js/sections/prestiti/pre/scheda.js"></script>
+    <script src="js/sections/prestiti/pre/campi.js"></script>
+    <script src="js/sections/prestiti/pre/calcolo.js"></script>
+    <script src="js/sections/prestiti/sp/formule.js"></script>
+    <script src="js/sections/prestiti/sp/scheda.js"></script>
+    <script src="js/sections/prestiti/sp/campi.js"></script>
+    <script src="js/sections/prestiti/sp/calcolo.js"></script>
+    <script src="js/sections/valore/val/formule.js"></script>
+    <script src="js/sections/valore/val/scheda.js"></script>
+    <script src="js/sections/valore/val/campi.js"></script>
+    <script src="js/sections/valore/val/calcolo.js"></script>
+    <script src="js/sections/valore/reg/formule.js"></script>
+    <script src="js/sections/valore/reg/scheda.js"></script>
+    <script src="js/sections/valore/reg/campi.js"></script>
+    <script src="js/sections/valore/reg/calcolo.js"></script>
+    <script src="js/sections/valore/tas/formule.js"></script>
+    <script src="js/sections/valore/tas/scheda.js"></script>
+    <script src="js/sections/valore/tas/campi.js"></script>
+    <script src="js/sections/valore/tas/calcolo.js"></script>
+    <script src="js/sections/valore/con/formule.js"></script>
+    <script src="js/sections/valore/con/scheda.js"></script>
+    <script src="js/sections/valore/con/campi.js"></script>
+    <script src="js/sections/valore/con/calcolo.js"></script>
+    <script src="js/sections/rendite/ren/formule.js"></script>
+    <script src="js/sections/rendite/ren/scheda.js"></script>
+    <script src="js/sections/rendite/ren/campi.js"></script>
+    <script src="js/sections/rendite/ren/calcolo.js"></script>
+    <script src="js/sections/rendite/pac/formule.js"></script>
+    <script src="js/sections/rendite/pac/scheda.js"></script>
+    <script src="js/sections/rendite/pac/campi.js"></script>
+    <script src="js/sections/rendite/pac/calcolo.js"></script>
+    <script src="js/sections/rendite/pat/formule.js"></script>
+    <script src="js/sections/rendite/pat/scheda.js"></script>
+    <script src="js/sections/rendite/pat/campi.js"></script>
+    <script src="js/sections/rendite/pat/calcolo.js"></script>
+    <script src="js/sections/obbligazioni/obb/formule.js"></script>
+    <script src="js/sections/obbligazioni/obb/scheda.js"></script>
+    <script src="js/sections/obbligazioni/obb/campi.js"></script>
+    <script src="js/sections/obbligazioni/obb/calcolo.js"></script>
+    <script src="js/sections/obbligazioni/dur/formule.js"></script>
+    <script src="js/sections/obbligazioni/dur/scheda.js"></script>
+    <script src="js/sections/obbligazioni/dur/campi.js"></script>
+    <script src="js/sections/obbligazioni/dur/calcolo.js"></script>
+    <script src="js/sections/obbligazioni/flu/formule.js"></script>
+    <script src="js/sections/obbligazioni/flu/scheda.js"></script>
+    <script src="js/sections/obbligazioni/flu/campi.js"></script>
+    <script src="js/sections/obbligazioni/flu/calcolo.js"></script>
+    <script src="js/sections/obbligazioni/imm/formule.js"></script>
+    <script src="js/sections/obbligazioni/imm/scheda.js"></script>
+    <script src="js/sections/obbligazioni/imm/campi.js"></script>
+    <script src="js/sections/obbligazioni/imm/calcolo.js"></script>
+    <script src="js/sections/investimenti/npv/formule.js"></script>
+    <script src="js/sections/investimenti/npv/scheda.js"></script>
+    <script src="js/sections/investimenti/npv/campi.js"></script>
+    <script src="js/sections/investimenti/npv/calcolo.js"></script>
+    <script src="js/sections/investimenti/inf/formule.js"></script>
+    <script src="js/sections/investimenti/inf/scheda.js"></script>
+    <script src="js/sections/investimenti/inf/campi.js"></script>
+    <script src="js/sections/investimenti/inf/calcolo.js"></script>
+    <script src="js/sections/statistica/vc/formule.js"></script>
+    <script src="js/sections/statistica/vc/scheda.js"></script>
+    <script src="js/sections/statistica/vc/campi.js"></script>
+    <script src="js/sections/statistica/vc/calcolo.js"></script>
+    <script src="js/sections/statistica/rnd/formule.js"></script>
+    <script src="js/sections/statistica/rnd/scheda.js"></script>
+    <script src="js/sections/statistica/rnd/campi.js"></script>
+    <script src="js/sections/statistica/rnd/calcolo.js"></script>
+    <script src="js/sections/probabilita/com/com/lim.js"></script>
+    <script src="js/sections/probabilita/com/com/lim-all.js"></script>
+    <script src="js/sections/probabilita/com/formule.js"></script>
+    <script src="js/sections/probabilita/com/com/prod.js"></script>
+    <script src="js/sections/probabilita/com/com/i.js"></script>
+    <script src="js/sections/probabilita/com/com/desc.js"></script>
+    <script src="js/sections/probabilita/com/com/desc0.js"></script>
+    <script src="js/sections/probabilita/com/com/lista.js"></script>
+    <script src="js/sections/probabilita/com/scheda.js"></script>
+    <script src="js/sections/probabilita/com/campi.js"></script>
+    <script src="js/sections/probabilita/com/calcolo.js"></script>
+    <script src="js/sections/probabilita/prb/formule.js"></script>
+    <script src="js/sections/probabilita/prb/pr/p.js"></script>
+    <script src="js/sections/probabilita/prb/pr/ok.js"></script>
+    <script src="js/sections/probabilita/prb/pr/u.js"></script>
+    <script src="js/sections/probabilita/prb/pr/list.js"></script>
+    <script src="js/sections/probabilita/prb/pr/barre.js"></script>
+    <script src="js/sections/probabilita/prb/pr/finestra.js"></script>
+    <script src="js/sections/probabilita/prb/pr/tab.js"></script>
+    <script src="js/sections/probabilita/prb/scheda.js"></script>
+    <script src="js/sections/probabilita/prb/campi.js"></script>
+    <script src="js/sections/probabilita/prb/casi/registro.js"></script>
+    <script src="js/sections/probabilita/prb/casi/classica.js"></script>
+    <script src="js/sections/probabilita/prb/casi/carte-da-gioco.js"></script>
+    <script src="js/sections/probabilita/prb/casi/eventi-a-e-b.js"></script>
+    <script src="js/sections/probabilita/prb/casi/bayes.js"></script>
+    <script src="js/sections/probabilita/prb/casi/binomiale.js"></script>
+    <script src="js/sections/probabilita/prb/casi/ipergeometrica.js"></script>
+    <script src="js/sections/probabilita/prb/casi/lotterie.js"></script>
+    <script src="js/sections/probabilita/prb/casi/geometrica.js"></script>
+    <script src="js/sections/probabilita/prb/casi/poisson.js"></script>
+    <script src="js/sections/probabilita/prb/casi/urna-a-piu-colori.js"></script>
+    <script src="js/sections/probabilita/prb/casi/dadi.js"></script>
+    <script src="js/sections/probabilita/prb/casi/valore-atteso.js"></script>
+    <script src="js/sections/probabilita/prb/casi/normale.js"></script>
+    <script src="js/sections/probabilita/prb/calcolo.js"></script>
+    <script src="js/sections/matematica/tay/taylor-fact.js"></script>
+    <script src="js/sections/matematica/tay/tayf.js"></script>
+    <script src="js/sections/matematica/tay/formule.js"></script>
+    <script src="js/sections/matematica/tay/scheda.js"></script>
+    <script src="js/sections/matematica/tay/campi.js"></script>
+    <script src="js/sections/matematica/tay/calcolo.js"></script>
+    <script src="js/sections/rischio/cap/formule.js"></script>
+    <script src="js/sections/rischio/cap/scheda.js"></script>
+    <script src="js/sections/rischio/cap/campi.js"></script>
+    <script src="js/sections/rischio/cap/calcolo.js"></script>
+    <script src="js/sections/opzioni/opz/formule.js"></script>
+    <script src="js/sections/opzioni/opz/scheda.js"></script>
+    <script src="js/sections/opzioni/opz/campi.js"></script>
+    <script src="js/sections/opzioni/opz/calcolo.js"></script>
+    <script src="js/sections/borsa/cambi/formule.js"></script>
+    <script src="js/sections/borsa/cambi/scheda.js"></script>
+    <script src="js/sections/borsa/cambi/campi.js"></script>
+    <script src="js/sections/borsa/cambi/calcolo.js"></script>
     <script src="js/core/borsa-format.js"></script>
-    <script src="js/core/boot.js"></script>
+    <script src="js/core/boot/boot-scripts.js"></script>
+    <script src="js/core/boot/boot-load.js"></script>
+    <script src="js/core/boot/doc-catch.js"></script>
     <script src="js/ui/intro.js"></script>
   </body>
 </html>

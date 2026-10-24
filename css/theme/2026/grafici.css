@@ -1,0 +1,29 @@
+/* Grafici: contenitore vetro, griglia leggera, legenda a pillole */
+.ch {
+  background: color-mix(in srgb, var(--bg) 55%, var(--card));
+  border: 1px solid var(--bd);
+  border-radius: 20px;
+  padding: 14px;
+}
+.ch svg text {
+  font-family: var(--sf);
+  font-variant-numeric: tabular-nums;
+  fill: var(--mu);
+}
+.ch svg line,
+.ch svg .gr {
+  stroke: color-mix(in srgb, var(--mu) 22%, transparent);
+}
+.ch svg path {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.lg {
+  gap: 8px;
+}
+.lg > * {
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--ac) 8%, transparent);
+  font-weight: 600;
+}

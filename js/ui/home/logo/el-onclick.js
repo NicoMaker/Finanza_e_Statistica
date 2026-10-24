@@ -1,0 +1,1 @@
+logoEl.onclick = goHomeTop;

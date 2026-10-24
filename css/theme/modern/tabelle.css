@@ -1,0 +1,60 @@
+/* ---- tabelle: su spazi stretti ogni riga diventa una scheda (niente scroll orizzontale) ---- */
+.tb {
+  container-type: inline-size;
+}
+@container (max-width:620px) {
+  .tb {
+    max-height: min(70vh, 560px);
+    overflow-x: hidden;
+    border-radius: 14px;
+  }
+  table,
+  tbody {
+    display: block;
+    width: 100%;
+  }
+  tr.hd {
+    display: none;
+  }
+  tr {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px 12px;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--bd);
+  }
+  tr:last-child {
+    border-bottom: 0;
+  }
+  td {
+    display: block;
+    padding: 0;
+    text-align: left !important;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    background: none !important;
+    font-weight: 600;
+  }
+  td::before {
+    content: attr(data-l);
+    display: block;
+    font-size: 0.66rem;
+    font-weight: 600;
+    color: var(--mu);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  td:first-child {
+    grid-column: 1/-1;
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+    color: var(--gold);
+  }
+  td:first-child::before {
+    display: inline;
+  }
+  td:last-child:nth-child(even) {
+    grid-column: 1/-1;
+  }
+}

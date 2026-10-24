@@ -1,0 +1,1 @@
+logoEl.style.cursor = "pointer";

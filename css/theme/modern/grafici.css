@@ -1,0 +1,13 @@
+/* ---- grafici: si adattano sempre alla larghezza ---- */
+.ch > svg {
+  width: 100%;
+  height: auto;
+}
+.ch.dn > svg {
+  width: 140px;
+  height: 140px;
+  flex: none;
+}
+.ks {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 130px), 1fr));
+}

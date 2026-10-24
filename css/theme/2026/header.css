@@ -1,0 +1,20 @@
+/* Header "vetro" con sfocatura */
+header {
+  background: color-mix(in srgb, var(--card) 70%, transparent);
+  -webkit-backdrop-filter: saturate(180%) blur(18px);
+  backdrop-filter: saturate(180%) blur(18px);
+  border: 1px solid var(--bd);
+  border-radius: var(--r);
+  box-shadow: var(--sh);
+}
+h1 {
+  font-family: var(--sf);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+.nav button,
+.nav a,
+nav button {
+  border-radius: 999px;
+  transition: background 0.2s, color 0.2s, transform 0.15s;
+}

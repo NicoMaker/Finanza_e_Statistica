@@ -1,0 +1,26 @@
+/* Ricerca (palette comandi) e tooltip */
+.pal {
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+.pq {
+  border-radius: 16px;
+  font-size: 1.02rem;
+}
+.pi {
+  border-radius: 14px;
+  transition: background 0.15s, transform 0.15s;
+}
+.pi:hover {
+  background: color-mix(in srgb, var(--ac) 10%, transparent);
+  transform: translateX(2px);
+}
+#tip {
+  background: color-mix(in srgb, var(--ac2) 92%, #000);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  box-shadow: 0 14px 30px -12px rgba(0, 0, 0, 0.5);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
