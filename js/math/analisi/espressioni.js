@@ -102,9 +102,7 @@ const sxParse = (src) => {
           } else a = power();
           return { t: "f", n: p, a };
         }
-        throw new Error(
-          "«" + p + "» non è riconosciuto: " + SX_AIUTO,
-        );
+        throw new Error("«" + p + "» non è riconosciuto: " + SX_AIUTO);
       }
       throw new Error("Simbolo non valido: «" + p + "».");
     },
@@ -200,8 +198,7 @@ const sxZ = (N) => Array(N + 1).fill(0),
     return r;
   },
   sxDiv = (a, b) => {
-    if (b[0] == 0)
-      throw new Error("Divisione per zero nel punto di sviluppo.");
+    if (b[0] == 0) throw new Error("Divisione per zero nel punto di sviluppo.");
     const N = a.length - 1,
       q = sxZ(N);
     for (let k = 0; k <= N; k++) {
