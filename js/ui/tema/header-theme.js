@@ -20,7 +20,9 @@ function theme() {
     pp = w.querySelector("header p");
   setLogo();
   if (atHome) {
-    ["--ac", "--gold", "--ac2", "--sec"].forEach((q) => w.style.removeProperty(q));
+    ["--ac", "--gold", "--ac2", "--sec"].forEach((q) =>
+      w.style.removeProperty(q),
+    );
     h.textContent = HD.t;
     pp.textContent = HD.d;
     return;
