@@ -1,0 +1,103 @@
+/* Adattamento telefono: header compatto, card strette, campi leggibili */
+@media (max-width: 820px) {
+  .eq {
+    -webkit-overflow-scrolling: touch;
+  }
+  .card {
+    padding: 16px;
+  }
+}
+@media (max-width: 560px) {
+  .w {
+    padding: 0 12px 40px;
+  }
+  .stk {
+    padding-bottom: 8px;
+  }
+  .hero {
+    padding: 12px 14px;
+    border-radius: 14px;
+    gap: 10px;
+  }
+  .hero::after {
+    font-size: 56px;
+    bottom: -18px;
+  }
+  header {
+    gap: 10px;
+  }
+  .logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+  }
+  .hero > div:nth-child(2) {
+    min-width: 0;
+    flex: 1;
+  }
+  h1 {
+    font-size: 1.15rem;
+    line-height: 1.2;
+  }
+  /* il sottotitolo lungo occupava metà schermo: una riga sola con "…" */
+  header p {
+    font-size: 0.74rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .ha {
+    margin-left: 0;
+    flex: none;
+    gap: 6px;
+  }
+  .hb {
+    height: 36px;
+    width: 36px;
+    padding: 0;
+    justify-content: center;
+  }
+  .bk {
+    width: 40px;
+    padding: 0;
+    justify-content: center;
+  }
+  .hint {
+    display: none;
+  }
+  .ht {
+    font-size: 1.35rem;
+    margin-top: 16px;
+  }
+  /* 16px: iOS non zooma più la pagina quando tocchi un campo */
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+  .sg {
+    max-width: 100%;
+    min-width: 0;
+  }
+  .sg span:not(.ic) {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+  .ks {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .k b {
+    font-size: 1.1rem;
+  }
+  .eq {
+    font-size: 0.98rem;
+    padding: 6px 10px;
+  }
+  .tb {
+    max-height: 360px;
+  }
+  th,
+  td {
+    padding: 7px 9px;
+  }
+}

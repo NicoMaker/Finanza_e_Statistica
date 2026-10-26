@@ -37,3 +37,16 @@ kbd {
   padding: 1px 6px;
   background: var(--card);
 }
+
+/* Mai scroll orizzontale della pagina (clip non rompe lo sticky) */
+html {
+  overflow-x: hidden; /* vecchi browser */
+  overflow-x: clip;
+}
+body {
+  max-width: 100%;
+}
+img,
+svg {
+  max-width: 100%;
+}

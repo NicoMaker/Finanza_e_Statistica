@@ -1,12 +1,37 @@
-/* Griglia a due colonne di una scheda */
+/* Griglia a due colonne di una scheda.
+   - minmax(0, 1fr): senza, le colonne si allargano al contenuto (tabelle, grafici,
+     formule) e su telefono la pagina esce dallo schermo.
+   - Form a sinistra su 2 righe (Risultati + Formule), così su PC il form "sticky"
+     scorre accanto ai risultati e alle formule senza mai coprirle. */
 main {
   display: grid;
-  grid-template-columns: 340px 1fr;
+  grid-template-columns: 340px minmax(0, 1fr);
   gap: 16px;
   align-items: start;
 }
+main > .card {
+  min-width: 0;
+}
+main > .card:first-child {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+}
+main > .card:nth-child(2) {
+  grid-column: 2;
+  grid-row: 1;
+}
+main > #fc {
+  grid-column: 2;
+  grid-row: 2;
+}
 @media (max-width: 820px) {
   main {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+  }
+  main > .card:first-child,
+  main > .card:nth-child(2),
+  main > #fc {
+    grid-column: 1;
+    grid-row: auto;
   }
 }
