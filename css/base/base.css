@@ -39,9 +39,13 @@ kbd {
 }
 
 /* Mai scroll orizzontale della pagina (clip non rompe lo sticky) */
-html {
-  overflow-x: hidden; /* vecchi browser */
-  overflow-x: clip;
+/* Su PC lo sfondo dell'header è a tutta larghezza (esce dal contenitore): si ritaglia.
+   Su telefono NON si tocca l'overflow di html/body (bloccava lo scroll): lì lo sfondo
+   dell'header non esce mai dallo schermo (vedi mobile.css). */
+@media (min-width: 821px) {
+  html {
+    overflow-x: clip;
+  }
 }
 body {
   max-width: 100%;
