@@ -20,15 +20,16 @@ function theme() {
     pp = w.querySelector("header p");
   setLogo();
   if (atHome) {
-    ["--ac", "--gold", "--ac2"].forEach((q) => w.style.removeProperty(q));
+    ["--ac", "--gold", "--ac2", "--sec"].forEach((q) => w.style.removeProperty(q));
     h.textContent = HD.t;
     pp.textContent = HD.d;
     return;
   }
   const t = TH[cur];
-  w.style.setProperty("--ac", t[1]);
-  w.style.setProperty("--gold", t[1]);
-  w.style.setProperty("--ac2", "color-mix(in srgb," + t[1] + " 42%,#07101f)");
+  // stile banca: intestazione e colori restano sempre blu notte/oro;
+  // il colore della scheda resta solo come filo sottile (--sec) sulle card
+  ["--ac", "--gold", "--ac2"].forEach((q) => w.style.removeProperty(q));
+  w.style.setProperty("--sec", t[1]);
   h.textContent = T[cur].n;
   pp.textContent = t[2];
 }
